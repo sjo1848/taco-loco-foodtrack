@@ -20,4 +20,4 @@ Estado: aprobado para primera implementación local — 2026-08-09.
 
 - Revisar el texto comercial del mensaje con Taco Loco.
 - Confirmar las opciones reales de carne si se desea hacer seleccionable.
-- Revisar el diseño visual final en el archivo correcto de Taco Loco en pen.dev.
+- Validar visualmente `pantallas.pen` en pen.dev y registrar la revisión final.

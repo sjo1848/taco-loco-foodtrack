@@ -1,0 +1,2837 @@
+{
+  "version": "2.17",
+  "children": [
+    {
+      "type": "frame",
+      "id": "Y3fypr",
+      "x": 0,
+      "y": 0,
+      "name": "Welcome to pen.dev",
+      "clip": true,
+      "width": 1000,
+      "height": 1458,
+      "layout": "none",
+      "children": [
+        {
+          "type": "text",
+          "id": "p5iwM",
+          "x": 38,
+          "y": 297,
+          "name": "Start here",
+          "fill": "#ff8303ff",
+          "textGrowth": "fixed-width-height",
+          "width": 923,
+          "height": 139,
+          "content": "Ask agent to design",
+          "lineHeight": 1.399999976158142,
+          "textAlign": "center",
+          "fontFamily": "Noto Sans",
+          "fontSize": 100,
+          "fontWeight": "500",
+          "letterSpacing": -4
+        }
+      ]
+    },
+    {
+      "type": "path",
+      "id": "pSGLk",
+      "x": 317,
+      "y": 689,
+      "geometry": "M7 0l0 14m7-7l-7 7-7-7",
+      "width": 366,
+      "height": 366,
+      "stroke": "#ff8302ff",
+      "strokeWidth": 50,
+      "strokeLinejoin": "round",
+      "strokeLinecap": "round"
+    },
+    {
+      "type": "frame",
+      "id": "lncyQ",
+      "x": 1080,
+      "y": 0,
+      "name": "00 — Foundations",
+      "width": 1400,
+      "height": 1080,
+      "fill": "$surface-0",
+      "layout": "vertical",
+      "gap": "$space-5",
+      "padding": "$space-6",
+      "children": [
+        {
+          "type": "text",
+          "id": "q0yAcj",
+          "name": "Foundations Title",
+          "fill": "$text-primary",
+          "content": "Taco Loco UI Kit",
+          "fontFamily": "$font-display",
+          "fontSize": "$font-size-xxl",
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "XL7b9",
+          "name": "Foundations Subtitle",
+          "fill": "$text-secondary",
+          "content": "00 — Foundations  •  dark-first taquería system",
+          "fontFamily": "$font-family",
+          "fontSize": "$font-size-md",
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "G4NUK9",
+          "name": "Color Tokens",
+          "width": "fill_container",
+          "gap": "$space-4",
+          "children": [
+            {
+              "type": "frame",
+              "id": "G2go2H",
+              "name": "Surface 0",
+              "width": 140,
+              "fill": "$surface-0",
+              "cornerRadius": "$radius-sm",
+              "layout": "vertical",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Wo9Wt",
+                  "name": "Surface 0 Label",
+                  "fill": "$text-primary",
+                  "content": "Surface 0",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-xs",
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eXJmI",
+              "name": "Surface 1",
+              "width": 140,
+              "fill": "$surface-1",
+              "cornerRadius": "$radius-sm",
+              "layout": "vertical",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cyA4V",
+                  "name": "Surface 1 Label",
+                  "fill": "$text-primary",
+                  "content": "Surface 1",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-xs",
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ILW9L",
+              "name": "Surface 2",
+              "width": 140,
+              "fill": "$surface-2",
+              "cornerRadius": "$radius-sm",
+              "layout": "vertical",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sCUMN",
+                  "name": "Surface 2 Label",
+                  "fill": "$text-primary",
+                  "content": "Surface 2",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-xs",
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "oQBdv",
+              "name": "Accent Red",
+              "width": 140,
+              "fill": "$accent-red",
+              "cornerRadius": "$radius-sm",
+              "layout": "vertical",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "QveZ0",
+                  "name": "Accent Red Label",
+                  "fill": "$text-primary",
+                  "content": "Accent Red",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-xs",
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "oSNbW",
+              "name": "Accent Green",
+              "width": 140,
+              "fill": "$accent-green",
+              "cornerRadius": "$radius-sm",
+              "layout": "vertical",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "r3iepb",
+                  "name": "Accent Green Label",
+                  "fill": "$text-primary",
+                  "content": "Accent Green",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-xs",
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WnkLS",
+              "name": "Accent Yellow",
+              "width": 140,
+              "fill": "$accent-yellow",
+              "cornerRadius": "$radius-sm",
+              "layout": "vertical",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ksLF4",
+                  "name": "Accent Yellow Label",
+                  "fill": "$text-primary",
+                  "content": "Accent Yellow",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-xs",
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "yYzqu",
+              "name": "Text Primary",
+              "width": 140,
+              "fill": "$text-primary",
+              "cornerRadius": "$radius-sm",
+              "layout": "vertical",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "i7Jrt",
+                  "name": "Text Primary Label",
+                  "fill": "$surface-0",
+                  "content": "Text Primary",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-xs",
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "BsMT1",
+              "name": "Focus Ring",
+              "width": 140,
+              "fill": "$focus-ring",
+              "cornerRadius": "$radius-sm",
+              "layout": "vertical",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "B5nWgp",
+                  "name": "Focus Ring Label",
+                  "fill": "$text-primary",
+                  "content": "Focus Ring",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-xs",
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "JuvoX",
+          "name": "Spacing and Radius",
+          "width": "fill_container",
+          "gap": "$space-4",
+          "children": [
+            {
+              "type": "text",
+              "id": "vHQ8A",
+              "name": "Spacing Scale",
+              "fill": "$text-primary",
+              "content": "Spacing  4 • 8 • 12 • 16 • 24 • 32 px",
+              "fontFamily": "$font-family",
+              "fontSize": "$font-size-md",
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "bYuZU",
+              "name": "Radius Tokens",
+              "fill": "$text-primary",
+              "content": "Radius  8 / 16 / pill",
+              "fontFamily": "$font-family",
+              "fontSize": "$font-size-md",
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "k5iPy",
+          "name": "Typography Hierarchy",
+          "width": "fill_container",
+          "fill": "$surface-1",
+          "cornerRadius": "$radius-card",
+          "layout": "vertical",
+          "gap": "$space-2",
+          "padding": "$space-4",
+          "children": [
+            {
+              "type": "text",
+              "id": "L6DHwt",
+              "name": "Display",
+              "fill": "$text-primary",
+              "content": "Display  •  Menú del día",
+              "fontFamily": "$font-display",
+              "fontSize": "$font-size-xxl",
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "TqhTG",
+              "name": "Heading",
+              "fill": "$text-primary",
+              "content": "Heading  •  Favoritos de la casa",
+              "fontFamily": "$font-display",
+              "fontSize": "$font-size-xl",
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "kKptf",
+              "name": "Title",
+              "fill": "$text-primary",
+              "content": "Title  •  Tacos al pastor",
+              "fontFamily": "$font-family",
+              "fontSize": "$font-size-lg",
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "FDsXi",
+              "name": "Body",
+              "fill": "$text-primary",
+              "content": "Body  •  Sabor intenso, ingredientes frescos.",
+              "fontFamily": "$font-family",
+              "fontSize": "$font-size-md",
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "k1YGs",
+              "name": "Caption",
+              "fill": "$text-primary",
+              "content": "Caption  •  Disponible hoy",
+              "fontFamily": "$font-family",
+              "fontSize": "$font-size-xs",
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XJd8O",
+          "name": "Semantic States",
+          "width": "fill_container",
+          "gap": "$space-3",
+          "children": [
+            {
+              "type": "frame",
+              "id": "G0ZxMf",
+              "name": "Available",
+              "fill": "$surface-1",
+              "cornerRadius": "$radius-sm",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "GPQsb",
+                  "name": "Available Dot",
+                  "fill": "$accent-green",
+                  "width": 12,
+                  "height": 12
+                },
+                {
+                  "type": "text",
+                  "id": "U5rMT",
+                  "name": "Available Text",
+                  "fill": "$text-primary",
+                  "content": "Disponible",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-sm",
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "C34tP",
+              "name": "Sold Out",
+              "fill": "$surface-1",
+              "cornerRadius": "$radius-sm",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "A30N6",
+                  "name": "Sold Out Dot",
+                  "fill": "$accent-red",
+                  "width": 12,
+                  "height": 12
+                },
+                {
+                  "type": "text",
+                  "id": "ZXqE5",
+                  "name": "Sold Out Text",
+                  "fill": "$text-primary",
+                  "content": "Agotado",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-sm",
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VyBFT",
+              "name": "Attention",
+              "fill": "$surface-1",
+              "cornerRadius": "$radius-sm",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "U3QDW",
+                  "name": "Attention Dot",
+                  "fill": "$accent-yellow",
+                  "width": 12,
+                  "height": 12
+                },
+                {
+                  "type": "text",
+                  "id": "JMS4J",
+                  "name": "Attention Text",
+                  "fill": "$text-primary",
+                  "content": "Revisar",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-sm",
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "IkDqR",
+              "name": "Disabled",
+              "fill": "$surface-1",
+              "cornerRadius": "$radius-sm",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "u1eKPD",
+                  "name": "Disabled Dot",
+                  "fill": "$state-disabled",
+                  "width": 12,
+                  "height": 12
+                },
+                {
+                  "type": "text",
+                  "id": "q8x1jk",
+                  "name": "Disabled Text",
+                  "fill": "$text-primary",
+                  "content": "Deshabilitado",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-sm",
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "icYgo",
+              "name": "Focus",
+              "fill": "$surface-1",
+              "cornerRadius": "$radius-sm",
+              "gap": "$space-2",
+              "padding": "$space-3",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "bdlQJ",
+                  "name": "Focus Dot",
+                  "fill": "$focus-ring",
+                  "width": 12,
+                  "height": 12
+                },
+                {
+                  "type": "text",
+                  "id": "uEJeH",
+                  "name": "Focus Text",
+                  "fill": "$text-primary",
+                  "content": "Foco visible",
+                  "fontFamily": "$font-family",
+                  "fontSize": "$font-size-sm",
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rK6bo",
+          "name": "Accessibility Rules",
+          "width": "fill_container",
+          "fill": "$surface-2",
+          "cornerRadius": "$radius-card",
+          "gap": "$space-4",
+          "padding": "$space-4",
+          "children": [
+            {
+              "type": "text",
+              "id": "JfYss",
+              "name": "Touch Target Rule",
+              "fill": "$text-primary",
+              "content": "Minimum touch target: 44 px",
+              "fontFamily": "$font-family",
+              "fontSize": "$font-size-md",
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "yKg3x",
+              "name": "Contrast Rule",
+              "fill": "$text-secondary",
+              "content": "Light text on dark surfaces • never rely on color alone",
+              "fontFamily": "$font-family",
+              "fontSize": "$font-size-md",
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "IIr5L",
+      "x": 2600,
+      "y": 0,
+      "name": "03 — Components",
+      "width": 1600,
+      "height": 1800,
+      "fill": "$surface-0",
+      "layout": "vertical",
+      "gap": "$space-5",
+      "padding": "$space-6",
+      "children": [
+        {
+          "type": "text",
+          "id": "W2OVt",
+          "name": "Components Title",
+          "fill": "$text-primary",
+          "content": "03 — Components",
+          "fontFamily": "$font-display",
+          "fontSize": "$font-size-xxl",
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "M6KiOq",
+          "name": "Components Subtitle",
+          "fill": "$text-secondary",
+          "content": "Reusable public + admin primitives • all specimens use foundations",
+          "fontFamily": "$font-family",
+          "fontSize": "$font-size-md",
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "nswZT",
+          "name": "Public Components",
+          "width": "fill_container",
+          "fill": "$surface-1",
+          "cornerRadius": "$radius-card",
+          "layout": "vertical",
+          "gap": "$space-3",
+          "padding": "$space-4",
+          "children": [
+            {
+              "type": "text",
+              "id": "iWuH9",
+              "name": "Public Section Heading",
+              "fill": "$text-primary",
+              "content": "Public",
+              "fontFamily": "$font-display",
+              "fontSize": "$font-size-xl",
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "eZBa2",
+              "name": "Public Row 1",
+              "width": "fill_container",
+              "gap": "$space-4",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "UFrXe",
+                  "name": "BrandHeader",
+                  "reusable": true,
+                  "width": 240,
+                  "height": 88,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "edrVE",
+                      "name": "BrandHeader Label",
+                      "fill": "$text-primary",
+                      "content": "TACO LOCO",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZNTpI",
+                      "name": "BrandHeader Detail",
+                      "fill": "$text-secondary",
+                      "content": "Logo • menú • carrito",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qMmiA",
+                  "name": "CategoryChip — normal",
+                  "reusable": true,
+                  "width": 168,
+                  "height": 48,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "P519m",
+                      "name": "CategoryChip — normal Label",
+                      "fill": "$text-primary",
+                      "content": "Tacos",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QzDll",
+                      "name": "CategoryChip — normal Detail",
+                      "fill": "$text-secondary",
+                      "content": "normal • 44px",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qQWq7",
+                  "name": "CategoryChip — active",
+                  "reusable": true,
+                  "width": 168,
+                  "height": 48,
+                  "fill": "$accent-red",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IGgPI",
+                      "name": "CategoryChip — active Label",
+                      "fill": "$text-primary",
+                      "content": "Burritos",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "S05FgJ",
+                      "name": "CategoryChip — active Detail",
+                      "fill": "$text-secondary",
+                      "content": "active",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "yt6P2",
+                  "name": "CategoryChip — focus",
+                  "reusable": true,
+                  "width": 168,
+                  "height": 48,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "E4M4x2",
+                      "name": "CategoryChip — focus Label",
+                      "fill": "$text-primary",
+                      "content": "Quesadillas",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kKpY4",
+                      "name": "CategoryChip — focus Detail",
+                      "fill": "$text-secondary",
+                      "content": "focus visible",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dWHYH",
+                  "name": "CategoryChip — pressed",
+                  "reusable": true,
+                  "width": 168,
+                  "height": 48,
+                  "fill": "$accent-yellow",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wpGDB",
+                      "name": "CategoryChip — pressed Label",
+                      "fill": "$text-primary",
+                      "content": "Sides",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HgcbA",
+                      "name": "CategoryChip — pressed Detail",
+                      "fill": "$text-secondary",
+                      "content": "pressed",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "V1vyTr",
+              "name": "Public Row 2",
+              "width": "fill_container",
+              "gap": "$space-4",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HwhCq",
+                  "name": "CategoryNav",
+                  "reusable": true,
+                  "width": 360,
+                  "height": 72,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "C0PCG5",
+                      "name": "CategoryNav Label",
+                      "fill": "$text-primary",
+                      "content": "Tacos  Burritos  Bebidas",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zSM43",
+                      "name": "CategoryNav Detail",
+                      "fill": "$text-secondary",
+                      "content": "horizontal category navigation",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pXpfL",
+                  "name": "SectionHeading",
+                  "reusable": true,
+                  "width": 280,
+                  "height": 72,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rALxY",
+                      "name": "SectionHeading Label",
+                      "fill": "$text-primary",
+                      "content": "Más pedidos",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "H44tv",
+                      "name": "SectionHeading Detail",
+                      "fill": "$text-secondary",
+                      "content": "heading + action",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "H5WcUK",
+                  "name": "AvailabilityBadge",
+                  "reusable": true,
+                  "width": 160,
+                  "height": 48,
+                  "fill": "$accent-green",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "BEYpw",
+                      "name": "AvailabilityBadge Label",
+                      "fill": "$text-primary",
+                      "content": "Disponible",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ib38O",
+                      "name": "AvailabilityBadge Detail",
+                      "fill": "$text-secondary",
+                      "content": "explicit semantic text",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "NLcZn",
+                  "name": "AvailabilityBadge — sold out",
+                  "reusable": true,
+                  "width": 160,
+                  "height": 48,
+                  "fill": "$accent-red",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fLKzk",
+                      "name": "AvailabilityBadge — sold out Label",
+                      "fill": "$text-primary",
+                      "content": "Agotado",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "p5MhJ",
+                      "name": "AvailabilityBadge — sold out Detail",
+                      "fill": "$text-secondary",
+                      "content": "never color alone",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TBRhJ",
+                  "name": "ModifierHint",
+                  "reusable": true,
+                  "width": 240,
+                  "height": 56,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Q0NHl",
+                      "name": "ModifierHint Label",
+                      "fill": "$text-primary",
+                      "content": "Personaliza tu taco",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DT3kE",
+                      "name": "ModifierHint Detail",
+                      "fill": "$text-secondary",
+                      "content": "modifier guidance",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "uwHHf",
+              "name": "Public Row 3",
+              "width": "fill_container",
+              "gap": "$space-4",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xJrfy",
+                  "name": "ProductCard — with image",
+                  "reusable": true,
+                  "width": 260,
+                  "height": 190,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "icW1p",
+                      "name": "ProductCard — with image Label",
+                      "fill": "$text-primary",
+                      "content": "Taco al pastor",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ehGVM",
+                      "name": "ProductCard — with image Detail",
+                      "fill": "$text-secondary",
+                      "content": "image • Disponible",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": "$radius-sm",
+                      "id": "ZSJtU",
+                      "name": "ProductCard — with image Image Placeholder",
+                      "fill": "$surface-0",
+                      "width": "fill_container",
+                      "height": 72
+                    },
+                    {
+                      "type": "text",
+                      "id": "y0x24",
+                      "name": "ProductCard — with image Price",
+                      "fill": "$text-primary",
+                      "content": "$129",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-lg",
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "NIiOh",
+                  "name": "ProductCard — without image",
+                  "reusable": true,
+                  "width": 260,
+                  "height": 190,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oYbTh",
+                      "name": "ProductCard — without image Label",
+                      "fill": "$text-primary",
+                      "content": "Quesadilla de birria",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TuKoz",
+                      "name": "ProductCard — without image Detail",
+                      "fill": "$text-secondary",
+                      "content": "no image • Disponible",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": "$radius-sm",
+                      "id": "pEVtO",
+                      "name": "ProductCard — without image Image Placeholder",
+                      "fill": "$surface-0",
+                      "width": "fill_container",
+                      "height": 72
+                    },
+                    {
+                      "type": "text",
+                      "id": "MchNO",
+                      "name": "ProductCard — without image Price",
+                      "fill": "$text-primary",
+                      "content": "$129",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-lg",
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dQZim",
+                  "name": "ProductCard — featured",
+                  "reusable": true,
+                  "width": 260,
+                  "height": 190,
+                  "fill": "$accent-yellow",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jwFN1",
+                      "name": "ProductCard — featured Label",
+                      "fill": "$text-primary",
+                      "content": "Especial Taco Loco",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "eJEo1",
+                      "name": "ProductCard — featured Detail",
+                      "fill": "$text-secondary",
+                      "content": "featured • Disponible",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": "$radius-sm",
+                      "id": "i9U8f",
+                      "name": "ProductCard — featured Image Placeholder",
+                      "fill": "$surface-0",
+                      "width": "fill_container",
+                      "height": 72
+                    },
+                    {
+                      "type": "text",
+                      "id": "S9Sxe",
+                      "name": "ProductCard — featured Price",
+                      "fill": "$surface-0",
+                      "content": "$129",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-lg",
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "IbLTH",
+                  "name": "ProductCard — sold out",
+                  "reusable": true,
+                  "width": 260,
+                  "height": 190,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xsDQL",
+                      "name": "ProductCard — sold out Label",
+                      "fill": "$text-primary",
+                      "content": "Taco de camarón",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "lPHF8",
+                      "name": "ProductCard — sold out Detail",
+                      "fill": "$text-secondary",
+                      "content": "Agotado",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": "$radius-sm",
+                      "id": "zH4Il",
+                      "name": "ProductCard — sold out Image Placeholder",
+                      "fill": "$surface-0",
+                      "width": "fill_container",
+                      "height": 72
+                    },
+                    {
+                      "type": "text",
+                      "id": "TMd9A",
+                      "name": "ProductCard — sold out Price",
+                      "fill": "$text-primary",
+                      "content": "$129",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-lg",
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "DD7wd",
+              "name": "Public Row 4",
+              "width": "fill_container",
+              "gap": "$space-4",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "k6vhVf",
+                  "name": "SaucesInfo",
+                  "reusable": true,
+                  "width": 280,
+                  "height": 88,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Yd0zv",
+                      "name": "SaucesInfo Label",
+                      "fill": "$text-primary",
+                      "content": "Salsas de la casa",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BhBht",
+                      "name": "SaucesInfo Detail",
+                      "fill": "$text-secondary",
+                      "content": "Roja • Verde • Habanero",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OzjlN",
+                  "name": "WhatsAppCTA",
+                  "reusable": true,
+                  "width": 300,
+                  "height": 56,
+                  "fill": "$accent-green",
+                  "cornerRadius": "$radius-card",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "nDQai",
+                      "name": "WhatsAppCTA Label",
+                      "fill": "$text-primary",
+                      "content": "Pedir por WhatsApp",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "o5lbYl",
+                      "name": "WhatsAppCTA Detail",
+                      "fill": "$text-secondary",
+                      "content": "icon + high contrast • safe-area-ready • 48px+",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "I3tIB",
+                      "name": "WhatsApp Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "message-circle",
+                      "library": "lucide",
+                      "fill": "$surface-0"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cpHYF",
+                  "name": "LoadingState",
+                  "reusable": true,
+                  "width": 220,
+                  "height": 72,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GRxS8",
+                      "name": "LoadingState Label",
+                      "fill": "$text-primary",
+                      "content": "Cargando…",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "y5gVV",
+                      "name": "LoadingState Detail",
+                      "fill": "$text-secondary",
+                      "content": "busy state",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nkCb0",
+                  "name": "ErrorState",
+                  "reusable": true,
+                  "width": 220,
+                  "height": 72,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DjRnN",
+                      "name": "ErrorState Label",
+                      "fill": "$text-primary",
+                      "content": "No pudimos cargar el menú",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "LXzYW",
+                      "name": "ErrorState Detail",
+                      "fill": "$text-secondary",
+                      "content": "Reintentar",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "x0Td1",
+          "name": "Admin Components",
+          "width": "fill_container",
+          "fill": "$surface-1",
+          "cornerRadius": "$radius-card",
+          "layout": "vertical",
+          "gap": "$space-3",
+          "padding": "$space-4",
+          "children": [
+            {
+              "type": "text",
+              "id": "QKpEp",
+              "name": "Admin Section Heading",
+              "fill": "$text-primary",
+              "content": "Admin",
+              "fontFamily": "$font-display",
+              "fontSize": "$font-size-xl",
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "y8MMy",
+              "name": "Admin Row 1",
+              "width": "fill_container",
+              "gap": "$space-4",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "EhQR6",
+                  "name": "AdminHeader",
+                  "reusable": true,
+                  "width": 280,
+                  "height": 72,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VG8v3",
+                      "name": "AdminHeader Label",
+                      "fill": "$text-primary",
+                      "content": "Productos",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "r8gkyS",
+                      "name": "AdminHeader Detail",
+                      "fill": "$text-secondary",
+                      "content": "Admin • Taco Loco",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "d5jB5Y",
+                  "name": "TextInput",
+                  "reusable": true,
+                  "width": 260,
+                  "height": 72,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ji0LA",
+                      "name": "TextInput Label",
+                      "fill": "$text-primary",
+                      "content": "Nombre del producto",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cDtk0",
+                      "name": "TextInput Detail",
+                      "fill": "$text-secondary",
+                      "content": "default",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZxESK",
+                  "name": "TextInput — focus",
+                  "reusable": true,
+                  "width": 260,
+                  "height": 72,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Fcj7v",
+                      "name": "TextInput — focus Label",
+                      "fill": "$text-primary",
+                      "content": "Nombre del producto",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "nVYIy",
+                      "name": "TextInput — focus Detail",
+                      "fill": "$text-secondary",
+                      "content": "visible focus • $focus-ring",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "G9jLN",
+                  "name": "TextInput — disabled",
+                  "reusable": true,
+                  "width": 260,
+                  "height": 72,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Wqfbk",
+                      "name": "TextInput — disabled Label",
+                      "fill": "$text-primary",
+                      "content": "Nombre del producto",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "migAi",
+                      "name": "TextInput — disabled Detail",
+                      "fill": "$text-secondary",
+                      "content": "disabled",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EAFvW",
+              "name": "Admin Row 2",
+              "width": "fill_container",
+              "gap": "$space-4",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "x1Rp1",
+                  "name": "TextArea",
+                  "reusable": true,
+                  "width": 280,
+                  "height": 96,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YHVy0",
+                      "name": "TextArea Label",
+                      "fill": "$text-primary",
+                      "content": "Descripción",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "WMZdb",
+                      "name": "TextArea Detail",
+                      "fill": "$text-secondary",
+                      "content": "default • 3 líneas",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "yWWjU",
+                  "name": "Select",
+                  "reusable": true,
+                  "width": 240,
+                  "height": 72,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "D3f7GB",
+                      "name": "Select Label",
+                      "fill": "$text-primary",
+                      "content": "Categoría  ▾",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "l2tMXD",
+                      "name": "Select Detail",
+                      "fill": "$text-secondary",
+                      "content": "default",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Td6JJ",
+                  "name": "PriceInput",
+                  "reusable": true,
+                  "width": 200,
+                  "height": 72,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "cLVPd",
+                      "name": "PriceInput Label",
+                      "fill": "$text-primary",
+                      "content": "$ 129",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Qc7cp",
+                      "name": "PriceInput Detail",
+                      "fill": "$text-secondary",
+                      "content": "currency input",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Rsu8a",
+                  "name": "Toggle",
+                  "reusable": true,
+                  "width": 160,
+                  "height": 56,
+                  "fill": "$accent-green",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "U6xYd",
+                      "name": "Toggle Label",
+                      "fill": "$text-primary",
+                      "content": "Disponible  ON",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "B9PgGR",
+                      "name": "Toggle Detail",
+                      "fill": "$text-secondary",
+                      "content": "default",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "B1WE8",
+                  "name": "Toggle — disabled",
+                  "reusable": true,
+                  "width": 160,
+                  "height": 56,
+                  "fill": "$state-disabled",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Pfgvf",
+                      "name": "Toggle — disabled Label",
+                      "fill": "$text-primary",
+                      "content": "Disponible  OFF",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cAAW2",
+                      "name": "Toggle — disabled Detail",
+                      "fill": "$text-secondary",
+                      "content": "disabled",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YmDln",
+              "name": "Admin Row 3",
+              "width": "fill_container",
+              "gap": "$space-4",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Oe69U",
+                  "name": "Button — primary",
+                  "reusable": true,
+                  "width": 190,
+                  "height": 48,
+                  "fill": "$accent-red",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "eADWG",
+                      "name": "Button — primary Label",
+                      "fill": "$text-primary",
+                      "content": "Guardar",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "f09fB",
+                      "name": "Button — primary Detail",
+                      "fill": "$text-secondary",
+                      "content": "primary • default",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dWFwa",
+                  "name": "Button — secondary",
+                  "reusable": true,
+                  "width": 190,
+                  "height": 48,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "m60jM",
+                      "name": "Button — secondary Label",
+                      "fill": "$text-primary",
+                      "content": "Cancelar",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cHg5k",
+                      "name": "Button — secondary Detail",
+                      "fill": "$text-secondary",
+                      "content": "secondary • default",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LUymh",
+                  "name": "Button — destructive",
+                  "reusable": true,
+                  "width": 190,
+                  "height": 48,
+                  "fill": "$accent-red",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Z4iL4L",
+                      "name": "Button — destructive Label",
+                      "fill": "$text-primary",
+                      "content": "Eliminar",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kCSZE",
+                      "name": "Button — destructive Detail",
+                      "fill": "$text-secondary",
+                      "content": "destructive",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "swxyZ",
+                  "name": "Button — pressed",
+                  "reusable": true,
+                  "width": 190,
+                  "height": 48,
+                  "fill": "$accent-yellow",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "URY8c",
+                      "name": "Button — pressed Label",
+                      "fill": "$text-primary",
+                      "content": "Guardar",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Edcrv",
+                      "name": "Button — pressed Detail",
+                      "fill": "$text-secondary",
+                      "content": "pressed",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SGbo6",
+                  "name": "Button — focus",
+                  "reusable": true,
+                  "width": 190,
+                  "height": 48,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "O2M76",
+                      "name": "Button — focus Label",
+                      "fill": "$text-primary",
+                      "content": "Guardar",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zq0zs",
+                      "name": "Button — focus Detail",
+                      "fill": "$text-secondary",
+                      "content": "visible focus",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "b9Rio",
+                  "name": "Button — loading",
+                  "reusable": true,
+                  "width": 190,
+                  "height": 48,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bzE8Q",
+                      "name": "Button — loading Label",
+                      "fill": "$text-primary",
+                      "content": "Guardando…",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "AIcvV",
+                      "name": "Button — loading Detail",
+                      "fill": "$text-secondary",
+                      "content": "loading",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "MBDfz",
+              "name": "Admin Row 4",
+              "width": "fill_container",
+              "gap": "$space-4",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "a1cIh",
+                  "name": "ProductAdminRow",
+                  "reusable": true,
+                  "width": 360,
+                  "height": 88,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TmQCc",
+                      "name": "ProductAdminRow Label",
+                      "fill": "$text-primary",
+                      "content": "Taco al pastor   $129",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wFZiW",
+                      "name": "ProductAdminRow Detail",
+                      "fill": "$text-secondary",
+                      "content": "Disponible • Editar • Eliminar",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LbZ1O",
+                  "name": "FilterChip",
+                  "reusable": true,
+                  "width": 180,
+                  "height": 48,
+                  "fill": "$accent-red",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DUigY",
+                      "name": "FilterChip Label",
+                      "fill": "$text-primary",
+                      "content": "Activos",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "angr5",
+                      "name": "FilterChip Detail",
+                      "fill": "$text-secondary",
+                      "content": "active",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hjhKO",
+                  "name": "FilterChip — normal",
+                  "reusable": true,
+                  "width": 180,
+                  "height": 48,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KFs0q",
+                      "name": "FilterChip — normal Label",
+                      "fill": "$text-primary",
+                      "content": "Todos",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VWJ2B",
+                      "name": "FilterChip — normal Detail",
+                      "fill": "$text-secondary",
+                      "content": "normal",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "b3ml1N",
+                  "name": "ImageUploader",
+                  "reusable": true,
+                  "width": 260,
+                  "height": 112,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "FJ4bc",
+                      "name": "ImageUploader Label",
+                      "fill": "$text-primary",
+                      "content": "Subir imagen",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DLGag",
+                      "name": "ImageUploader Detail",
+                      "fill": "$text-secondary",
+                      "content": "dropzone • JPG/PNG",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jI6xJ",
+              "name": "Admin Row 5",
+              "width": "fill_container",
+              "gap": "$space-4",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vbvjU",
+                  "name": "Feedback/Toast",
+                  "reusable": true,
+                  "width": 280,
+                  "height": 72,
+                  "fill": "$accent-green",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OOFnW",
+                      "name": "Feedback/Toast Label",
+                      "fill": "$text-primary",
+                      "content": "Guardado correctamente",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "WmJAu",
+                      "name": "Feedback/Toast Detail",
+                      "fill": "$text-secondary",
+                      "content": "success feedback",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "F2RVjv",
+                  "name": "Feedback/Toast — error",
+                  "reusable": true,
+                  "width": 280,
+                  "height": 72,
+                  "fill": "$accent-red",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tnsfl",
+                      "name": "Feedback/Toast — error Label",
+                      "fill": "$text-primary",
+                      "content": "Error al guardar",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Y3hE5",
+                      "name": "Feedback/Toast — error Detail",
+                      "fill": "$text-secondary",
+                      "content": "error feedback",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tmw3v",
+                  "name": "EmptyState",
+                  "reusable": true,
+                  "width": 300,
+                  "height": 96,
+                  "fill": "$surface-2",
+                  "cornerRadius": "$radius-card",
+                  "layout": "vertical",
+                  "gap": "$space-2",
+                  "padding": "$space-3",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "eJWbb",
+                      "name": "EmptyState Label",
+                      "fill": "$text-primary",
+                      "content": "No hay productos",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-sm",
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gQhps",
+                      "name": "EmptyState Detail",
+                      "fill": "$text-secondary",
+                      "content": "Crear primer producto",
+                      "fontFamily": "$font-family",
+                      "fontSize": "$font-size-xs",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "themes": {
+    "Mode": [
+      "Light",
+      "Dark"
+    ]
+  },
+  "variables": {
+    "--sidebar": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E7E8E5"
+        },
+        {
+          "value": "#18181b",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#666666"
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#18181b"
+        },
+        {
+          "value": "#18181b",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-primary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#fafafa"
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#CBCCC9"
+        },
+        {
+          "value": "#ffffff1a",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-accent": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#CBCCC9"
+        },
+        {
+          "value": "#2a2a30",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-accent-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#18181b"
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#71717a"
+        },
+        {
+          "value": "#71717a",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--background": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F2F3F0"
+        },
+        {
+          "value": "#111111",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--card": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF"
+        },
+        {
+          "value": "#1A1A1A",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--card-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--popover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF"
+        },
+        {
+          "value": "#1A1A1A",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--popover-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FF8400"
+        },
+        {
+          "value": "#FF8400",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--primary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#111111",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--secondary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E7E8E5"
+        },
+        {
+          "value": "#2E2E2E",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--secondary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--muted": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F2F3F0"
+        },
+        {
+          "value": "#2E2E2E",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--muted-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#666666"
+        },
+        {
+          "value": "#B8B9B6",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--accent": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F2F3F0"
+        },
+        {
+          "value": "#111111",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--accent-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#F2F3F0",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--destructive": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#D93C15"
+        },
+        {
+          "value": "#FF5C33",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#CBCCC9"
+        },
+        {
+          "value": "#2E2E2E",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--input": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#CBCCC9"
+        },
+        {
+          "value": "#2E2E2E",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#666666"
+        },
+        {
+          "value": "#666666",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--white": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "--black": {
+      "type": "color",
+      "value": "#000000"
+    },
+    "--font-primary": {
+      "type": "string",
+      "value": "JetBrains Mono"
+    },
+    "--font-secondary": {
+      "type": "string",
+      "value": "Geist"
+    },
+    "--radius-none": {
+      "type": "number",
+      "value": 0
+    },
+    "--radius-pill": {
+      "type": "number",
+      "value": 999
+    },
+    "--color-success": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#DFE6E1"
+        },
+        {
+          "value": "#222924",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-success-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#004D1A"
+        },
+        {
+          "value": "#B6FFCE",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-warning": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E9E3D8"
+        },
+        {
+          "value": "#291C0F",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-warning-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#804200"
+        },
+        {
+          "value": "#FF8400",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-error": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E5DCDA"
+        },
+        {
+          "value": "#24100B",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-error-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#8C1C00"
+        },
+        {
+          "value": "#FF5C33",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-info": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#DFDFE6"
+        },
+        {
+          "value": "#222229",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-info-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#000066"
+        },
+        {
+          "value": "#B2B2FF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--radius-m": {
+      "type": "number",
+      "value": 16
+    },
+    "surface-0": {
+      "type": "color",
+      "value": "#15110F"
+    },
+    "surface-1": {
+      "type": "color",
+      "value": "#211A17"
+    },
+    "surface-2": {
+      "type": "color",
+      "value": "#2C211D"
+    },
+    "accent-red": {
+      "type": "color",
+      "value": "#E63946"
+    },
+    "accent-green": {
+      "type": "color",
+      "value": "#63C174"
+    },
+    "accent-yellow": {
+      "type": "color",
+      "value": "#F4C95D"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "#FFF8F0"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#D6C5B8"
+    },
+    "text-muted": {
+      "type": "color",
+      "value": "#9F8E83"
+    },
+    "focus-ring": {
+      "type": "color",
+      "value": "#7DD3FC"
+    },
+    "state-disabled": {
+      "type": "color",
+      "value": "#655952"
+    },
+    "space-1": {
+      "type": "number",
+      "value": 4
+    },
+    "space-2": {
+      "type": "number",
+      "value": 8
+    },
+    "space-3": {
+      "type": "number",
+      "value": 12
+    },
+    "space-4": {
+      "type": "number",
+      "value": 16
+    },
+    "space-5": {
+      "type": "number",
+      "value": 24
+    },
+    "space-6": {
+      "type": "number",
+      "value": 32
+    },
+    "radius-sm": {
+      "type": "number",
+      "value": 8
+    },
+    "radius-card": {
+      "type": "number",
+      "value": 16
+    },
+    "radius-pill": {
+      "type": "number",
+      "value": 999
+    },
+    "touch-min": {
+      "type": "number",
+      "value": 44
+    },
+    "font-family": {
+      "type": "string",
+      "value": "Inter"
+    },
+    "font-display": {
+      "type": "string",
+      "value": "Space Grotesk"
+    },
+    "font-size-xs": {
+      "type": "number",
+      "value": 12
+    },
+    "font-size-sm": {
+      "type": "number",
+      "value": 14
+    },
+    "font-size-md": {
+      "type": "number",
+      "value": 16
+    },
+    "font-size-lg": {
+      "type": "number",
+      "value": 20
+    },
+    "font-size-xl": {
+      "type": "number",
+      "value": 28
+    },
+    "font-size-xxl": {
+      "type": "number",
+      "value": 36
+    }
+  },
+  "fileToken": "3f5a34c2-835e-4d6c-bc0d-aed88d57cfc6"
+}

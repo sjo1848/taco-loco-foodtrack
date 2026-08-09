@@ -12,7 +12,7 @@ La documentación de trabajo vive en este repositorio. La carpeta `docs/drive/` 
 ## Estado de la documentación
 
 - Fases 0–3: cerradas.
-- Fase 4 UI: baseline aprobada para el código; fuente editable Taco Loco en pen.dev pendiente de reconciliar.
+- Fase 4 UI: `pantallas.pen` identificado como fuente editable local de Taco Loco; queda validación visual final en pen.dev.
 - Fase 5: cerrada.
 - Fase 6: cerrada.
 - Gate de construcción: abierto; C1 validado localmente.
@@ -33,7 +33,8 @@ La documentación de trabajo vive en este repositorio. La carpeta `docs/drive/` 
 
 ## Especificación visual local
 
-- `taco-loco-ui.pen`: archivo local detectado, pero actualmente no se considera fuente canónica hasta reconciliarlo con el documento Taco Loco correcto en pen.dev.
+- [`pantallas.pen`](../pantallas.pen): fuente editable local identificada para Taco Loco; contiene Foundations, Components, UI pública y Admin.
+- `taco-loco-ui.pen`: archivo local descartado y excluido del repositorio porque corresponde a otro proyecto.
 
 ## Espejo de Drive
 

@@ -9,7 +9,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 ## Estado
 
 - Fases 0–3: cerradas.
-- Fase 4 UI: baseline aprobada para el código; fuente editable Taco Loco en pen.dev pendiente de reconciliar porque el canvas/file actual muestra otro proyecto.
+- Fase 4 UI: `pantallas.pen` identificado como fuente editable local de Taco Loco; queda validación visual final en pen.dev.
 - Fase 5 técnica: cerrada en la documentación espejo.
 - Fase 6 QA/backlog: cerrada en la documentación espejo.
 - Gate de construcción: abierto.
@@ -32,10 +32,10 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 ## Próxima secuencia
 
 1. Cerrar la revisión local del MVP y dejar explícitos los cinco productos sin referencia de imagen.
-2. Definir el email admin y resolver el archivo visual canónico de Taco Loco en pen.dev.
+2. Definir el email admin y validar visualmente `pantallas.pen` en pen.dev.
 3. Registrar el cierre del release candidate local; dominio, R2, servidor y QR quedan para cuando se decida publicar.
 4. Revisar la primera implementación local de C7 y aprobar texto/UI final.
-5. Resolver el archivo visual canónico de Taco Loco en pen.dev y registrar la revisión de UI.
+5. Registrar la revisión visual de `pantallas.pen` en pen.dev.
 6. Respaldar en Drive únicamente cuando el usuario lo solicite.
 
 ## Próximo ciclo

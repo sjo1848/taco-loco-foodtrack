@@ -11,7 +11,7 @@ Este checklist se completa en local. No se sincroniza con Drive automáticamente
 - [x] Mensaje inicial: `Hola Taco Loco, quiero hacer un pedido.`
 - [x] Nombre comercial: `Taco Loco`.
 - [ ] Email administrador definitivo; queda pendiente de consulta.
-- [ ] Reconciliar el archivo editable de Taco Loco en pen.dev; el documento actualmente conectado muestra otro proyecto.
+- [x] Identificar el archivo editable de Taco Loco: `pantallas.pen`; queda validación visual final en pen.dev.
 - [ ] Email de administración definitivo.
 - [ ] Contraseña de administración generada y guardada en el gestor de secretos.
 - [ ] Cuenta/bucket R2 y credenciales S3 compatibles.
