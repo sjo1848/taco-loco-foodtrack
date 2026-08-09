@@ -1,6 +1,6 @@
 import { AppError } from "@/lib/errors";
 import { db } from "@/lib/db";
-import { assertValidTransition, orderStatusSchema, type OrderStatus } from "@/modules/orders/model";
+import { assertValidTransition, orderFulfillmentSchema, orderStatusSchema, type OrderStatus } from "@/modules/orders/model";
 import { z } from "zod";
 
 export const transitionOrderInputSchema = z.object({
@@ -13,6 +13,27 @@ export const transitionOrderInputSchema = z.object({
 
 export type TransitionOrderInput = z.infer<typeof transitionOrderInputSchema>;
 
+const databaseUuidSchema = z.string().regex(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i, "UUID inválido");
+const manualModifierSchema = z.object({ group: z.string().trim().min(1).max(120), option: z.string().trim().min(1).max(120) });
+const manualOrderLineSchema = z.object({
+  productId: databaseUuidSchema,
+  quantity: z.number().int().min(1).max(20),
+  modifiers: z.array(manualModifierSchema).max(20).default([]),
+  note: z.string().trim().max(500).nullable().optional(),
+});
+
+export const createManualOrderInputSchema = z.object({
+  fulfillment: orderFulfillmentSchema.default("PICKUP"),
+  customerName: z.string().trim().max(160).nullable().optional(),
+  customerPhone: z.string().trim().max(32).nullable().optional(),
+  tableLabel: z.string().trim().max(32).nullable().optional(),
+  notes: z.string().trim().max(1000).nullable().optional(),
+  adjustmentAmount: z.number().int().min(-100000000).max(100000000).default(0),
+  lines: z.array(manualOrderLineSchema).min(1).max(100),
+});
+
+export type CreateManualOrderInput = z.infer<typeof createManualOrderInputSchema>;
+
 export function transitionOrderData(toStatus: OrderStatus, reason: string | null | undefined, now = new Date()) {
   return {
     status: toStatus,
@@ -20,6 +41,60 @@ export function transitionOrderData(toStatus: OrderStatus, reason: string | null
     closedAt: ["DELIVERED", "CANCELLED"].includes(toStatus) ? now : undefined,
     cancellationReason: toStatus === "CANCELLED" ? reason : undefined,
   };
+}
+
+type ManualProduct = { id: string; name: string; priceAmount: number; modifierGroups: Array<{ required: boolean; minSelections: number | null; maxSelections: number | null; modifierGroup: { name: string; options: Array<{ name: string; active: boolean }> } }> };
+
+function resolveModifiers(product: ManualProduct, modifiers: CreateManualOrderInput["lines"][number]["modifiers"]) {
+  const groups = new Map(product.modifierGroups.map((relation) => [relation.modifierGroup.name, relation]));
+  const grouped = new Map<string, string[]>();
+  for (const modifier of modifiers) {
+    const relation = groups.get(modifier.group);
+    if (!relation) throw new AppError("INVALID_MODIFIER", `El modificador ${modifier.group} no está disponible para este producto.`, 400);
+    const option = relation.modifierGroup.options.find((item) => item.active && item.name === modifier.option);
+    if (!option) throw new AppError("INVALID_MODIFIER", `La opción ${modifier.option} no está disponible para ${modifier.group}.`, 400);
+    grouped.set(modifier.group, [...(grouped.get(modifier.group) ?? []), option.name]);
+  }
+  for (const relation of product.modifierGroups) {
+    const count = grouped.get(relation.modifierGroup.name)?.length ?? 0;
+    if (relation.required && count < (relation.minSelections ?? 1)) throw new AppError("MISSING_MODIFIER", `Falta completar ${relation.modifierGroup.name}.`, 400);
+    if (relation.maxSelections !== null && count > relation.maxSelections) throw new AppError("TOO_MANY_MODIFIERS", `Se seleccionaron demasiadas opciones en ${relation.modifierGroup.name}.`, 400);
+  }
+  return modifiers.map((modifier) => ({ group: modifier.group, option: grouped.get(modifier.group)?.shift() ?? modifier.option }));
+}
+
+export async function createManualOrder(input: unknown, actorId: string) {
+  const parsed = createManualOrderInputSchema.parse(input);
+  return db.$transaction(async (tx: { product: typeof db.product; order: typeof db.order; orderEvent: typeof db.orderEvent }) => {
+    const productIds = [...new Set(parsed.lines.map((line) => line.productId))];
+    const products = await tx.product.findMany({ where: { id: { in: productIds }, archivedAt: null, published: true, available: true }, include: { modifierGroups: { include: { modifierGroup: { include: { options: true } } } } } }) as ManualProduct[];
+    const productsById = new Map(products.map((product) => [product.id, product]));
+    const resolvedLines = parsed.lines.map((line) => {
+      const product = productsById.get(line.productId);
+      if (!product) throw new AppError("PRODUCT_NOT_AVAILABLE", "Uno de los productos ya no está disponible.", 400);
+      return { productId: product.id, productName: product.name, unitPriceAmount: product.priceAmount, quantity: line.quantity, modifiersSnapshot: resolveModifiers(product, line.modifiers), note: line.note ?? null };
+    });
+    const subtotalAmount = resolvedLines.reduce((total, line) => total + line.unitPriceAmount * line.quantity, 0);
+    const totalAmount = subtotalAmount + parsed.adjustmentAmount;
+    if (totalAmount < 0) throw new AppError("INVALID_ORDER_TOTAL", "El total del pedido no puede ser negativo.", 400);
+    const order = await tx.order.create({
+      data: {
+        fulfillment: parsed.fulfillment,
+        customerName: parsed.customerName ?? null,
+        customerPhone: parsed.customerPhone ?? null,
+        tableLabel: parsed.tableLabel ?? null,
+        notes: parsed.notes ?? null,
+        subtotalAmount,
+        adjustmentAmount: parsed.adjustmentAmount,
+        totalAmount,
+        createdById: actorId,
+        lines: { create: resolvedLines },
+      },
+      include: { lines: true },
+    });
+    const event = await tx.orderEvent.create({ data: { orderId: order.id, toStatus: "RECEIVED", actorId, reason: "Pedido registrado manualmente" } });
+    return { order, event };
+  });
 }
 
 export async function transitionOrder(input: unknown, actorId: string) {
