@@ -1,0 +1,103 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id           String    @id @default(uuid()) @db.Uuid
+  email        String    @unique
+  passwordHash String
+  active       Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  lastLoginAt  DateTime?
+  sessions     Session[]
+}
+
+model Session {
+  id        String   @id @default(uuid()) @db.Uuid
+  tokenHash String   @unique
+  userId    String   @db.Uuid
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model MenuSettings {
+  id             String   @id @default(uuid()) @db.Uuid
+  businessName   String
+  whatsappPhone  String
+  whatsappMessage String
+  currency       String   @default("ARS")
+  updatedAt      DateTime @updatedAt
+}
+
+model Category {
+  id         String    @id @default(uuid()) @db.Uuid
+  name       String
+  slug       String    @unique
+  active     Boolean   @default(true)
+  sortOrder  Int       @default(0)
+  archivedAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  products   Product[]
+  @@index([active, sortOrder])
+}
+
+model Product {
+  id          String    @id @default(uuid()) @db.Uuid
+  categoryId  String    @db.Uuid
+  name        String
+  description String?
+  priceAmount Int
+  imageKey    String?
+  imageAlt    String?
+  available   Boolean   @default(true)
+  published   Boolean   @default(true)
+  featured    Boolean   @default(false)
+  sortOrder   Int       @default(0)
+  archivedAt  DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  category    Category  @relation(fields: [categoryId], references: [id])
+  modifierGroups ProductModifierGroup[]
+  @@index([categoryId, published, sortOrder])
+  @@index([featured, published])
+}
+
+model ModifierGroup {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  active    Boolean  @default(true)
+  sortOrder Int      @default(0)
+  options   ModifierOption[]
+  products  ProductModifierGroup[]
+}
+
+model ModifierOption {
+  id        String        @id @default(uuid()) @db.Uuid
+  groupId   String        @db.Uuid
+  name      String
+  sortOrder Int           @default(0)
+  active    Boolean       @default(true)
+  group     ModifierGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  @@index([groupId, active, sortOrder])
+}
+
+model ProductModifierGroup {
+  productId       String        @db.Uuid
+  modifierGroupId String        @db.Uuid
+  required        Boolean       @default(false)
+  minSelections   Int?
+  maxSelections   Int?
+  product         Product       @relation(fields: [productId], references: [id], onDelete: Cascade)
+  modifierGroup   ModifierGroup @relation(fields: [modifierGroupId], references: [id], onDelete: Cascade)
+  @@id([productId, modifierGroupId])
+}

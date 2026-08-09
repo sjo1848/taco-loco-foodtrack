@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+.gitignore
+.env*
+output
+.playwright-cli
+backups
+*.log
+taco-loco-ui.pen
+docs/drive
