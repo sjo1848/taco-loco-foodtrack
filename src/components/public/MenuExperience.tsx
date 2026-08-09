@@ -18,6 +18,7 @@ export function MenuExperience({ menu }: { menu: Menu }) {
   const [pendingProduct, setPendingProduct] = useState<Product | null>(null);
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string[]>>({});
   const [editingLineId, setEditingLineId] = useState<string | null>(null);
+  const [addedProductId, setAddedProductId] = useState<string | null>(null);
   const [showSummary, setShowSummary] = useState(false);
   const featured = menu.categories.flatMap((category) => category.products.filter((product) => product.featured)).slice(0, 2);
   const count = selectionCount(lines);
@@ -64,6 +65,12 @@ export function MenuExperience({ menu }: { menu: Menu }) {
       return;
     }
     setLines((current) => addSelectionLine(current, { productId: product.id, name: product.name, priceAmount: product.priceAmount, modifiers: [] }));
+    flashAdded(product.id);
+  }
+
+  function flashAdded(productId: string) {
+    setAddedProductId(productId);
+    window.setTimeout(() => setAddedProductId((current) => current === productId ? null : current), 900);
   }
 
   function editLine(line: SelectionLine) {
@@ -97,14 +104,15 @@ export function MenuExperience({ menu }: { menu: Menu }) {
       if (!previous) return current;
       return current.map((line) => line.id === editingLineId ? { ...nextLine, id: lineId(nextLine.productId, nextLine.modifiers), quantity: previous.quantity } : line);
     });
+    flashAdded(pendingProduct.id);
     setPendingProduct(null);
     setEditingLineId(null);
   }
 
-  return <main className="public-menu"><BrandHeader businessName={menu.settings.businessName} /><CategoryNav categories={menu.categories} />
+  return <main className="public-menu"><BrandHeader businessName={menu.settings.businessName} /><CategoryNav categories={menu.categories} /><p className="sr-only" aria-live="polite">{addedProductId ? "Producto agregado al pedido" : ""}</p>
     <div className="public-menu__content"><div className="public-menu__intro"><p className="eyebrow">Menú digital</p><h1>Elegí tu próximo antojo</h1></div>
-      {featured.length > 0 && <section className="menu-section menu-section--featured" aria-labelledby="featured-heading"><h2 id="featured-heading">Favoritos de la casa</h2>{featured.map((product) => <FeaturedProductCard key={product.id} product={product} onAdd={addProduct} />)}</section>}
-      {menu.categories.map((category) => <section className="menu-section" id={`category-${category.id}`} key={category.id} aria-labelledby={`heading-${category.id}`}><h2 id={`heading-${category.id}`}>{category.name}</h2><div className="product-list">{category.products.map((product) => <ProductCard key={product.id} product={product} onAdd={addProduct} />)}</div></section>)}
+      {featured.length > 0 && <section className="menu-section menu-section--featured" aria-labelledby="featured-heading"><h2 id="featured-heading">Favoritos de la casa</h2>{featured.map((product) => <FeaturedProductCard key={product.id} product={product} onAdd={addProduct} added={addedProductId === product.id} />)}</section>}
+      {menu.categories.map((category) => <section className="menu-section" id={`category-${category.id}`} key={category.id} aria-labelledby={`heading-${category.id}`}><h2 id={`heading-${category.id}`}>{category.name}</h2><div className="product-list">{category.products.map((product) => <ProductCard key={product.id} product={product} onAdd={addProduct} added={addedProductId === product.id} />)}</div></section>)}
       <SaucesInfo />
     </div>
     {count > 0 && <button className="selection-bar" type="button" onClick={() => setShowSummary(true)}><span>Pedido · {count} {count === 1 ? "producto" : "productos"}</span><strong>{formatPrice(total)}</strong></button>}
