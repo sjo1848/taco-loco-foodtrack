@@ -1,6 +1,6 @@
 # C7 — Pedido armado por WhatsApp
 
-Estado: propuesta de alcance, pendiente de aprobación funcional.
+Estado: aprobado y cerrado localmente — 2026-08-09.
 
 Este documento propone la evolución natural del MVP de menú digital. No modifica ALC-001 automáticamente ni se implementa hasta cerrar UX, UI, diseño técnico y QA de C7.
 

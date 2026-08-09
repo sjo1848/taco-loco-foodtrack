@@ -1,6 +1,6 @@
 # C7 — Criterios QA y Definition of Done
 
-Estado: criterios ejecutados para la primera implementación local; queda revisión final de negocio y UI.
+Estado: C7 cerrado localmente; la comparación final en pen.dev queda como seguimiento visual no bloqueante.
 
 ## Funcional
 

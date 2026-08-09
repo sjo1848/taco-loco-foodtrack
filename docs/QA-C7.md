@@ -1,7 +1,7 @@
 # QA-C7 — Selección y pedido por WhatsApp
 
 Fecha: 2026-08-09
-Estado: release candidate local listo para revisión funcional y visual.
+Estado: C7 cerrado localmente — 2026-08-09.
 
 ## Evidencia automática
 
@@ -35,7 +35,7 @@ Estado: release candidate local listo para revisión funcional y visual.
 - [x] Dialogs con `role="dialog"` y `aria-modal`.
 - [x] Botones de cantidad y cierre con labels accesibles.
 - [x] Estados de modificadores con `aria-pressed`.
-- [ ] Validación visual final contra `pantallas.pen` dentro de pen.dev.
+- [ ] Validación visual final contra `pantallas.pen` dentro de pen.dev — seguimiento no bloqueante por MCP desconectado.
 
 ## Datos deliberadamente no inventados
 
@@ -45,4 +45,4 @@ Estado: release candidate local listo para revisión funcional y visual.
 
 ## Criterio de aprobación
 
-C7 queda listo para aprobación cuando Taco Loco valide el texto del mensaje de WhatsApp, confirme si desea enumerar variantes de carne y se complete la comparación visual con `pantallas.pen`.
+C7 queda cerrado como release candidate local. El texto comercial, variantes de carne y comparación visual con `pantallas.pen` quedan como ajustes de seguimiento antes de una publicación productiva.

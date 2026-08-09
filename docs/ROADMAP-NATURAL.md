@@ -1,14 +1,14 @@
 # Roadmap natural — Taco Loco Foodtrack
 
-## Etapa actual — MVP menú digital
+## Etapa actual — C7 cerrado, C8 en planificación
 
 Consulta pública, catálogo administrable, disponibilidad, imágenes, WhatsApp directo y QR.
 
-## C7 — Pedido armado por WhatsApp
+## C7 — Pedido armado por WhatsApp — CERRADO LOCALMENTE
 
-Selección opcional, cantidades, modificadores, resumen local y mensaje prellenado. Sin pedido interno ni pagos.
+Selección opcional, cantidades, modificadores, resumen local, motion UI y mensaje prellenado. Sin pedido interno ni pagos.
 
-## C8 — Operación de pedidos
+## C8 — Operación de pedidos — PLANIFICACIÓN
 
 Evaluar cuando C7 tenga uso real: pedido persistido, estados, confirmación, cocina/caja, historial y asociación opcional a mesa.
 
