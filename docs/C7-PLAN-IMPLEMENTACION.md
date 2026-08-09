@@ -1,6 +1,6 @@
 # Plan de implementación C7
 
-Estado: planificación local.
+Estado: primera implementación local en curso — 2026-08-09.
 
 ## Secuencia metodológica
 

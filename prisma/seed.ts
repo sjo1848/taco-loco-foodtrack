@@ -60,6 +60,23 @@ async function main() {
       if (!exists) await prisma.modifierOption.create({ data: { groupId: group.id, name, sortOrder: optionOrder } });
     }
   }
+
+  const salsa = await prisma.modifierGroup.findFirstOrThrow({ where: { name: "Salsa a elección" } });
+  const daikiri = await prisma.modifierGroup.findFirstOrThrow({ where: { name: "Sabor de daikiri" } });
+  const selectableModifiers = [
+    { product: "Taco x2 común", groupId: salsa.id },
+    { product: "Uspallatina", groupId: salsa.id },
+    { product: "Gordita mexicana", groupId: salsa.id },
+    { product: "Daikiri", groupId: daikiri.id },
+  ];
+  for (const association of selectableModifiers) {
+    const product = await prisma.product.findFirstOrThrow({ where: { name: association.product, archivedAt: null } });
+    await prisma.productModifierGroup.upsert({
+      where: { productId_modifierGroupId: { productId: product.id, modifierGroupId: association.groupId } },
+      update: { required: true, minSelections: 1, maxSelections: 1 },
+      create: { productId: product.id, modifierGroupId: association.groupId, required: true, minSelections: 1, maxSelections: 1 },
+    });
+  }
 }
 
 main().catch((error) => { console.error(error); process.exitCode = 1; }).finally(() => prisma.$disconnect());

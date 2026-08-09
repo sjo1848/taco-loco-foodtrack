@@ -1,6 +1,6 @@
 # C7 — Criterios QA y Definition of Done
 
-Estado: preparado para completar después de aprobar el alcance y la UI.
+Estado: criterios ejecutados para la primera implementación local; queda revisión final de negocio y UI.
 
 ## Funcional
 

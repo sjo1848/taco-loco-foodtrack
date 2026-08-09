@@ -13,14 +13,14 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - Fase 5 técnica: cerrada en la documentación espejo.
 - Fase 6 QA/backlog: cerrada en la documentación espejo.
 - Gate de construcción: abierto.
-- Etapa actual: cierre del MVP local y planificación C7.
+- Etapa actual: primera implementación local de C7 y validación del flujo.
 - C1: implementado y validado localmente.
 - C2 catálogo: TL-010 a TL-014 implementados y validados localmente.
 - C2 auth: TL-015/016 implementados y validados localmente.
 - C2 media: TL-017/018 implementados y validados localmente; R2 queda pendiente solo para producción.
 - Media local: 26/31 productos tienen imagen cargada y servida en desarrollo con `.local-media/`; 5 quedan pendientes de referencia real. R2 queda reservado para producción.
 - QA visual local: menú verificado en desktop y mobile con Playwright; imágenes, CTA WhatsApp y estados sin imagen verificados.
-- C7: propuesta de selección opcional y pedido armado por WhatsApp documentada; todavía no implementada ni incorporada al alcance canónico del MVP.
+- C7: primera implementación local realizada: selección opcional, cantidades, modificadores canónicos, resumen editable, sessionStorage y composer de WhatsApp; pendiente revisión final de negocio/UI.
 - C3 frontend público: TL-020 a TL-028 implementados y validados localmente.
 - C4 administración: TL-030 a TL-039 implementados y validados localmente.
 - C5 integración/hardening: automatización base, smoke Playwright local y hardening implementados; pendientes CI browser matrix y evidencia de backup/restore productivo.
@@ -34,8 +34,8 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 1. Cerrar la revisión local del MVP y dejar explícitos los cinco productos sin referencia de imagen.
 2. Definir el email admin y resolver el archivo visual canónico de Taco Loco en pen.dev.
 3. Registrar el cierre del release candidate local; dominio, R2, servidor y QR quedan para cuando se decida publicar.
-4. Revisar y aprobar formalmente el alcance C7.
-5. Ejecutar UX → UI en pen.dev → diseño técnico → QA → construcción incremental de selección y pedido por WhatsApp.
+4. Revisar la primera implementación local de C7 y aprobar texto/UI final.
+5. Resolver el archivo visual canónico de Taco Loco en pen.dev y registrar la revisión de UI.
 6. Respaldar en Drive únicamente cuando el usuario lo solicite.
 
 ## Próximo ciclo
