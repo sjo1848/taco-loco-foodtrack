@@ -21,6 +21,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - Media local: 26/31 productos tienen imagen cargada y servida en desarrollo con `.local-media/`; 5 quedan pendientes de referencia real. R2 queda reservado para producción.
 - QA visual local: menú verificado en desktop y mobile con Playwright; imágenes, CTA WhatsApp y estados sin imagen verificados.
 - C7: cerrado localmente; selección opcional, cantidades, modificadores canónicos, resumen editable, sessionStorage, composer de WhatsApp y motion UI validados.
+- C8-01: contrato y esquema de pedidos implementado y validado localmente; evidencia en [`QA-C8-01.md`](QA-C8-01.md). C8-02 es el próximo bloque.
 - C3 frontend público: TL-020 a TL-028 implementados y validados localmente.
 - C4 administración: TL-030 a TL-039 implementados y validados localmente.
 - C5 integración/hardening: automatización base, smoke Playwright local y hardening implementados; pendientes CI browser matrix y evidencia de backup/restore productivo.
