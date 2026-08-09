@@ -1,32 +1,31 @@
 # Plan de implementación C8
 
-Estado: planificación inicial.
+Estado: plan operativo cerrado para iniciar implementación — 2026-08-09.
+
+El detalle completo y las decisiones base están en [C8-ANALISIS-PLAN-MAESTRO.md](./C8-ANALISIS-PLAN-MAESTRO.md).
 
 ## Secuencia metodológica
 
-1. Observación operativa del uso real de C7.
-2. Alcance y estados canónicos.
-3. Modelo funcional de pedido, línea, estado y eventos.
-4. UX del panel operativo.
-5. UI en `pantallas.pen` para listado, detalle, estados y estados vacíos.
-6. Diseño técnico, permisos y persistencia.
-7. QA de transiciones, concurrencia y regresión del menú/C7.
-8. Construcción incremental en local.
-9. Demo interna antes de producción.
+1. Contrato y esquema local de pedido, línea y eventos.
+2. Máquina de estados y permisos.
+3. Alta manual desde administración.
+4. Bandeja, filtros y detalle.
+5. Historial, errores y robustez.
+6. QA y demo interna.
 
 ## Backlog propuesto
 
 ### C8-001 — Modelo de pedido
 
-Definir pedido, líneas, snapshot de precios/modificadores, observaciones y datos operativos.
+Implementar pedido, líneas, snapshot de precios/modificadores, observaciones y datos operativos.
 
 ### C8-002 — Máquina de estados
 
-Definir transiciones válidas, cancelación, corrección y registro de eventos.
+Implementar transiciones válidas, cancelación, corrección y registro de eventos.
 
 ### C8-003 — Recepción operativa
 
-Crear el mecanismo explícito para registrar un pedido recibido por WhatsApp, sin asumir confirmación automática.
+Crear el alta manual de un pedido recibido por WhatsApp, sin asumir confirmación automática.
 
 ### C8-004 — Listado administrativo
 
@@ -50,4 +49,4 @@ Validar estados, permisos, errores, responsive, accesibilidad y regresión de C7
 
 ## Gate de inicio
 
-C8 no comienza a construirse hasta observar el uso real de C7 y confirmar el flujo operativo con Taco Loco.
+C8 puede comenzar en local con los defaults del plan maestro. La observación de C7 se realiza en paralelo y solo puede ajustar campos opcionales; no bloquea C8-001 ni C8-002.

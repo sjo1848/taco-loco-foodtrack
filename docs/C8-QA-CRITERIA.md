@@ -1,6 +1,6 @@
 # C8 — Criterios QA
 
-Estado: preparado para completar después del relevamiento operativo.
+Estado: preparado para ejecución durante la implementación local.
 
 ## Funcional
 
@@ -29,8 +29,8 @@ Estado: preparado para completar después del relevamiento operativo.
 
 ## Definition of Done
 
-- [ ] Flujo operativo confirmado con Taco Loco.
-- [ ] Modelo y máquina de estados aprobados.
+- [ ] Defaults del plan maestro implementados y probados.
+- [ ] Modelo y máquina de estados cubiertos por tests.
 - [ ] UX/UI revisada en `pantallas.pen`.
 - [ ] Diseño técnico documentado.
 - [ ] Tests y smoke local aprobados.
