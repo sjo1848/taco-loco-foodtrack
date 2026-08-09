@@ -24,6 +24,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - C8-01: contrato y esquema de pedidos implementado y validado localmente; evidencia en [`QA-C8-01.md`](QA-C8-01.md).
 - C8-02: transiciones transaccionales y auditoría implementadas y validadas localmente; evidencia en [`QA-C8-02.md`](QA-C8-02.md). C8-03 es el próximo bloque.
 - C8-03: alta manual protegida por admin, snapshots server-side y evento inicial implementados y validados localmente; evidencia en [`QA-C8-03.md`](QA-C8-03.md). C8-04 es el próximo bloque.
+- C8-04: bandeja, filtros, alta visual, detalle, timeline y acciones operativas implementados y validados localmente; evidencia en [`QA-C8-04.md`](QA-C8-04.md). C8-05 es el próximo bloque.
 - C3 frontend público: TL-020 a TL-028 implementados y validados localmente.
 - C4 administración: TL-030 a TL-039 implementados y validados localmente.
 - C5 integración/hardening: automatización base, smoke Playwright local y hardening implementados; pendientes CI browser matrix y evidencia de backup/restore productivo.
@@ -35,8 +36,8 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 ## Próxima secuencia
 
 1. Implementar C8-01: contrato y esquema local de pedido.
-2. Implementar C8-04: bandeja y detalle.
-3. Ejecutar QA y demo interna de C8.
+2. Implementar C8-05: robustez, estados de error y regresión integral.
+3. Ejecutar C8-06: QA y demo interna de C8.
 4. Ejecutar QA y demo interna de C8.
 5. Respaldar en Drive únicamente cuando el usuario lo solicite.
 
