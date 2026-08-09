@@ -13,7 +13,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - Fase 5 técnica: cerrada en la documentación espejo.
 - Fase 6 QA/backlog: cerrada en la documentación espejo.
 - Gate de construcción: abierto.
-- Etapa actual: C7 cerrado localmente; C8 en planificación operativa.
+- Etapa actual: C7 cerrado; C8 plan operativo cerrado, listo para implementación local.
 - C1: implementado y validado localmente.
 - C2 catálogo: TL-010 a TL-014 implementados y validados localmente.
 - C2 auth: TL-015/016 implementados y validados localmente.
@@ -31,16 +31,15 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 
 ## Próxima secuencia
 
-1. Observar el uso real de C7 y relevar el circuito operativo de Taco Loco.
-2. Aprobar alcance, estados y datos mínimos de C8.
-3. Diseñar UX/UI operativa en `pantallas.pen`.
-4. Documentar diseño técnico y QA de C8.
-5. Construir C8 incrementalmente en local.
-6. Respaldar en Drive únicamente cuando el usuario lo solicite.
+1. Implementar C8-01: contrato y esquema local de pedido.
+2. Implementar C8-02: máquina de estados y auditoría.
+3. Implementar C8-03/C8-04: alta manual, bandeja y detalle.
+4. Ejecutar QA y demo interna de C8.
+5. Respaldar en Drive únicamente cuando el usuario lo solicite.
 
 ## Próximo ciclo
 
-Observar C7 y definir el circuito operativo antes de construir C8.
+Comenzar C8-01 con los defaults definidos en [C8-ANALISIS-PLAN-MAESTRO.md](./C8-ANALISIS-PLAN-MAESTRO.md). La observación operativa se incorpora como validación paralela.
 
 ## Regla de decisión
 
