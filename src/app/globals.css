@@ -69,6 +69,8 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .selection-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
 .selection-line > div:first-child { display: grid; gap: 4px; min-width: 0; }
 .selection-line small, .selection-line span { color: var(--muted); font-size: .78rem; }
+.selection-line__actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.selection-edit { border: 0; background: transparent; color: var(--yellow); font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer; }
 .quantity-control { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; }
 .quantity-control button { width: 34px; height: 34px; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--cream); font-size: 1.15rem; cursor: pointer; }
 .selection-summary { display: flex; justify-content: space-between; margin-top: 18px; color: var(--muted); }

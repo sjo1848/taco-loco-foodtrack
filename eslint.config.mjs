@@ -5,6 +5,6 @@ import nextTypescript from "eslint-config-next/typescript";
 export default defineConfig([
   ...nextVitals,
   ...nextTypescript,
-  globalIgnores(["src/generated/**", ".next/**", "node_modules/**"]),
+  globalIgnores(["src/generated/**", ".next/**", ".playwright-cli/**", "output/**", "node_modules/**"]),
   { rules: { "@next/next/no-duplicate-head": "off" } },
 ]);
