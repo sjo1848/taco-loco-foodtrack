@@ -30,6 +30,7 @@ La documentación de trabajo vive en este repositorio. La carpeta `docs/drive/` 
 - Propuesta C7: [`C7-ALCANCE-PEDIDO-WHATSAPP.md`](C7-ALCANCE-PEDIDO-WHATSAPP.md), [`C7-PLAN-IMPLEMENTACION.md`](C7-PLAN-IMPLEMENTACION.md), [`DECISION-001-SELECCION-Y-PAGOS.md`](DECISION-001-SELECCION-Y-PAGOS.md) y [`ROADMAP-NATURAL.md`](ROADMAP-NATURAL.md).
 - Criterios QA C7 en [`C7-QA-CRITERIA.md`](C7-QA-CRITERIA.md).
 - Decisiones de implementación C7 en [`C7-DECISIONES-IMPLEMENTACION.md`](C7-DECISIONES-IMPLEMENTACION.md).
+- Evidencia de QA C7 en [`QA-C7.md`](QA-C7.md).
 
 ## Especificación visual local
 
