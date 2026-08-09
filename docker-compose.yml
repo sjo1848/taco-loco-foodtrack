@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: taco-loco-dev-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: taco_loco
+      POSTGRES_USER: taco_loco
+      POSTGRES_PASSWORD: taco_loco_dev
+    ports:
+      - "5433:5432"
+    volumes:
+      - taco_loco_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U taco_loco -d taco_loco"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  taco_loco_postgres_data:
