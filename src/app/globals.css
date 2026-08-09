@@ -10,7 +10,7 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.25rem; border: 0; border-radius: .75rem; background: var(--red); color: white; text-decoration: none; font-weight: 700; width: fit-content; cursor: pointer; }
 .public-menu { min-height: 100svh; padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 .brand-header { display: flex; align-items: center; gap: 12px; max-width: 780px; margin: 0 auto; padding: 16px; }
-.brand-mark { display: grid; place-items: center; width: 56px; height: 56px; flex: 0 0 auto; border-radius: 50%; background: var(--yellow); color: var(--background); font-weight: 900; font-size: 1.15rem; }
+.brand-logo { width: 68px; height: 68px; flex: 0 0 auto; border: 2px solid var(--yellow); border-radius: 14px; background: #fff; object-fit: contain; }
 .brand-name { margin: 0; font-size: 1.35rem; font-weight: 800; }
 .brand-tagline { margin: 3px 0 0; color: var(--muted); font-size: .85rem; }
 .category-nav { position: sticky; top: 0; z-index: 10; border-block: 1px solid var(--border); background: rgba(14,14,13,.94); backdrop-filter: blur(8px); }
