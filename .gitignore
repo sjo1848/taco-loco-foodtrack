@@ -1,7 +1,7 @@
 node_modules/
 .next/
 .playwright-cli/
-.tsbuildinfo
+*.tsbuildinfo
 taco-loco-ui.pen
 out/
 .env
