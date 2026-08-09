@@ -41,6 +41,10 @@ export function canTransition(from: OrderStatus, to: OrderStatus) {
   return transitions[from].includes(to);
 }
 
+export function availableTransitions(from: OrderStatus) {
+  return [...transitions[from]];
+}
+
 export function assertValidTransition(from: OrderStatus, to: OrderStatus) {
   if (!canTransition(from, to)) throw new Error(`INVALID_ORDER_TRANSITION:${from}:${to}`);
 }
