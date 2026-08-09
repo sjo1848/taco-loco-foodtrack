@@ -14,7 +14,8 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .brand-name { position: relative; width: fit-content; margin: 0; padding-bottom: .48em; font-size: 1.35rem; font-weight: 900; letter-spacing: -.03em; }
 .brand-name__text { position: relative; z-index: 1; }
 .brand-name__cheese { position: absolute; right: .12em; bottom: .16em; left: .18em; z-index: 0; height: .24em; border-radius: 0 0 .35em .35em; background: var(--yellow); filter: drop-shadow(0 2px 0 rgba(244,183,43,.14)); transform-origin: top center; animation: cheese-wobble 3.4s ease-in-out infinite; }
-.brand-name__cheese i { position: absolute; bottom: -.34em; display: block; width: .17em; height: .34em; border-radius: 0 0 .2em .2em; background: var(--yellow); transform-origin: top center; }
+.brand-name__cheese i { position: absolute; bottom: -.34em; display: block; width: .2em; height: .34em; border-radius: 45% 45% 58% 58% / 18% 18% 82% 82%; background: var(--yellow); clip-path: polygon(0 0, 100% 0, 100% 58%, 76% 82%, 50% 100%, 24% 82%, 0 58%); transform-origin: top center; }
+.brand-name__cheese i::after { position: absolute; top: .08em; right: .05em; width: .05em; height: .08em; border-radius: 50%; background: rgba(255,238,157,.72); content: ""; }
 .brand-name__cheese i:nth-child(1) { left: 18%; height: .27em; animation: cheese-drip-short 2.6s .25s ease-in-out infinite; }
 .brand-name__cheese i:nth-child(2) { left: 53%; height: .43em; animation: cheese-drip-long 3.2s ease-in-out infinite; }
 .brand-name__cheese i:nth-child(3) { right: 9%; height: .22em; animation: cheese-drip-short 2.9s .55s ease-in-out infinite; }
