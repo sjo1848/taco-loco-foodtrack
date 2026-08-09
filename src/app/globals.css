@@ -11,13 +11,13 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .public-menu { min-height: 100svh; padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 .brand-header { display: flex; align-items: center; gap: 12px; max-width: 780px; margin: 0 auto; padding: 16px; }
 .brand-logo { width: 68px; height: 68px; flex: 0 0 auto; border: 2px solid var(--yellow); border-radius: 14px; background: #fff; object-fit: contain; }
-.brand-name { position: relative; width: fit-content; margin: 0; font-size: 1.35rem; font-weight: 900; letter-spacing: -.03em; }
+.brand-name { position: relative; width: fit-content; margin: 0; padding-bottom: .48em; font-size: 1.35rem; font-weight: 900; letter-spacing: -.03em; }
 .brand-name__text { position: relative; z-index: 1; }
-.brand-name__cheese { position: absolute; right: .12em; bottom: -.26em; left: .18em; z-index: 0; height: .3em; border-radius: 0 0 .35em .35em; background: var(--yellow); filter: drop-shadow(0 2px 0 rgba(244,183,43,.14)); transform-origin: top center; animation: cheese-wobble 3.4s ease-in-out infinite; }
-.brand-name__cheese i { position: absolute; bottom: -.54em; display: block; width: .17em; height: .56em; border-radius: 0 0 .2em .2em; background: var(--yellow); }
-.brand-name__cheese i:nth-child(1) { left: 18%; height: .42em; }
-.brand-name__cheese i:nth-child(2) { left: 53%; height: .7em; animation: cheese-drip 2.8s ease-in-out infinite; }
-.brand-name__cheese i:nth-child(3) { right: 9%; height: .32em; animation: cheese-drip 3.1s .4s ease-in-out infinite; }
+.brand-name__cheese { position: absolute; right: .12em; bottom: .16em; left: .18em; z-index: 0; height: .24em; border-radius: 0 0 .35em .35em; background: var(--yellow); filter: drop-shadow(0 2px 0 rgba(244,183,43,.14)); transform-origin: top center; animation: cheese-wobble 3.4s ease-in-out infinite; }
+.brand-name__cheese i { position: absolute; bottom: -.34em; display: block; width: .17em; height: .34em; border-radius: 0 0 .2em .2em; background: var(--yellow); transform-origin: top center; }
+.brand-name__cheese i:nth-child(1) { left: 18%; height: .27em; animation: cheese-drip-short 2.6s .25s ease-in-out infinite; }
+.brand-name__cheese i:nth-child(2) { left: 53%; height: .43em; animation: cheese-drip-long 3.2s ease-in-out infinite; }
+.brand-name__cheese i:nth-child(3) { right: 9%; height: .22em; animation: cheese-drip-short 2.9s .55s ease-in-out infinite; }
 .brand-tagline { display: flex; align-items: center; gap: .42rem; margin: 7px 0 0; color: var(--muted); font-size: .85rem; letter-spacing: .01em; }
 .brand-tagline > span:nth-child(2) { background: linear-gradient(100deg, var(--muted) 20%, var(--cream) 45%, var(--yellow) 52%, var(--muted) 75%); background-size: 220% 100%; background-clip: text; -webkit-background-clip: text; color: transparent; animation: tagline-shimmer 4.8s ease-in-out infinite; }
 .brand-tagline__spark { color: var(--yellow); font-size: .65rem; animation: spark-pulse 1.8s ease-in-out infinite; }
@@ -96,7 +96,8 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 @keyframes overlay-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes sheet-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes cheese-wobble { 0%, 100% { transform: rotate(-1deg) scaleX(1); } 50% { transform: rotate(1deg) scaleX(1.015); } }
-@keyframes cheese-drip { 0%, 100% { transform: scaleY(.86); transform-origin: top; } 50% { transform: scaleY(1.14); transform-origin: top; } }
+@keyframes cheese-drip-short { 0%, 100% { transform: scaleY(.7) translateY(0); opacity: .8; } 48% { transform: scaleY(1) translateY(.04em); opacity: 1; } 70% { transform: scaleY(.82) translateY(0); opacity: .92; } }
+@keyframes cheese-drip-long { 0%, 100% { transform: scaleY(.72) translateY(0); opacity: .82; } 42% { transform: scaleY(1.04) translateY(.08em); opacity: 1; } 64% { transform: scaleY(.86) translateY(.02em); opacity: .94; } }
 @keyframes tagline-shimmer { 0%, 55%, 100% { background-position: 160% 0; } 75% { background-position: -30% 0; } }
 @keyframes spark-pulse { 0%, 100% { opacity: .45; transform: scale(.8) rotate(0); } 50% { opacity: 1; transform: scale(1.15) rotate(18deg); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
