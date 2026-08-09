@@ -7,8 +7,8 @@ async function main() {
   const email = process.env.ADMIN_EMAIL ?? "admin@example.com";
   const password = process.env.ADMIN_PASSWORD ?? "change-me-in-development";
   const existingAdmin = await prisma.adminUser.findUnique({ where: { email } });
-  if (!existingAdmin) await prisma.adminUser.create({ data: { email, passwordHash: await hashPassword(password) } });
-  else if (!existingAdmin.passwordHash.startsWith("scrypt$")) await prisma.adminUser.update({ where: { id: existingAdmin.id }, data: { passwordHash: await hashPassword(password) } });
+  const admin = existingAdmin ?? await prisma.adminUser.create({ data: { email, passwordHash: await hashPassword(password) } });
+  if (existingAdmin && !existingAdmin.passwordHash.startsWith("scrypt$")) await prisma.adminUser.update({ where: { id: existingAdmin.id }, data: { passwordHash: await hashPassword(password) } });
   await prisma.menuSettings.upsert({ where: { id: "00000000-0000-0000-0000-000000000001" }, update: { businessName: "Taco Loco", whatsappPhone: "5492615956912", whatsappMessage: "Hola Taco Loco, quiero hacer un pedido." }, create: { id: "00000000-0000-0000-0000-000000000001", businessName: "Taco Loco", whatsappPhone: "5492615956912", whatsappMessage: "Hola Taco Loco, quiero hacer un pedido.", currency: "ARS" } });
   const categoryNames = ["Tacos", "Nachos", "Quesadillas", "Pizzas", "Más delicias", "Bebidas", "Tragos"];
   const categories = new Map<string, string>();
@@ -76,6 +76,25 @@ async function main() {
       update: { required: true, minSelections: 1, maxSelections: 1 },
       create: { productId: product.id, modifierGroupId: association.groupId, required: true, minSelections: 1, maxSelections: 1 },
     });
+  }
+
+  const sampleOrder = await prisma.order.findFirst({ where: { notes: "Pedido de demostración C8" } });
+  if (!sampleOrder) {
+    const taco = await prisma.product.findFirstOrThrow({ where: { name: "Taco x2 común", archivedAt: null } });
+    const order = await prisma.order.create({
+      data: {
+        status: "RECEIVED",
+        fulfillment: "PICKUP",
+        customerName: "Cliente demo",
+        customerPhone: "2615956912",
+        notes: "Pedido de demostración C8",
+        subtotalAmount: taco.priceAmount,
+        totalAmount: taco.priceAmount,
+        createdById: admin.id,
+        lines: { create: [{ productId: taco.id, productName: taco.name, unitPriceAmount: taco.priceAmount, quantity: 1, modifiersSnapshot: [] }] },
+      },
+    });
+    await prisma.orderEvent.create({ data: { orderId: order.id, toStatus: "RECEIVED", actorId: admin.id, reason: "Pedido inicial de demostración" } });
   }
 }
 
