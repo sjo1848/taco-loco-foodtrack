@@ -6,6 +6,7 @@ import { CategoryNav } from "@/components/public/CategoryNav";
 import { FeaturedProductCard } from "@/components/public/FeaturedProductCard";
 import { ProductCard } from "@/components/public/ProductCard";
 import { SaucesInfo } from "@/components/public/SaucesInfo";
+import { filterCatalog } from "@/modules/catalog/discovery";
 import { buildWhatsAppMessage, addSelectionLine, lineId, removeSelectionLine, selectionCount, selectionTotal, updateSelectionQuantity, type SelectionLine } from "@/modules/selection/model";
 
 type Product = { id: string; name: string; description: string | null; priceAmount: number; available: boolean; featured: boolean; imageKey: string | null; imageAlt: string | null; modifiers: Array<{ name: string; required: boolean; minSelections: number | null; maxSelections: number | null; options: string[] }> };
@@ -22,7 +23,9 @@ export function MenuExperience({ menu }: { menu: Menu }) {
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [selectionError, setSelectionError] = useState("");
   const [showSummary, setShowSummary] = useState(false);
-  const featured = menu.categories.flatMap((category) => category.products.filter((product) => product.featured)).slice(0, 2);
+  const [searchQuery, setSearchQuery] = useState("");
+  const visibleCategories = filterCatalog(menu.categories, searchQuery);
+  const featured = visibleCategories.flatMap((category) => category.products.filter((product) => product.featured)).slice(0, 2);
   const count = selectionCount(lines);
   const total = selectionTotal(lines);
   const whatsappHref = useMemo(() => lines.length > 0 ? `https://wa.me/?text=${encodeURIComponent(buildWhatsAppMessage(lines, menu.settings.businessName))}` : menu.settings.whatsappUrl, [lines, menu.settings.businessName, menu.settings.whatsappUrl]);
@@ -127,11 +130,13 @@ export function MenuExperience({ menu }: { menu: Menu }) {
     setFeedbackMessage("Pedido vacío.");
   }
 
-  return <main className="public-menu"><BrandHeader businessName={menu.settings.businessName} /><CategoryNav categories={menu.categories} /><p className="sr-only" aria-live="polite">{feedbackMessage || (addedProductId ? "Producto agregado al pedido" : "")}</p>
+  return <main className="public-menu"><BrandHeader businessName={menu.settings.businessName} /><CategoryNav categories={visibleCategories} /><p className="sr-only" aria-live="polite">{feedbackMessage || (addedProductId ? "Producto agregado al pedido" : "")}</p>
     <div className="public-menu__content"><div className="public-menu__intro"><p className="eyebrow">Menú digital</p><h1>Elegí tu próximo antojo</h1></div>
       <section className={`operating-status operating-status--${menu.settings.operatingContext.isOpen ? "open" : "closed"}`} aria-live="polite"><strong>{menu.settings.operatingContext.label}</strong><span>{menu.settings.operatingContext.detail}</span></section>
+      <label className="menu-search">Buscar en el menú<input type="search" value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Ej.: taco, pizza, bebida…" /></label>
+      {searchQuery.trim() && visibleCategories.length === 0 && <p className="search-empty" role="status">No encontramos productos con “{searchQuery}”. Probá con otro término.</p>}
       {featured.length > 0 && <section className="menu-section menu-section--featured" aria-labelledby="featured-heading"><h2 id="featured-heading">Favoritos de la casa</h2>{featured.map((product) => <FeaturedProductCard key={product.id} product={product} onAdd={addProduct} added={addedProductId === product.id} />)}</section>}
-      {menu.categories.map((category) => <section className="menu-section" id={`category-${category.id}`} key={category.id} aria-labelledby={`heading-${category.id}`}><h2 id={`heading-${category.id}`}>{category.name}</h2><div className="product-list">{category.products.map((product) => <ProductCard key={product.id} product={product} onAdd={addProduct} added={addedProductId === product.id} />)}</div></section>)}
+      {visibleCategories.map((category) => <section className="menu-section" id={`category-${category.id}`} key={category.id} aria-labelledby={`heading-${category.id}`}><h2 id={`heading-${category.id}`}>{category.name}</h2><div className="product-list">{category.products.map((product) => <ProductCard key={product.id} product={product} onAdd={addProduct} added={addedProductId === product.id} />)}</div></section>)}
       <SaucesInfo />
     </div>
     {count > 0 && <button className="selection-bar" type="button" onClick={() => setShowSummary(true)}><span>Pedido · {count} {count === 1 ? "producto" : "productos"}</span><strong>{formatPrice(total)}</strong></button>}

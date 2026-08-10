@@ -10,8 +10,8 @@ Estado: preparado para ejecución después de aprobar el alcance.
 - [x] El resumen permite editar cantidades, modificadores y eliminar líneas.
 - [x] Agregar un producto produce feedback visible.
 - [ ] El pedido conserva su selección mientras se navega por el menú.
-- [ ] Destacados y agotados se muestran con texto claro, si P1 entra en la etapa.
-- [ ] La búsqueda por nombre funciona, si P1 entra en la etapa.
+- [x] Destacados y agotados se muestran con texto claro, si P1 entra en la etapa.
+- [x] La búsqueda por nombre, descripción o categoría funciona.
 - [ ] C7 y C8 no presentan regresiones.
 
 ## UX, responsive y accesibilidad
