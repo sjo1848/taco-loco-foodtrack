@@ -9,6 +9,7 @@ C10 está parcialmente completada y preparada para revisión externa:
 - C10-01 aprobado: motion base y feedback coordinado.
 - C10-02 aprobado: sheets/cards por flujo, overlay, foco y responsive.
 - C10-03 aprobado: intención registrada en admin antes de abrir WhatsApp.
+- C10-03.1 planificado: semántica del origen y trazabilidad de intención, a resolver antes de cerrar C10.
 - C10-04 pendiente: narrativa visual, descubrimiento y refinamiento de marca.
 
 ## Qué debe revisar el agente
@@ -45,3 +46,5 @@ C10 está parcialmente completada y preparada para revisión externa:
 ## Regla para la revisión
 
 El agente debe revisar, criticar y documentar. No debe ampliar el alcance ni implementar C10-04 sin dejar una propuesta de alcance, hipótesis y criterios QA.
+
+La revisión externa de Drive queda incorporada en `docs/C10-03.1-ALCANCE.md`; C10-03.1 debe ejecutarse en una rama `agent/...` separada del handoff.
