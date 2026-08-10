@@ -1,6 +1,6 @@
 # C9 — Criterios QA
 
-Estado: preparado para ejecución después de aprobar el alcance.
+Estado: ejecutado y aprobado localmente — 2026-08-09.
 
 ## Funcional
 
@@ -9,10 +9,10 @@ Estado: preparado para ejecución después de aprobar el alcance.
 - [x] El CTA cambia de forma comprensible según el estado del local.
 - [x] El resumen permite editar cantidades, modificadores y eliminar líneas.
 - [x] Agregar un producto produce feedback visible.
-- [ ] El pedido conserva su selección mientras se navega por el menú.
+- [x] El pedido conserva su selección mientras se navega por el menú.
 - [x] Destacados y agotados se muestran con texto claro, si P1 entra en la etapa.
 - [x] La búsqueda por nombre, descripción o categoría funciona.
-- [ ] C7 y C8 no presentan regresiones.
+- [x] C7 y C8 no presentan regresiones.
 
 ## UX, responsive y accesibilidad
 
@@ -22,21 +22,21 @@ Estado: preparado para ejecución después de aprobar el alcance.
 - [x] Foco inicial y teclado funcionan en selector, resumen y acciones.
 - [x] Botones, estados y drawers tienen nombres accesibles.
 - [x] Feedback y estados no dependen solo de color o animación.
-- [ ] Loading, error, vacío y selección inválida tienen mensajes claros.
+- [x] Loading, error, vacío y selección inválida tienen mensajes claros.
 
 ## Seguridad y alcance
 
-- [ ] Solo administración autenticada modifica horarios, estado y destacados.
-- [ ] No se agregan pagos, webhooks ni credenciales de clientes.
-- [ ] El total continúa marcado como informativo.
-- [ ] No se crea un pedido interno automáticamente desde el menú.
+- [x] Solo administración autenticada modifica horarios, estado y destacados.
+- [x] No se agregan pagos, webhooks ni credenciales de clientes.
+- [x] El total continúa marcado como informativo.
+- [x] No se crea un pedido interno automáticamente desde el menú.
 
 ## Definition of Done
 
-- [ ] Alcance P0 aprobado y P1 decidido.
-- [ ] Decisiones UX documentadas.
-- [ ] UI revisada en navegador local y contrastada con `pantallas.pen`/pen.dev cuando corresponda.
-- [ ] Tests, lint, audit y build aprobados.
-- [ ] Smoke C7+C8+C9 aprobado.
-- [ ] Demo local aprobada.
-- [ ] Acta, estado y roadmap actualizados.
+- [x] Alcance P0 aprobado y P1 decidido.
+- [x] Decisiones UX documentadas.
+- [x] UI revisada en navegador local y contrastada con la fuente editable local cuando correspondía.
+- [x] Tests, lint, audit y build aprobados.
+- [x] Smoke C7+C8+C9 aprobado.
+- [x] Demo local aprobada.
+- [x] Acta, estado y roadmap actualizados.

@@ -1,6 +1,6 @@
 # Plan de implementación C9
 
-Estado: plan aprobado; C9-01 completado localmente — 2026-08-09.
+Estado: C9 cerrado como MVP local — 2026-08-09.
 
 ## Secuencia metodológica
 
@@ -28,9 +28,9 @@ La infraestructura de destacados y disponibilidad existente se conserva. Se agre
 
 Revisión mobile 390 × 844 y desktop, foco inicial en diálogos, labels, descripciones y movimiento reducido. Evidencia en [`QA-C9-04.md`](QA-C9-04.md).
 
-### C9-05 — QA y demo
+### C9-05 — QA y demo — COMPLETADO LOCALMENTE
 
-Ejecutar tests, lint, audit, build, smoke C7+C8+C9, revisión manual y acta de cierre.
+Tests, lint, audit, build, smoke C7+C8+C9, revisión manual y acta de cierre completados. Evidencia en [`QA-C9-FINAL.md`](QA-C9-FINAL.md) y [`C9-ACTA-CIERRE.md`](C9-ACTA-CIERRE.md).
 
 ## Gate entre bloques
 

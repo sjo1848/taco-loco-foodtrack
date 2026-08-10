@@ -13,7 +13,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - Fase 5 técnica: cerrada en la documentación espejo.
 - Fase 6 QA/backlog: cerrada en la documentación espejo.
 - Gate de construcción: abierto.
-- Etapa actual: C8 cerrado como MVP local; no es un release productivo.
+- Etapa actual: C9 cerrado como MVP UX local; no es un release productivo.
 - C1: implementado y validado localmente.
 - C2 catálogo: TL-010 a TL-014 implementados y validados localmente.
 - C2 auth: TL-015/016 implementados y validados localmente.
@@ -27,11 +27,12 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - C8-04: bandeja, filtros, alta visual, detalle, timeline y acciones operativas implementados y validados localmente; evidencia en [`QA-C8-04.md`](QA-C8-04.md).
 - C8-05: estados de carga/error, bloqueo de doble envío, sesión expirada, errores de red y regresión C7 implementados y validados; evidencia en [`QA-C8-05.md`](QA-C8-05.md).
 - C8-06: QA integral, demo interna y cierre del MVP local aprobados; evidencia en [`QA-C8-FINAL.md`](QA-C8-FINAL.md) y [`C8-ACTA-CIERRE.md`](C8-ACTA-CIERRE.md).
-- C9: planificación UX aprobada y en implementación incremental local.
+- C9: planificación UX implementada y cerrada como MVP local; evidencia final en [`QA-C9-FINAL.md`](QA-C9-FINAL.md) y [`C9-ACTA-CIERRE.md`](C9-ACTA-CIERRE.md).
 - C9-01: contexto operativo implementado y validado localmente; evidencia en [`QA-C9-01.md`](QA-C9-01.md).
-- C9-02: resumen editable, quitar/vaciar pedido, feedback accesible y CTA contextual implementados y validados localmente; evidencia en [`QA-C9-02.md`](QA-C9-02.md). C9-03 es el próximo bloque.
-- C9-03: búsqueda por nombre, descripción o categoría y estado vacío implementados y validados localmente; evidencia en [`QA-C9-03.md`](QA-C9-03.md). C9-04 es el próximo bloque.
-- C9-04: responsive, foco accesible, descripciones de diálogos y movimiento reducido implementados y validados localmente; evidencia en [`QA-C9-04.md`](QA-C9-04.md). C9-05 es el próximo bloque.
+- C9-02: resumen editable, quitar/vaciar pedido, feedback accesible y CTA contextual implementados y validados localmente; evidencia en [`QA-C9-02.md`](QA-C9-02.md).
+- C9-03: búsqueda por nombre, descripción o categoría y estado vacío implementados y validados localmente; evidencia en [`QA-C9-03.md`](QA-C9-03.md).
+- C9-04: responsive, foco accesible, descripciones de diálogos y movimiento reducido implementados y validados localmente; evidencia en [`QA-C9-04.md`](QA-C9-04.md).
+- C9-05: QA integral, demo local y regresión C7+C8+C9 aprobadas; evidencia en [`QA-C9-FINAL.md`](QA-C9-FINAL.md) y [`C9-ACTA-CIERRE.md`](C9-ACTA-CIERRE.md).
 - C3 frontend público: TL-020 a TL-028 implementados y validados localmente.
 - C4 administración: TL-030 a TL-039 implementados y validados localmente.
 - C5 integración/hardening: automatización base, smoke Playwright local y hardening implementados; pendientes CI browser matrix y evidencia de backup/restore productivo.
@@ -42,9 +43,9 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 
 ## Próxima secuencia
 
-1. Ejecutar C9-05: QA integral, demo y cierre.
-3. Completar únicamente cuando corresponda los inputs de producción: email, dominio/HTTPS, R2, backup offsite y referencias de 5 imágenes.
-4. Respaldar en Drive únicamente cuando el usuario lo solicite.
+1. Observar la demo local y recoger feedback real de uso.
+2. Completar únicamente cuando corresponda los inputs de producción: email, dominio/HTTPS, R2, backup offsite y referencias de 5 imágenes.
+3. Respaldar en Drive únicamente cuando el usuario lo solicite.
 
 ## Próximo ciclo
 
