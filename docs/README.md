@@ -36,6 +36,8 @@ La documentación de trabajo vive en este repositorio. La carpeta `docs/drive/` 
 - Evidencia de QA C8-03 en [`QA-C8-03.md`](QA-C8-03.md).
 - Evidencia de QA C8-04 en [`QA-C8-04.md`](QA-C8-04.md).
 - Evidencia de QA C8-05 en [`QA-C8-05.md`](QA-C8-05.md).
+- Evidencia de QA final C8 en [`QA-C8-FINAL.md`](QA-C8-FINAL.md).
+- Acta de cierre del MVP local C8 en [`C8-ACTA-CIERRE.md`](C8-ACTA-CIERRE.md).
 - Planificación C8: [`C8-ANALISIS-PLAN-MAESTRO.md`](C8-ANALISIS-PLAN-MAESTRO.md), [`C8-ALCANCE-OPERACION-WHATSAPP.md`](C8-ALCANCE-OPERACION-WHATSAPP.md), [`C8-PLAN-IMPLEMENTACION.md`](C8-PLAN-IMPLEMENTACION.md), [`C8-QA-CRITERIA.md`](C8-QA-CRITERIA.md) y [`DECISION-002-C8-OPERACION.md`](DECISION-002-C8-OPERACION.md).
 
 ## Especificación visual local
