@@ -7,7 +7,7 @@ import { FeaturedProductCard } from "@/components/public/FeaturedProductCard";
 import { ProductCard } from "@/components/public/ProductCard";
 import { SaucesInfo } from "@/components/public/SaucesInfo";
 import { filterCatalog } from "@/modules/catalog/discovery";
-import { buildWhatsAppMessage, addSelectionLine, lineId, removeSelectionLine, selectionCount, selectionTotal, updateSelectionQuantity, type SelectionLine } from "@/modules/selection/model";
+import { buildWhatsAppMessage, buildWhatsAppUrl, createClientReference, addSelectionLine, lineId, removeSelectionLine, selectionCount, selectionTotal, updateSelectionQuantity, type SelectionLine } from "@/modules/selection/model";
 
 type Product = { id: string; name: string; description: string | null; priceAmount: number; available: boolean; featured: boolean; imageKey: string | null; imageAlt: string | null; modifiers: Array<{ name: string; required: boolean; minSelections: number | null; maxSelections: number | null; options: string[] }> };
 type Menu = { settings: { businessName: string; whatsappUrl: string; operatingContext: { isOpen: boolean; label: string; detail: string } }; categories: Array<{ id: string; name: string; slug: string; products: Product[] }> };
@@ -34,7 +34,7 @@ export function MenuExperience({ menu }: { menu: Menu }) {
   const total = selectionTotal(lines);
   const selectionSignature = useMemo(() => JSON.stringify(lines.map(({ productId, quantity, modifiers }) => ({ productId, quantity, modifiers }))), [lines]);
   const currentOrderIntent = orderIntent?.signature === selectionSignature ? orderIntent : null;
-  const whatsappHref = useMemo(() => lines.length > 0 ? `https://wa.me/?text=${encodeURIComponent(buildWhatsAppMessage(lines, menu.settings.businessName))}` : menu.settings.whatsappUrl, [lines, menu.settings.businessName, menu.settings.whatsappUrl]);
+  const whatsappHref = useMemo(() => lines.length > 0 ? buildWhatsAppUrl(menu.settings.whatsappUrl, buildWhatsAppMessage(lines, menu.settings.businessName)) : menu.settings.whatsappUrl, [lines, menu.settings.businessName, menu.settings.whatsappUrl]);
 
   useEffect(() => {
     let timer: number | undefined;
@@ -167,7 +167,7 @@ export function MenuExperience({ menu }: { menu: Menu }) {
     event.preventDefault();
     if (submittingOrder) return;
     const popup = window.open("about:blank", "_blank", "noopener,noreferrer");
-    const clientReference = currentOrderIntent?.reference ?? crypto.randomUUID();
+    const clientReference = currentOrderIntent?.reference ?? createClientReference();
     setSubmittingOrder(true);
     setFeedbackMessage("Preparando tu pedido para WhatsApp…");
     try {

@@ -38,3 +38,7 @@ Pagos, delivery, tracking, login de clientes, marketplace, bot/webhook de WhatsA
 - [ ] El motion permanente queda reducido a la firma de marca; feedback y sheets conservan transición.
 - [ ] `prefers-reduced-motion` continúa respetándose.
 - [ ] Typecheck, lint, tests, audit y build pasan.
+
+## Nota sobre WhatsApp
+
+El alcance prepara y abre el chat externo con el mensaje prellenado. El envío automático requiere WhatsApp Business Cloud API y no forma parte de C10.

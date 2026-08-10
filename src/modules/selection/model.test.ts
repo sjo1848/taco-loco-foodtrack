@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addSelectionLine, buildWhatsAppMessage, removeSelectionLine, selectionCount, selectionTotal, updateSelectionQuantity, type SelectionLine } from "@/modules/selection/model";
+import { addSelectionLine, buildWhatsAppMessage, buildWhatsAppUrl, createClientReference, removeSelectionLine, selectionCount, selectionTotal, updateSelectionQuantity, type SelectionLine } from "@/modules/selection/model";
 
 const taco: Omit<SelectionLine, "id" | "quantity"> = { productId: "taco", name: "Taco x2", priceAmount: 5000, modifiers: [{ group: "Salsa", option: "Picante" }] };
 
@@ -22,5 +22,16 @@ describe("selection model", () => {
     const capped = Array.from({ length: 20 }, () => line).reduce((lines) => addSelectionLine(lines, line), [] as SelectionLine[]);
     expect(capped[0].quantity).toBe(20);
     expect(removeSelectionLine(capped, capped[0].id)).toEqual([]);
+  });
+
+  it("preserves the configured WhatsApp destination when adding the message", () => {
+    const url = buildWhatsAppUrl("https://wa.me/5492615956912?text=Mensaje%20base", "Hola Taco Loco");
+    expect(url).toContain("https://wa.me/5492615956912");
+    expect(new URL(url).searchParams.get("text")).toBe("Hola Taco Loco");
+  });
+
+  it("creates an idempotency reference without requiring randomUUID", () => {
+    const reference = createClientReference();
+    expect(reference.length).toBeGreaterThanOrEqual(16);
   });
 });
