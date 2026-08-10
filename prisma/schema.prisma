@@ -37,6 +37,7 @@ enum OrderFulfillment {
 
 enum OrderSource {
   WHATSAPP
+  PUBLIC_MENU
 }
 
 model Order {

@@ -1,13 +1,13 @@
 # Plan de implementación C10
 
-Estado: C10-03 completado; C10-03.1 planificado; C10-04 queda después de la corrección — 2026-08-10.
+Estado: C10-03 completado; C10-03.1 implementado y pendiente de CI/revisión; C10-04 queda después de la corrección — 2026-08-10.
 
 ## Secuencia
 
 1. C10-01 — motion base y feedback de selección.
 2. C10-02 — flujo por capas, cantidades y resumen móvil — COMPLETADO.
 3. C10-03 — registro de intención y confirmación previa a WhatsApp — COMPLETADO.
-4. C10-03.1 — semántica y trazabilidad de intención — PLANIFICADO.
+4. C10-03.1 — semántica y trazabilidad de intención — IMPLEMENTADO; pendiente de CI/revisión.
 5. C10-04 — narrativa visual, descubrimiento y refinamiento de marca — después de C10-03.1.
 
 ## Gate de ciclo

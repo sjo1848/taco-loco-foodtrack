@@ -16,7 +16,7 @@ function modifiers(value: unknown) { if (!Array.isArray(value)) return ""; retur
 type Context = { params: Promise<{ id: string }> };
 type OrderLine = { id: string; quantity: number; productName: string; unitPriceAmount: number; modifiersSnapshot: unknown; note: string | null };
 type OrderEvent = { id: string; fromStatus: string | null; toStatus: string; reason: string | null; createdAt: Date; actor: { email: string } | null };
-type OrderDetail = { id: string; orderNumber: number; status: "RECEIVED" | "CONFIRMED" | "IN_PREPARATION" | "READY" | "DELIVERED" | "CANCELLED"; customerName: string | null; customerPhone: string | null; fulfillment: "PICKUP" | "DINE_IN"; tableLabel: string | null; totalAmount: number; subtotalAmount: number; adjustmentAmount: number; notes: string | null; cancellationReason: string | null; createdAt: Date; createdBy: { email: string } | null; lines: OrderLine[]; events: OrderEvent[] };
+type OrderDetail = { id: string; orderNumber: number; status: "RECEIVED" | "CONFIRMED" | "IN_PREPARATION" | "READY" | "DELIVERED" | "CANCELLED"; source: "WHATSAPP" | "PUBLIC_MENU"; customerName: string | null; customerPhone: string | null; fulfillment: "PICKUP" | "DINE_IN"; tableLabel: string | null; totalAmount: number; subtotalAmount: number; adjustmentAmount: number; notes: string | null; cancellationReason: string | null; createdAt: Date; createdBy: { email: string } | null; lines: OrderLine[]; events: OrderEvent[] };
 
 export default async function OrderDetailPage(context: Context) {
   const user = await getCurrentAdmin();

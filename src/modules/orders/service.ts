@@ -69,7 +69,7 @@ function resolveModifiers(product: ManualProduct, modifiers: CreateManualOrderIn
   return modifiers.map((modifier) => ({ group: modifier.group, option: grouped.get(modifier.group)?.shift() ?? modifier.option }));
 }
 
-export async function createManualOrder(input: unknown, actorId: string | null, clientReference: string | null = null, reason = "Pedido registrado manualmente") {
+export async function createManualOrder(input: unknown, actorId: string | null, clientReference: string | null = null, reason = "Pedido registrado manualmente", source: "WHATSAPP" | "PUBLIC_MENU" = "WHATSAPP") {
   const parsed = createManualOrderInputSchema.parse(input);
   return db.$transaction(async (tx: { product: typeof db.product; order: typeof db.order; orderEvent: typeof db.orderEvent }) => {
     const productIds = [...new Set(parsed.lines.map((line) => line.productId))];
@@ -85,6 +85,7 @@ export async function createManualOrder(input: unknown, actorId: string | null, 
     if (totalAmount < 0) throw new AppError("INVALID_ORDER_TOTAL", "El total del pedido no puede ser negativo.", 400);
     const order = await tx.order.create({
       data: {
+        source,
         fulfillment: parsed.fulfillment,
         customerName: parsed.customerName ?? null,
         customerPhone: parsed.customerPhone ?? null,
@@ -109,7 +110,7 @@ export async function createPublicOrderIntent(input: unknown) {
   const existing = await db.order.findUnique({ where: { clientReference: parsed.clientReference }, include: { lines: true } });
   if (existing) return { order: existing, event: null, reused: true };
   try {
-    return await createManualOrder({ fulfillment: "PICKUP", customerName: null, customerPhone: null, tableLabel: null, notes: "Intención registrada desde el menú. Confirmar recepción por WhatsApp.", adjustmentAmount: 0, lines: parsed.lines }, null, parsed.clientReference, "Intención preparada desde el menú público");
+    return await createManualOrder({ fulfillment: "PICKUP", customerName: null, customerPhone: null, tableLabel: null, notes: "Intención registrada desde el menú. Confirmar recepción por WhatsApp.", adjustmentAmount: 0, lines: parsed.lines }, null, parsed.clientReference, "Intención preparada desde el menú público", "PUBLIC_MENU");
   } catch (error) {
     if (error && typeof error === "object" && "code" in error && error.code === "P2002") {
       const concurrent = await db.order.findUniqueOrThrow({ where: { clientReference: parsed.clientReference }, include: { lines: true } });

@@ -83,6 +83,8 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .selection-bar--updated { animation: selection-bar-update var(--motion-emphasis) var(--ease-emphasis); }
 .selection-bar strong { color: var(--yellow); }
 .order-intent-feedback { position: fixed; right: 16px; bottom: 132px; left: 16px; z-index: 19; width: min(100% - 32px, 748px); margin: auto; padding: 10px 14px; border: 1px solid var(--green); border-radius: 12px; background: rgba(37,131,63,.16); color: #c5f0cc; font-size: .8rem; text-align: center; animation: selection-bar-in var(--motion-base) var(--ease-emphasis) both; }
+.order-source { display: inline-flex; width: fit-content; padding: 3px 7px; border-radius: 999px; font-size: .68rem; font-weight: 700; line-height: 1.2; }
+.order-source--pending { color: #ffe19b; background: rgba(244,183,43,.16); }
 .selection-remove, .selection-clear { border: 0; background: transparent; color: #9b5e50; font: inherit; font-size: .78rem; cursor: pointer; }
 .selection-clear { margin-top: 14px; padding: 4px 0; text-decoration: underline; }
 .selection-error { margin: 8px 0 0; color: #9b2f2f; font-size: .86rem; font-weight: 700; }
