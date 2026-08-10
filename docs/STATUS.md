@@ -13,7 +13,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - Fase 5 técnica: cerrada en la documentación espejo.
 - Fase 6 QA/backlog: cerrada en la documentación espejo.
 - Gate de construcción: abierto.
-- Etapa actual: C7 cerrado; C8 plan operativo cerrado, listo para implementación local.
+- Etapa actual: C8 cerrado como MVP local; no es un release productivo.
 - C1: implementado y validado localmente.
 - C2 catálogo: TL-010 a TL-014 implementados y validados localmente.
 - C2 auth: TL-015/016 implementados y validados localmente.
@@ -22,10 +22,11 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - QA visual local: menú verificado en desktop y mobile con Playwright; imágenes, CTA WhatsApp y estados sin imagen verificados.
 - C7: cerrado localmente; selección opcional, cantidades, modificadores canónicos, resumen editable, sessionStorage, composer de WhatsApp y motion UI validados.
 - C8-01: contrato y esquema de pedidos implementado y validado localmente; evidencia en [`QA-C8-01.md`](QA-C8-01.md).
-- C8-02: transiciones transaccionales y auditoría implementadas y validadas localmente; evidencia en [`QA-C8-02.md`](QA-C8-02.md). C8-03 es el próximo bloque.
-- C8-03: alta manual protegida por admin, snapshots server-side y evento inicial implementados y validados localmente; evidencia en [`QA-C8-03.md`](QA-C8-03.md). C8-04 es el próximo bloque.
-- C8-04: bandeja, filtros, alta visual, detalle, timeline y acciones operativas implementados y validados localmente; evidencia en [`QA-C8-04.md`](QA-C8-04.md). C8-05 es el próximo bloque.
-- C8-05: estados de carga/error, bloqueo de doble envío, sesión expirada, errores de red y regresión C7 implementados y validados; evidencia en [`QA-C8-05.md`](QA-C8-05.md). C8-06 es el próximo bloque.
+- C8-02: transiciones transaccionales y auditoría implementadas y validadas localmente; evidencia en [`QA-C8-02.md`](QA-C8-02.md).
+- C8-03: alta manual protegida por admin, snapshots server-side y evento inicial implementados y validados localmente; evidencia en [`QA-C8-03.md`](QA-C8-03.md).
+- C8-04: bandeja, filtros, alta visual, detalle, timeline y acciones operativas implementados y validados localmente; evidencia en [`QA-C8-04.md`](QA-C8-04.md).
+- C8-05: estados de carga/error, bloqueo de doble envío, sesión expirada, errores de red y regresión C7 implementados y validados; evidencia en [`QA-C8-05.md`](QA-C8-05.md).
+- C8-06: QA integral, demo interna y cierre del MVP local aprobados; evidencia en [`QA-C8-FINAL.md`](QA-C8-FINAL.md) y [`C8-ACTA-CIERRE.md`](C8-ACTA-CIERRE.md).
 - C3 frontend público: TL-020 a TL-028 implementados y validados localmente.
 - C4 administración: TL-030 a TL-039 implementados y validados localmente.
 - C5 integración/hardening: automatización base, smoke Playwright local y hardening implementados; pendientes CI browser matrix y evidencia de backup/restore productivo.
@@ -36,14 +37,14 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 
 ## Próxima secuencia
 
-1. Implementar C8-01: contrato y esquema local de pedido.
-2. Ejecutar C8-06: QA integral y demo interna de C8.
-4. Ejecutar QA y demo interna de C8.
-5. Respaldar en Drive únicamente cuando el usuario lo solicite.
+1. Observar el demo local y registrar feedback real de uso.
+2. Definir si el siguiente ciclo es C9 — mejoras naturales — o hardening de producción.
+3. Completar únicamente cuando corresponda los inputs de producción: email, dominio/HTTPS, R2, backup offsite y referencias de 5 imágenes.
+4. Respaldar en Drive únicamente cuando el usuario lo solicite.
 
 ## Próximo ciclo
 
-Comenzar C8-01 con los defaults definidos en [C8-ANALISIS-PLAN-MAESTRO.md](./C8-ANALISIS-PLAN-MAESTRO.md). La observación operativa se incorpora como validación paralela.
+La observación operativa queda como validación posterior al cierre. No se inicia producción ni pagos automáticamente.
 
 ## Regla de decisión
 

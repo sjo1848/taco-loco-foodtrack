@@ -1,7 +1,7 @@
 # C8 — Análisis completo y plan maestro
 
-Estado: aprobado como plan de trabajo interno — 2026-08-09  
-Implementación: pendiente de comenzar después de validar el circuito operativo con una prueba controlada.
+Estado: implementado y cerrado como MVP local — 2026-08-09
+Implementación: C8-01 a C8-06 completados; producción deliberadamente fuera de alcance.
 
 ## 1. Decisión ejecutiva
 
