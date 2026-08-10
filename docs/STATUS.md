@@ -27,7 +27,8 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - C8-04: bandeja, filtros, alta visual, detalle, timeline y acciones operativas implementados y validados localmente; evidencia en [`QA-C8-04.md`](QA-C8-04.md).
 - C8-05: estados de carga/error, bloqueo de doble envío, sesión expirada, errores de red y regresión C7 implementados y validados; evidencia en [`QA-C8-05.md`](QA-C8-05.md).
 - C8-06: QA integral, demo interna y cierre del MVP local aprobados; evidencia en [`QA-C8-FINAL.md`](QA-C8-FINAL.md) y [`C8-ACTA-CIERRE.md`](C8-ACTA-CIERRE.md).
-- C9: planificación UX creada localmente; pendiente de revisión y aprobación de alcance antes de implementar.
+- C9: planificación UX aprobada y en implementación incremental local.
+- C9-01: contexto operativo implementado y validado localmente; evidencia en [`QA-C9-01.md`](QA-C9-01.md). C9-02 es el próximo bloque.
 - C3 frontend público: TL-020 a TL-028 implementados y validados localmente.
 - C4 administración: TL-030 a TL-039 implementados y validados localmente.
 - C5 integración/hardening: automatización base, smoke Playwright local y hardening implementados; pendientes CI browser matrix y evidencia de backup/restore productivo.
@@ -38,8 +39,8 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 
 ## Próxima secuencia
 
-1. Revisar y aprobar el alcance P0 de C9.
-2. Implementar C9-01 a C9-05 por bloques, con QA local entre cada uno.
+1. Implementar C9-02: mejora del flujo de pedido UX.
+2. Implementar C9-03 a C9-05 por bloques, con QA local entre cada uno.
 3. Completar únicamente cuando corresponda los inputs de producción: email, dominio/HTTPS, R2, backup offsite y referencias de 5 imágenes.
 4. Respaldar en Drive únicamente cuando el usuario lo solicite.
 

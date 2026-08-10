@@ -1,6 +1,6 @@
 # Plan de implementación C9
 
-Estado: plan propuesto para revisión — 2026-08-09.
+Estado: plan aprobado; C9-01 completado localmente — 2026-08-09.
 
 ## Secuencia metodológica
 
@@ -12,9 +12,9 @@ Estado: plan propuesto para revisión — 2026-08-09.
 
 ## Bloques
 
-### C9-01 — Contexto operativo
+### C9-01 — Contexto operativo — COMPLETADO LOCALMENTE
 
-Modelar horarios, estado manual y excepción temporal. Mostrar la decisión en el menú y adaptar el CTA.
+Modelado de horarios, estado manual y pausa temporal. El menú muestra el contexto y adapta el CTA. Evidencia en [`QA-C9-01.md`](QA-C9-01.md).
 
 ### C9-02 — Flujo de pedido UX
 

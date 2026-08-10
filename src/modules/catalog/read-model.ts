@@ -1,8 +1,9 @@
 import { db } from "@/lib/db";
 import { normalizeWhatsAppUrl, type PublicSettings } from "@/modules/settings/service";
+import { getOperatingContext } from "@/modules/settings/operating-context";
 
 export type MenuReadModel = {
-  settings: PublicSettings & { whatsappUrl: string };
+  settings: PublicSettings & { whatsappUrl: string; operatingContext: ReturnType<typeof getOperatingContext> };
   categories: Array<{
     id: string;
     name: string;
@@ -22,7 +23,7 @@ export type MenuReadModel = {
 };
 
 type ReadModelInput = {
-  settings: { businessName: string; whatsappPhone: string; whatsappMessage: string; currency: string };
+  settings: { businessName: string; whatsappPhone: string; whatsappMessage: string; currency: string; acceptingOrders: boolean; statusMessage: string | null; weeklySchedule: unknown };
   categories: Array<{
     id: string; name: string; slug: string;
     products: Array<{
@@ -39,7 +40,11 @@ export function buildMenuReadModel(input: ReadModelInput): MenuReadModel {
       whatsappPhone: input.settings.whatsappPhone,
       whatsappMessage: input.settings.whatsappMessage,
       currency: "ARS",
+      acceptingOrders: input.settings.acceptingOrders,
+      statusMessage: input.settings.statusMessage,
+      weeklySchedule: input.settings.weeklySchedule as PublicSettings["weeklySchedule"],
       whatsappUrl: normalizeWhatsAppUrl(input.settings.whatsappPhone, input.settings.whatsappMessage),
+      operatingContext: getOperatingContext(input.settings),
     },
     categories: input.categories.map((category) => ({
       id: category.id,

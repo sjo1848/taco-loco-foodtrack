@@ -9,7 +9,7 @@ async function main() {
   const existingAdmin = await prisma.adminUser.findUnique({ where: { email } });
   const admin = existingAdmin ?? await prisma.adminUser.create({ data: { email, passwordHash: await hashPassword(password) } });
   if (existingAdmin && !existingAdmin.passwordHash.startsWith("scrypt$")) await prisma.adminUser.update({ where: { id: existingAdmin.id }, data: { passwordHash: await hashPassword(password) } });
-  await prisma.menuSettings.upsert({ where: { id: "00000000-0000-0000-0000-000000000001" }, update: { businessName: "Taco Loco", whatsappPhone: "5492615956912", whatsappMessage: "Hola Taco Loco, quiero hacer un pedido." }, create: { id: "00000000-0000-0000-0000-000000000001", businessName: "Taco Loco", whatsappPhone: "5492615956912", whatsappMessage: "Hola Taco Loco, quiero hacer un pedido.", currency: "ARS" } });
+  await prisma.menuSettings.upsert({ where: { id: "00000000-0000-0000-0000-000000000001" }, update: { businessName: "Taco Loco", whatsappPhone: "5492615956912", whatsappMessage: "Hola Taco Loco, quiero hacer un pedido.", acceptingOrders: true, statusMessage: null }, create: { id: "00000000-0000-0000-0000-000000000001", businessName: "Taco Loco", whatsappPhone: "5492615956912", whatsappMessage: "Hola Taco Loco, quiero hacer un pedido.", currency: "ARS", acceptingOrders: true, weeklySchedule: [] } });
   const categoryNames = ["Tacos", "Nachos", "Quesadillas", "Pizzas", "Más delicias", "Bebidas", "Tragos"];
   const categories = new Map<string, string>();
   for (const [sortOrder, name] of categoryNames.entries()) {

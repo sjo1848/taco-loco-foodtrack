@@ -4,9 +4,9 @@ Estado: preparado para ejecución después de aprobar el alcance.
 
 ## Funcional
 
-- [ ] El estado abierto/cerrado se configura desde administración.
-- [ ] Los horarios y excepciones se muestran correctamente.
-- [ ] El CTA cambia de forma comprensible según el estado del local.
+- [x] El estado abierto/cerrado se configura desde administración.
+- [x] Los horarios y excepciones se muestran correctamente mediante configuración semanal y pausa manual.
+- [x] El CTA cambia de forma comprensible según el estado del local.
 - [ ] El resumen permite editar cantidades, modificadores y eliminar líneas.
 - [ ] Agregar un producto produce feedback visible.
 - [ ] El pedido conserva su selección mientras se navega por el menú.
