@@ -7,8 +7,8 @@ Estado: preparado para ejecución después de aprobar el alcance.
 - [x] El estado abierto/cerrado se configura desde administración.
 - [x] Los horarios y excepciones se muestran correctamente mediante configuración semanal y pausa manual.
 - [x] El CTA cambia de forma comprensible según el estado del local.
-- [ ] El resumen permite editar cantidades, modificadores y eliminar líneas.
-- [ ] Agregar un producto produce feedback visible.
+- [x] El resumen permite editar cantidades, modificadores y eliminar líneas.
+- [x] Agregar un producto produce feedback visible.
 - [ ] El pedido conserva su selección mientras se navega por el menú.
 - [ ] Destacados y agotados se muestran con texto claro, si P1 entra en la etapa.
 - [ ] La búsqueda por nombre funciona, si P1 entra en la etapa.

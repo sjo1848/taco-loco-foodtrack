@@ -16,8 +16,12 @@ export function lineId(productId: string, modifiers: SelectionModifier[]) {
 export function addSelectionLine(lines: SelectionLine[], line: Omit<SelectionLine, "id" | "quantity">) {
   const id = lineId(line.productId, line.modifiers);
   const existing = lines.find((item) => item.id === id);
-  if (existing) return lines.map((item) => item.id === id ? { ...item, quantity: item.quantity + 1 } : item);
+  if (existing) return lines.map((item) => item.id === id ? { ...item, quantity: Math.min(item.quantity + 1, 20) } : item);
   return [...lines, { ...line, id, quantity: 1 }];
+}
+
+export function removeSelectionLine(lines: SelectionLine[], id: string) {
+  return lines.filter((item) => item.id !== id);
 }
 
 export function updateSelectionQuantity(lines: SelectionLine[], id: string, quantity: number) {
