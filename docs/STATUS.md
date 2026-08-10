@@ -33,7 +33,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - C9-03: búsqueda por nombre, descripción o categoría y estado vacío implementados y validados localmente; evidencia en [`QA-C9-03.md`](QA-C9-03.md).
 - C9-04: responsive, foco accesible, descripciones de diálogos y movimiento reducido implementados y validados localmente; evidencia en [`QA-C9-04.md`](QA-C9-04.md).
 - C9-05: QA integral, demo local y regresión C7+C8+C9 aprobadas; evidencia en [`QA-C9-FINAL.md`](QA-C9-FINAL.md) y [`C9-ACTA-CIERRE.md`](C9-ACTA-CIERRE.md).
-- C10: planificación iterativa UX creada; C10-01, C10-02 y C10-03 aprobados. C10-03.1 está implementado en rama `agent/c10-03-1-intent-semantics` y pendiente de CI/revisión; corrige la semántica del origen y distingue intenciones web pendientes de WhatsApp antes de C10-04. Alcance en [`C10-03.1-ALCANCE.md`](C10-03.1-ALCANCE.md) y evidencia en [`QA-C10-03.1.md`](QA-C10-03.1.md).
+- C10: C10-01, C10-02 y C10-03 aprobados; C10-03.1 y C10-04 implementados en ramas `agent/...`, pendientes de QA/revisión. C10-04 corrige foco modal, objetivos táctiles, safe-area/stacking y reduce motion permanente. Alcance en [`C10-04-ALCANCE.md`](C10-04-ALCANCE.md).
 - C3 frontend público: TL-020 a TL-028 implementados y validados localmente.
 - C4 administración: TL-030 a TL-039 implementados y validados localmente.
 - C5 integración/hardening: automatización base, smoke Playwright local y hardening implementados; pendientes CI browser matrix y evidencia de backup/restore productivo.

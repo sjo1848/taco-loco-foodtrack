@@ -8,7 +8,7 @@ a { color: inherit; }
 h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .lede { color: var(--muted); font-size: 1.1rem; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.25rem; border: 0; border-radius: .75rem; background: var(--red); color: white; text-decoration: none; font-weight: 700; width: fit-content; cursor: pointer; }
-.public-menu { min-height: 100svh; padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+.public-menu { min-height: 100svh; padding-bottom: calc(150px + env(safe-area-inset-bottom)); }
 .brand-header { display: flex; align-items: center; gap: 12px; max-width: 780px; margin: 0 auto; padding: 16px; }
 .brand-logo { width: 68px; height: 68px; flex: 0 0 auto; border: 2px solid var(--yellow); border-radius: 14px; background: #fff; object-fit: contain; }
 .brand-name { position: relative; width: fit-content; margin: 0; padding-bottom: .48em; font-size: 1.35rem; font-weight: 900; letter-spacing: -.03em; }
@@ -20,13 +20,12 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .brand-name__cheese i:nth-child(2) { left: 53%; height: .43em; animation: cheese-drip-long 3.2s ease-in-out infinite; }
 .brand-name__cheese i:nth-child(3) { right: 9%; height: .22em; animation: cheese-drip-short 2.9s .55s ease-in-out infinite; }
 .brand-tagline { display: flex; align-items: center; gap: .42rem; margin: 7px 0 0; color: var(--muted); font-size: .85rem; letter-spacing: .01em; }
-.brand-tagline > span:nth-child(2) { background: linear-gradient(100deg, var(--muted) 20%, var(--cream) 45%, var(--yellow) 52%, var(--muted) 75%); background-size: 220% 100%; background-clip: text; -webkit-background-clip: text; color: transparent; animation: tagline-shimmer 4.8s ease-in-out infinite; }
-.brand-tagline__spark { color: var(--yellow); font-size: .65rem; animation: spark-pulse 1.8s ease-in-out infinite; }
-.brand-tagline__spark:last-child { animation-delay: .9s; }
+.brand-tagline > span:nth-child(2) { color: var(--muted); }
+.brand-tagline__spark { color: var(--yellow); font-size: .65rem; }
 .category-nav { position: sticky; top: 0; z-index: 10; border-block: 1px solid var(--border); background: rgba(14,14,13,.94); backdrop-filter: blur(8px); }
 .category-nav__scroll { display: flex; gap: 8px; max-width: 780px; margin: 0 auto; padding: 8px 16px; overflow-x: auto; scrollbar-width: none; }
 .category-nav__scroll::-webkit-scrollbar { display: none; }
-.category-chip { min-height: 40px; display: inline-flex; align-items: center; flex: 0 0 auto; padding: 0 15px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); text-decoration: none; font-size: .9rem; white-space: nowrap; }
+.category-chip { min-height: 44px; display: inline-flex; align-items: center; flex: 0 0 auto; padding: 0 15px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); text-decoration: none; font-size: .9rem; white-space: nowrap; }
 .category-chip:hover, .category-chip:focus-visible { border-color: var(--yellow); color: var(--yellow); outline: none; }
 .public-menu__content { max-width: 780px; margin: 0 auto; padding: 24px 16px 0; }
 .public-menu__intro { margin-bottom: 28px; }
@@ -45,7 +44,7 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .product-card__description { margin: 7px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.35; }
 .product-card__footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; }
 .product-card__price { margin: 0; color: var(--yellow); font-size: 1.2rem; font-weight: 800; }
-.product-card__add { min-height: 36px; padding: 0 12px; border: 1px solid var(--yellow); border-radius: 999px; background: transparent; color: var(--yellow); font: inherit; font-size: .78rem; font-weight: 800; cursor: pointer; transition: background var(--motion-base) var(--ease-standard), color var(--motion-base) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
+.product-card__add { min-height: 44px; padding: 0 12px; border: 1px solid var(--yellow); border-radius: 999px; background: transparent; color: var(--yellow); font: inherit; font-size: .78rem; font-weight: 800; cursor: pointer; transition: background var(--motion-base) var(--ease-standard), color var(--motion-base) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
 .product-card__add:active { transform: scale(.96); }
 .product-card__add--added { border-color: var(--green); background: var(--green); color: white; }
 .product-card__add:hover, .product-card__add:focus-visible { background: var(--yellow); color: var(--background); outline: none; }
@@ -79,10 +78,10 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .search-empty { margin: 24px 0; padding: 18px; border: 1px dashed var(--border); border-radius: 12px; color: var(--muted); }
 .selection-help { margin: 0 0 12px; color: var(--muted); font-size: .84rem; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
-.selection-bar { position: fixed; right: 16px; bottom: 78px; left: 16px; z-index: 19; display: flex; align-items: center; justify-content: space-between; width: min(100% - 32px, 748px); min-height: 42px; margin: auto; padding: 0 14px; border: 1px solid var(--yellow); border-radius: 12px; background: var(--surface-2); color: var(--cream); font: inherit; font-size: .85rem; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.25); animation: selection-bar-in var(--motion-base) var(--ease-emphasis) both; }
+.selection-bar { position: fixed; right: 16px; bottom: calc(76px + env(safe-area-inset-bottom)); left: 16px; z-index: 21; display: flex; align-items: center; justify-content: space-between; width: min(100% - 32px, 748px); min-height: 48px; margin: auto; padding: 0 14px; border: 1px solid var(--yellow); border-radius: 12px; background: var(--surface-2); color: var(--cream); font: inherit; font-size: .85rem; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.25); animation: selection-bar-in var(--motion-base) var(--ease-emphasis) both; }
 .selection-bar--updated { animation: selection-bar-update var(--motion-emphasis) var(--ease-emphasis); }
 .selection-bar strong { color: var(--yellow); }
-.order-intent-feedback { position: fixed; right: 16px; bottom: 132px; left: 16px; z-index: 19; width: min(100% - 32px, 748px); margin: auto; padding: 10px 14px; border: 1px solid var(--green); border-radius: 12px; background: rgba(37,131,63,.16); color: #c5f0cc; font-size: .8rem; text-align: center; animation: selection-bar-in var(--motion-base) var(--ease-emphasis) both; }
+.order-intent-feedback { position: fixed; right: 16px; bottom: calc(132px + env(safe-area-inset-bottom)); left: 16px; z-index: 22; width: min(100% - 32px, 748px); margin: auto; padding: 10px 14px; border: 1px solid var(--green); border-radius: 12px; background: rgba(37,131,63,.16); color: #c5f0cc; font-size: .8rem; text-align: center; animation: selection-bar-in var(--motion-base) var(--ease-emphasis) both; }
 .order-source { display: inline-flex; width: fit-content; padding: 3px 7px; border-radius: 999px; font-size: .68rem; font-weight: 700; line-height: 1.2; }
 .order-source--pending { color: #ffe19b; background: rgba(244,183,43,.16); }
 .selection-remove, .selection-clear { border: 0; background: transparent; color: #9b5e50; font: inherit; font-size: .78rem; cursor: pointer; }
@@ -93,11 +92,11 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .selection-sheet__handle { display: block; width: 42px; height: 4px; margin: -8px auto 16px; border-radius: 999px; background: var(--muted); opacity: .65; }
 .selection-sheet__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
 .selection-sheet h2 { margin: 0; font-size: 1.6rem; }
-.selection-close { width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--cream); font-size: 1.5rem; cursor: pointer; }
+.selection-close { width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--cream); font-size: 1.5rem; cursor: pointer; }
 .modifier-group { margin: 0 0 18px; padding: 0; border: 0; }
 .modifier-group legend { margin-bottom: 9px; color: var(--cream); font-weight: 800; }
 .modifier-options { display: flex; flex-wrap: wrap; gap: 8px; }
-.modifier-option { min-height: 40px; padding: 0 13px; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--muted); font: inherit; cursor: pointer; }
+.modifier-option { min-height: 44px; padding: 0 13px; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--muted); font: inherit; cursor: pointer; }
 .modifier-option--selected { border-color: var(--yellow); background: rgba(244,183,43,.16); color: var(--yellow); }
 .selection-confirm { width: 100%; margin-top: 4px; }
 .selection-empty { color: var(--muted); }
@@ -108,7 +107,7 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .selection-line__actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
 .selection-edit { border: 0; background: transparent; color: var(--yellow); font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer; }
 .quantity-control { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; }
-.quantity-control button { width: 34px; height: 34px; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--cream); font-size: 1.15rem; cursor: pointer; }
+.quantity-control button { width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--cream); font-size: 1.15rem; cursor: pointer; }
 .selection-summary { display: flex; justify-content: space-between; margin-top: 18px; color: var(--muted); }
 .selection-summary strong { color: var(--yellow); font-size: 1.2rem; }
 .selection-actions { display: grid; gap: 8px; margin-top: 18px; }
