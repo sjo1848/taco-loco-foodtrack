@@ -16,9 +16,9 @@ Estado: plan aprobado; C9-01 completado localmente — 2026-08-09.
 
 Modelado de horarios, estado manual y pausa temporal. El menú muestra el contexto y adapta el CTA. Evidencia en [`QA-C9-01.md`](QA-C9-01.md).
 
-### C9-02 — Flujo de pedido UX
+### C9-02 — Flujo de pedido UX — COMPLETADO LOCALMENTE
 
-Mejorar resumen, cantidades, edición, eliminación, confirmaciones, errores y persistencia vigente.
+Resumen mejorado con quitar línea, vaciar pedido, feedback accesible, límite de cantidad y mensajes de CTA coherentes. Evidencia en [`QA-C9-02.md`](QA-C9-02.md).
 
 ### C9-03 — Catálogo orientado a decisión
 
