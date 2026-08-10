@@ -13,7 +13,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - Fase 5 técnica: cerrada en la documentación espejo.
 - Fase 6 QA/backlog: cerrada en la documentación espejo.
 - Gate de construcción: abierto.
-- Etapa actual: C9 cerrado como MVP UX local; no es un release productivo.
+- Etapa actual: C10 cerrado localmente; C11-01 en implementación; no es un release productivo.
 - C1: implementado y validado localmente.
 - C2 catálogo: TL-010 a TL-014 implementados y validados localmente.
 - C2 auth: TL-015/016 implementados y validados localmente.
@@ -41,6 +41,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - Bloqueo de cierre: faltan inputs reales de negocio e infraestructura; no se usan placeholders para un release.
 - Pendientes no bloqueantes: referencias reales para 5 imágenes y email admin definitivo.
 - Seguridad de dependencias: `pnpm audit --audit-level=high` sin vulnerabilidades conocidas.
+- C11-01: confirmación administrativa por WhatsApp implementada; QA automatizado y smoke admin local aprobados; pendiente prueba física final. Ver [`C11-01-ALCANCE.md`](C11-01-ALCANCE.md), [`QA-C11-01.md`](QA-C11-01.md) y [`C11-DECISIONES.md`](C11-DECISIONES.md).
 
 ## Próxima secuencia
 

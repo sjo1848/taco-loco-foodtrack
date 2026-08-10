@@ -45,6 +45,18 @@ export function buildWhatsAppMessage(lines: SelectionLine[], businessName: strin
   return [`Hola ${businessName}, quiero hacer este pedido:`, ...rows, "", "Total informativo: consultar al local.", "", "¿Me confirman disponibilidad y total final?"] .join("\n");
 }
 
+export function buildWhatsAppMessageWithOrder(lines: SelectionLine[], businessName: string, orderNumber: number, totalAmount: number) {
+  const rows = lines.map((line) => {
+    const modifiers = line.modifiers.length > 0 ? ` (${line.modifiers.map((modifier) => `${modifier.group}: ${modifier.option}`).join(", ")})` : "";
+    return `- ${line.quantity} x ${line.name}${modifiers}`;
+  });
+  return [`Hola ${businessName}, quiero hacer este pedido:`, `Pedido: TL-${String(orderNumber).padStart(4, "0")}`, "", ...rows, "", `Total: ${formatAmount(totalAmount)}`, "", "Quedo a la espera de confirmación."] .join("\n");
+}
+
+function formatAmount(amount: number) {
+  return new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 }).format(amount).replace(/\u00a0/g, " ");
+}
+
 export function buildWhatsAppUrl(baseUrl: string, message: string) {
   const url = new URL(baseUrl);
   url.searchParams.set("text", message);

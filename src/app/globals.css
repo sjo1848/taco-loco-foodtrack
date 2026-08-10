@@ -213,6 +213,14 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .order-detail__meta span, .order-detail__meta small { color: var(--muted); font-size: .82rem; }
 .order-detail__meta strong { font-size: 1rem; }
 .order-notes, .order-cancellation { margin: 16px 0 0; padding: 12px; border-radius: 10px; background: var(--surface-2); color: var(--muted); }
+.order-confirmation { display: grid; gap: 12px; }
+.order-confirmation__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.order-confirmation__header h2 { margin: 0; }
+.order-confirmation__header > strong { color: var(--yellow); }
+.order-confirmation__help, .order-confirmation__missing-phone { margin: 0; color: var(--muted); line-height: 1.45; }
+.order-confirmation__missing-phone { padding: 12px; border-radius: 10px; background: rgba(244,183,43,.12); color: #ffe19b; }
+.order-confirmation textarea { width: 100%; min-height: 150px; resize: vertical; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-2); color: var(--cream); font: inherit; line-height: 1.45; padding: 12px; }
+.order-confirmation__actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .order-cancellation { border: 1px solid #8d3c37; color: #ffaaa5; }
 .order-lines { margin-top: 18px; }
 .order-lines article { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }

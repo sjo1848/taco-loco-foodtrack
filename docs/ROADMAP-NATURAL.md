@@ -1,6 +1,6 @@
 # Roadmap natural — Taco Loco Foodtrack
 
-## Etapa actual — C9 cerrado como MVP UX local
+## Etapa actual — C10 cerrado localmente; C11-01 en implementación
 
 Consulta pública, catálogo administrable, disponibilidad, imágenes, WhatsApp directo y QR.
 
@@ -23,6 +23,10 @@ Evaluar medios de pago, enlaces externos, confirmación, conciliación, devoluci
 ## C10 — Conversión, confianza y motion UX — EN CICLOS
 
 C10-01 aprobado: motion base y feedback coordinado al agregar productos. Próximo ciclo: cantidades y resumen móvil. Se mantiene el método de hipótesis, implementación pequeña, evaluación y decisión documentada.
+
+## C11 — Confirmación administrativa por WhatsApp — EN IMPLEMENTACIÓN
+
+C11-01 prepara la confirmación manual desde administración usando el código `TL-XXXX`, el total canónico y copiar/abrir WhatsApp cuando existe teléfono. Cloud API, webhooks y automatización quedan fuera de esta etapa.
 
 ## Mejoras naturales adicionales
 

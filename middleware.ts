@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { isSameOrigin } from "@/lib/request-security";
 
 const SESSION_COOKIE = "taco_loco_session";
 
@@ -6,8 +7,7 @@ export function middleware(request: NextRequest) {
   if (request.nextUrl.pathname === "/admin/login") return NextResponse.next();
   const hasSessionCookie = Boolean(request.cookies.get(SESSION_COOKIE)?.value);
   if (request.nextUrl.pathname.startsWith("/api/admin/") && ["POST", "PATCH", "PUT", "DELETE"].includes(request.method)) {
-    const origin = request.headers.get("origin");
-    if (origin && origin !== request.nextUrl.origin) return NextResponse.json({ code: "CSRF_REJECTED" }, { status: 403 });
+    if (!isSameOrigin(request)) return NextResponse.json({ code: "CSRF_REJECTED" }, { status: 403 });
   }
   if (hasSessionCookie) return NextResponse.next();
   if (request.nextUrl.pathname.startsWith("/api/admin/")) return NextResponse.json({ code: "UNAUTHORIZED" }, { status: 401 });

@@ -7,7 +7,7 @@ import { FeaturedProductCard } from "@/components/public/FeaturedProductCard";
 import { ProductCard } from "@/components/public/ProductCard";
 import { SaucesInfo } from "@/components/public/SaucesInfo";
 import { filterCatalog } from "@/modules/catalog/discovery";
-import { buildWhatsAppAppUrl, buildWhatsAppMessage, buildWhatsAppUrl, createClientReference, addSelectionLine, lineId, removeSelectionLine, selectionCount, selectionTotal, updateSelectionQuantity, type SelectionLine } from "@/modules/selection/model";
+import { buildWhatsAppAppUrl, buildWhatsAppMessage, buildWhatsAppMessageWithOrder, buildWhatsAppUrl, createClientReference, addSelectionLine, lineId, removeSelectionLine, selectionCount, selectionTotal, updateSelectionQuantity, type SelectionLine } from "@/modules/selection/model";
 
 type Product = { id: string; name: string; description: string | null; priceAmount: number; available: boolean; featured: boolean; imageKey: string | null; imageAlt: string | null; modifiers: Array<{ name: string; required: boolean; minSelections: number | null; maxSelections: number | null; options: string[] }> };
 type Menu = { settings: { businessName: string; whatsappUrl: string; operatingContext: { isOpen: boolean; label: string; detail: string } }; categories: Array<{ id: string; name: string; slug: string; products: Product[] }> };
@@ -28,6 +28,7 @@ export function MenuExperience({ menu }: { menu: Menu }) {
   const [submittingOrder, setSubmittingOrder] = useState(false);
   const [isMobileDevice, setIsMobileDevice] = useState(false);
   const [showWhatsAppWebFallback, setShowWhatsAppWebFallback] = useState(false);
+  const [whatsappWebFallbackHref, setWhatsappWebFallbackHref] = useState("");
   const [completedOrder, setCompletedOrder] = useState<CompletedOrder | null>(null);
   const [orderIntent, setOrderIntent] = useState<{ reference: string; signature: string; number: number } | null>(null);
   const dialogCloseRef = useRef<HTMLButtonElement>(null);
@@ -186,8 +187,9 @@ export function MenuExperience({ menu }: { menu: Menu }) {
     setFeedbackMessage("Pedido vacío.");
   }
 
-  function openMobileWhatsApp() {
+  function openMobileWhatsApp(appUrl = whatsappAppHref, webUrl = whatsappHref) {
     setShowWhatsAppWebFallback(false);
+    setWhatsappWebFallbackHref(webUrl);
     let appSwitchDetected = false;
     const markAppSwitch = () => {
       appSwitchDetected = true;
@@ -199,7 +201,7 @@ export function MenuExperience({ menu }: { menu: Menu }) {
     window.addEventListener("blur", markAppSwitch, { once: true });
     document.addEventListener("visibilitychange", handleVisibilityChange);
     try {
-      window.location.assign(whatsappAppHref);
+      window.location.assign(appUrl);
       window.setTimeout(() => {
         window.removeEventListener("blur", markAppSwitch);
         document.removeEventListener("visibilitychange", handleVisibilityChange);
@@ -243,8 +245,11 @@ export function MenuExperience({ menu }: { menu: Menu }) {
     try {
       const response = await fetch("/api/orders/intents", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ clientReference, lines: lines.map((line) => ({ productId: line.productId, quantity: line.quantity, modifiers: line.modifiers })) }) });
       if (!response.ok) throw new Error("ORDER_INTENT_FAILED");
-      const result = await response.json() as { order: { orderNumber: number } };
-      const preparedOrder: CompletedOrder = { number: result.order.orderNumber, lines, total, whatsappHref, whatsappAppHref };
+      const result = await response.json() as { order: { orderNumber: number; totalAmount: number } };
+      const preparedMessage = buildWhatsAppMessageWithOrder(lines, menu.settings.businessName, result.order.orderNumber, result.order.totalAmount);
+      const preparedWhatsappHref = buildWhatsAppUrl(menu.settings.whatsappUrl, preparedMessage);
+      const preparedWhatsappAppHref = buildWhatsAppAppUrl(menu.settings.whatsappUrl, preparedMessage);
+      const preparedOrder: CompletedOrder = { number: result.order.orderNumber, lines, total: result.order.totalAmount, whatsappHref: preparedWhatsappHref, whatsappAppHref: preparedWhatsappAppHref };
       setCompletedOrder(preparedOrder);
       try { window.sessionStorage.setItem("taco-loco-completed-order", JSON.stringify(preparedOrder)); } catch {
         // El pedido ya quedó persistido en el servidor; solo se pierde el resumen al recargar.
@@ -253,9 +258,9 @@ export function MenuExperience({ menu }: { menu: Menu }) {
       setShowSummary(false);
       setOrderIntent({ reference: clientReference, signature: selectionSignature, number: result.order.orderNumber });
       setFeedbackMessage(`Pedido TL-${String(result.order.orderNumber).padStart(4, "0")} preparado. Confirmá el mensaje en WhatsApp.`);
-      if (isMobileDevice) openMobileWhatsApp();
-      else if (popup) popup.location.href = whatsappHref;
-      else window.location.assign(whatsappHref);
+      if (isMobileDevice) openMobileWhatsApp(preparedWhatsappAppHref, preparedWhatsappHref);
+      else if (popup) popup.location.href = preparedWhatsappHref;
+      else window.location.assign(preparedWhatsappHref);
     } catch {
       popup?.close();
       setFeedbackMessage("No pudimos registrar el pedido. Revisá la conexión e intentá nuevamente.");
@@ -275,7 +280,7 @@ export function MenuExperience({ menu }: { menu: Menu }) {
     </div>
     {count > 0 && <button className={`selection-bar${addedProductId ? " selection-bar--updated" : ""}`} type="button" onClick={() => setShowSummary(true)}><span>Pedido · {count} {count === 1 ? "producto" : "productos"}</span><strong>{formatPrice(total)}</strong></button>}
     {currentOrderIntent && <p className="order-intent-feedback" role="status">Pedido TL-{String(currentOrderIntent.number).padStart(4, "0")} preparado. El local lo ve como recibido y debe confirmarlo por WhatsApp.</p>}
-    {showWhatsAppWebFallback && <p className="whatsapp-fallback" role="status">¿No se abrió WhatsApp? <a href={whatsappHref} target="_blank" rel="noreferrer">Abrir WhatsApp Web</a></p>}
+    {showWhatsAppWebFallback && <p className="whatsapp-fallback" role="status">¿No se abrió WhatsApp? <a href={whatsappWebFallbackHref || whatsappHref} target="_blank" rel="noreferrer">Abrir WhatsApp Web</a></p>}
     <div className="whatsapp-cta"><a className={`whatsapp-cta__button${menu.settings.operatingContext.isOpen ? "" : " whatsapp-cta__button--closed"}`} href={whatsappHref} rel="noreferrer" target="_blank" onClick={submitOrderIntent} aria-disabled={submittingOrder}>{submittingOrder ? "Preparando pedido…" : <><span aria-hidden="true">◉</span><span>{isMobileDevice ? count > 0 && menu.settings.operatingContext.isOpen ? "Abrir WhatsApp" : "Consultar por WhatsApp" : count > 0 ? menu.settings.operatingContext.isOpen ? "Enviar pedido por WhatsApp" : "Consultar selección por WhatsApp" : menu.settings.operatingContext.isOpen ? "Pedir por WhatsApp" : "Consultar disponibilidad"}</span></>}</a></div>
     {completedOrder && <div className="selection-overlay" role="presentation"><section ref={dialogRef} className="selection-sheet selection-sheet--success" role="dialog" aria-modal="true" aria-labelledby="completed-order-title" aria-describedby="completed-order-help"><div className="success-mark" aria-hidden="true">✓</div><p className="eyebrow">Pedido preparado</p><h2 id="completed-order-title">¡Listo, tu pedido está armado!</h2><p id="completed-order-help" className="selection-help">Pedido TL-{String(completedOrder.number).padStart(4, "0")}. El mensaje está preparado en WhatsApp; confirmá el envío desde la aplicación.</p><div className="completed-order-summary"><strong>Resumen del pedido</strong>{completedOrder.lines.map((line) => <div key={line.id}><span>{line.quantity} × {line.name}</span><span>{formatPrice(line.priceAmount * line.quantity)}</span></div>)}<div className="completed-order-total"><span>Total informativo</span><strong>{formatPrice(completedOrder.total)}</strong></div></div><div className="selection-actions"><a className="button" href={isMobileDevice ? completedOrder.whatsappAppHref : completedOrder.whatsappHref} target="_blank" rel="noreferrer">Volver a WhatsApp</a><button className="button button--secondary" type="button" onClick={startAnotherOrder}>Realizar otro pedido</button><button className="selection-clear" type="button" onClick={dismissCompletedOrder}>Seguir viendo el menú</button></div></section></div>}
     {pendingProduct && <div className="selection-overlay" role="presentation" onClick={(event) => { if (event.target === event.currentTarget) { setPendingProduct(null); setEditingLineId(null); } }}><section ref={dialogRef} className="selection-sheet selection-sheet--product" role="dialog" aria-modal="true" aria-labelledby="selection-title" aria-describedby="selection-help"><span className="selection-sheet__handle" aria-hidden="true" /><div className="selection-sheet__header"><div><p className="eyebrow">Paso 1 · Personalizá</p><h2 id="selection-title">{pendingProduct.name}</h2></div><button ref={dialogCloseRef} className="selection-close" type="button" onClick={() => { setPendingProduct(null); setEditingLineId(null); }} aria-label="Cerrar">×</button></div><p id="selection-help" className="selection-help">Elegí las opciones necesarias y confirmá para sumar el producto.</p>{pendingProduct.modifiers.map((group) => <fieldset className="modifier-group" key={group.name}><legend>{group.name}{group.required ? " · obligatorio" : ""}</legend><div className="modifier-options">{group.options.map((option) => { const checked = (selectedOptions[group.name] ?? []).includes(option); return <button className={`modifier-option${checked ? " modifier-option--selected" : ""}`} type="button" aria-pressed={checked} key={option} onClick={() => toggleOption(group, option)}>{option}</button>; })}</div></fieldset>)}{selectionError && <p className="selection-error" role="alert">{selectionError}</p>}<button className="button selection-confirm" type="button" onClick={confirmProduct}>{editingLineId ? "Guardar cambios" : "Agregar al pedido"} · {formatPrice(pendingProduct.priceAmount)}</button></section></div>}

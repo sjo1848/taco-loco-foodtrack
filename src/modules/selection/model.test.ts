@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addSelectionLine, buildWhatsAppAppUrl, buildWhatsAppMessage, buildWhatsAppUrl, createClientReference, removeSelectionLine, selectionCount, selectionTotal, updateSelectionQuantity, type SelectionLine } from "@/modules/selection/model";
+import { addSelectionLine, buildWhatsAppAppUrl, buildWhatsAppMessage, buildWhatsAppMessageWithOrder, buildWhatsAppUrl, createClientReference, removeSelectionLine, selectionCount, selectionTotal, updateSelectionQuantity, type SelectionLine } from "@/modules/selection/model";
 
 const taco: Omit<SelectionLine, "id" | "quantity"> = { productId: "taco", name: "Taco x2", priceAmount: 5000, modifiers: [{ group: "Salsa", option: "Picante" }] };
 
@@ -32,6 +32,12 @@ describe("selection model", () => {
 
   it("builds a native WhatsApp app URL for mobile devices", () => {
     expect(buildWhatsAppAppUrl("https://wa.me/5492615956912", "Hola Taco Loco")).toBe("whatsapp://send?phone=5492615956912&text=Hola%20Taco%20Loco");
+  });
+
+  it("includes the public order code and canonical total after registration", () => {
+    const message = buildWhatsAppMessageWithOrder([addSelectionLine([], taco)[0]], "Taco Loco", 184, 10000);
+    expect(message).toContain("Pedido: TL-0184");
+    expect(message).toContain("Total: $ 10.000");
   });
 
   it("creates an idempotency reference without requiring randomUUID", () => {
