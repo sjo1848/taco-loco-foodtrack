@@ -1,6 +1,6 @@
 # Estado operativo — Taco Loco Foodtrack
 
-Actualizado: 2026-08-09
+Actualizado: 2026-08-10
 
 ## Política vigente
 
