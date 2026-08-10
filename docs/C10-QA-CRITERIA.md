@@ -1,6 +1,6 @@
 # C10 — Criterios QA
 
-Estado: C10-03 aprobado; preparado para C10-04 — 2026-08-10.
+Estado: C10-05 implementado; C10-06 implementado; pendiente de QA física y cierre documental — 2026-08-10.
 
 ## Comprensión
 
@@ -36,3 +36,6 @@ Estado: C10-03 aprobado; preparado para C10-04 — 2026-08-10.
 - [x] Cerrar C10-01 y C10-02.
 - [ ] Ajustar el ciclo actual y repetir evaluación.
 - [x] Continuar con C10-04.
+- [x] Implementar C10-05: apertura móvil nativa y fallback manual.
+- [x] Implementar C10-06: cierre visible y resumen del pedido.
+- [ ] Ejecutar QA física final y cerrar C10.

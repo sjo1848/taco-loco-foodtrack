@@ -1,6 +1,6 @@
 # Plan de implementación C10
 
-Estado: C10-03 completado; C10-03.1 implementado; C10-04 implementado con CI verde y pendiente de revisión visual final — 2026-08-10.
+Estado: C10-06 implementado; pendiente de QA física final, cierre documental y publicación del branch — 2026-08-10.
 
 ## Secuencia
 
@@ -8,7 +8,9 @@ Estado: C10-03 completado; C10-03.1 implementado; C10-04 implementado con CI ver
 2. C10-02 — flujo por capas, cantidades y resumen móvil — COMPLETADO.
 3. C10-03 — registro de intención y confirmación previa a WhatsApp — COMPLETADO.
 4. C10-03.1 — semántica y trazabilidad de intención — IMPLEMENTADO; pendiente de CI/revisión.
-5. C10-04 — hardening UX y firma visual — IMPLEMENTADO; pendiente de QA/CI.
+5. C10-04 — hardening UX y firma visual — IMPLEMENTADO; CI verde, pendiente de revisión física final.
+6. C10-05 — apertura móvil nativa y fallback manual — IMPLEMENTADO; pendiente de prueba física.
+7. C10-06 — cierre visible y resumen del pedido — IMPLEMENTADO; pendiente de QA manual final.
 
 ## Gate de ciclo
 

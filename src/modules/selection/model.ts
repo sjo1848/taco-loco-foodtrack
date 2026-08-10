@@ -51,6 +51,12 @@ export function buildWhatsAppUrl(baseUrl: string, message: string) {
   return url.toString();
 }
 
+export function buildWhatsAppAppUrl(baseUrl: string, message: string) {
+  const url = new URL(baseUrl);
+  const phone = url.pathname.replace(/\D/g, "");
+  return `whatsapp://send?phone=${encodeURIComponent(phone)}&text=${encodeURIComponent(message)}`;
+}
+
 export function createClientReference() {
   const webCrypto = globalThis.crypto;
   if (typeof webCrypto?.randomUUID === "function") return webCrypto.randomUUID();
