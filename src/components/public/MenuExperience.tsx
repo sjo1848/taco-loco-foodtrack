@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { BrandHeader } from "@/components/public/BrandHeader";
 import { CategoryNav } from "@/components/public/CategoryNav";
 import { FeaturedProductCard } from "@/components/public/FeaturedProductCard";
@@ -24,11 +24,15 @@ export function MenuExperience({ menu }: { menu: Menu }) {
   const [selectionError, setSelectionError] = useState("");
   const [showSummary, setShowSummary] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [submittingOrder, setSubmittingOrder] = useState(false);
+  const [orderIntent, setOrderIntent] = useState<{ reference: string; signature: string; number: number } | null>(null);
   const dialogCloseRef = useRef<HTMLButtonElement>(null);
   const visibleCategories = filterCatalog(menu.categories, searchQuery);
   const featured = visibleCategories.flatMap((category) => category.products.filter((product) => product.featured)).slice(0, 2);
   const count = selectionCount(lines);
   const total = selectionTotal(lines);
+  const selectionSignature = useMemo(() => JSON.stringify(lines.map(({ productId, quantity, modifiers }) => ({ productId, quantity, modifiers }))), [lines]);
+  const currentOrderIntent = orderIntent?.signature === selectionSignature ? orderIntent : null;
   const whatsappHref = useMemo(() => lines.length > 0 ? `https://wa.me/?text=${encodeURIComponent(buildWhatsAppMessage(lines, menu.settings.businessName))}` : menu.settings.whatsappUrl, [lines, menu.settings.businessName, menu.settings.whatsappUrl]);
 
   useEffect(() => {
@@ -148,6 +152,30 @@ export function MenuExperience({ menu }: { menu: Menu }) {
     setFeedbackMessage("Pedido vacío.");
   }
 
+  async function submitOrderIntent(event: MouseEvent<HTMLAnchorElement>) {
+    if (!menu.settings.operatingContext.isOpen || count === 0) return;
+    event.preventDefault();
+    if (submittingOrder) return;
+    const popup = window.open("about:blank", "_blank", "noopener,noreferrer");
+    const clientReference = currentOrderIntent?.reference ?? crypto.randomUUID();
+    setSubmittingOrder(true);
+    setFeedbackMessage("Preparando tu pedido para WhatsApp…");
+    try {
+      const response = await fetch("/api/orders/intents", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ clientReference, lines: lines.map((line) => ({ productId: line.productId, quantity: line.quantity, modifiers: line.modifiers })) }) });
+      if (!response.ok) throw new Error("ORDER_INTENT_FAILED");
+      const result = await response.json() as { order: { orderNumber: number } };
+      setOrderIntent({ reference: clientReference, signature: selectionSignature, number: result.order.orderNumber });
+      setFeedbackMessage(`Pedido TL-${String(result.order.orderNumber).padStart(4, "0")} preparado. Confirmá el mensaje en WhatsApp.`);
+      if (popup) popup.location.href = whatsappHref;
+      else window.location.href = whatsappHref;
+    } catch {
+      popup?.close();
+      setFeedbackMessage("No pudimos registrar el pedido. Revisá la conexión e intentá nuevamente.");
+    } finally {
+      setSubmittingOrder(false);
+    }
+  }
+
   return <main className="public-menu"><BrandHeader businessName={menu.settings.businessName} /><CategoryNav categories={visibleCategories} /><p className="sr-only" aria-live="polite">{feedbackMessage || (addedProductId ? "Producto agregado al pedido" : "")}</p>
     <div className="public-menu__content"><div className="public-menu__intro"><p className="eyebrow">Menú digital</p><h1>Elegí tu próximo antojo</h1></div>
       <section className={`operating-status operating-status--${menu.settings.operatingContext.isOpen ? "open" : "closed"}`} aria-live="polite"><strong>{menu.settings.operatingContext.label}</strong><span>{menu.settings.operatingContext.detail}</span></section>
@@ -158,8 +186,9 @@ export function MenuExperience({ menu }: { menu: Menu }) {
       <SaucesInfo />
     </div>
     {count > 0 && <button className={`selection-bar${addedProductId ? " selection-bar--updated" : ""}`} type="button" onClick={() => setShowSummary(true)}><span>Pedido · {count} {count === 1 ? "producto" : "productos"}</span><strong>{formatPrice(total)}</strong></button>}
-    <div className="whatsapp-cta"><a className={`whatsapp-cta__button${menu.settings.operatingContext.isOpen ? "" : " whatsapp-cta__button--closed"}`} href={whatsappHref} rel="noreferrer" target="_blank"><span aria-hidden="true">◉</span><span>{count > 0 ? menu.settings.operatingContext.isOpen ? "Enviar pedido por WhatsApp" : "Consultar selección por WhatsApp" : menu.settings.operatingContext.isOpen ? "Pedir por WhatsApp" : "Consultar disponibilidad"}</span></a></div>
+    {currentOrderIntent && <p className="order-intent-feedback" role="status">Pedido TL-{String(currentOrderIntent.number).padStart(4, "0")} preparado. El local lo ve como recibido y debe confirmarlo por WhatsApp.</p>}
+    <div className="whatsapp-cta"><a className={`whatsapp-cta__button${menu.settings.operatingContext.isOpen ? "" : " whatsapp-cta__button--closed"}`} href={whatsappHref} rel="noreferrer" target="_blank" onClick={submitOrderIntent} aria-disabled={submittingOrder}>{submittingOrder ? "Preparando pedido…" : <><span aria-hidden="true">◉</span><span>{count > 0 ? menu.settings.operatingContext.isOpen ? "Enviar pedido por WhatsApp" : "Consultar selección por WhatsApp" : menu.settings.operatingContext.isOpen ? "Pedir por WhatsApp" : "Consultar disponibilidad"}</span></>}</a></div>
     {pendingProduct && <div className="selection-overlay" role="presentation" onClick={(event) => { if (event.target === event.currentTarget) { setPendingProduct(null); setEditingLineId(null); } }}><section className="selection-sheet selection-sheet--product" role="dialog" aria-modal="true" aria-labelledby="selection-title" aria-describedby="selection-help"><span className="selection-sheet__handle" aria-hidden="true" /><div className="selection-sheet__header"><div><p className="eyebrow">Paso 1 · Personalizá</p><h2 id="selection-title">{pendingProduct.name}</h2></div><button ref={dialogCloseRef} className="selection-close" type="button" onClick={() => { setPendingProduct(null); setEditingLineId(null); }} aria-label="Cerrar">×</button></div><p id="selection-help" className="selection-help">Elegí las opciones necesarias y confirmá para sumar el producto.</p>{pendingProduct.modifiers.map((group) => <fieldset className="modifier-group" key={group.name}><legend>{group.name}{group.required ? " · obligatorio" : ""}</legend><div className="modifier-options">{group.options.map((option) => { const checked = (selectedOptions[group.name] ?? []).includes(option); return <button className={`modifier-option${checked ? " modifier-option--selected" : ""}`} type="button" aria-pressed={checked} key={option} onClick={() => toggleOption(group, option)}>{option}</button>; })}</div></fieldset>)}{selectionError && <p className="selection-error" role="alert">{selectionError}</p>}<button className="button selection-confirm" type="button" onClick={confirmProduct}>{editingLineId ? "Guardar cambios" : "Agregar al pedido"} · {formatPrice(pendingProduct.priceAmount)}</button></section></div>}
-    {showSummary && <div className="selection-overlay" role="presentation" onClick={(event) => { if (event.target === event.currentTarget) setShowSummary(false); }}><section className="selection-sheet selection-sheet--summary" role="dialog" aria-modal="true" aria-labelledby="summary-title" aria-describedby="summary-help"><span className="selection-sheet__handle" aria-hidden="true" /><div className="selection-sheet__header"><div><p className="eyebrow">Paso 2 · Tu selección</p><h2 id="summary-title">Revisá tu pedido</h2></div><button ref={dialogCloseRef} className="selection-close" type="button" onClick={() => setShowSummary(false)} aria-label="Cerrar">×</button></div><p id="summary-help" className="selection-help">Podés editar cantidades, quitar productos o seguir viendo el menú.</p>{lines.length === 0 ? <p className="selection-empty">Todavía no agregaste productos.</p> : <><div className="selection-lines">{lines.map((line) => <div className="selection-line" key={line.id}><div><strong>{line.name}</strong>{line.modifiers.length > 0 && <small>{line.modifiers.map((modifier) => `${modifier.group}: ${modifier.option}`).join(" · ")}</small>}<span>{formatPrice(line.priceAmount)} c/u</span></div><div className="selection-line__actions"><button className="selection-edit" type="button" onClick={() => editLine(line)}>Editar</button><button className="selection-remove" type="button" onClick={() => removeLine(line)} aria-label={`Quitar ${line.name} del pedido`}>Quitar</button><div className="quantity-control" aria-label={`Cantidad de ${line.name}`}><button type="button" onClick={() => setLines((current) => updateSelectionQuantity(current, line.id, line.quantity - 1))} aria-label={`Quitar una unidad de ${line.name}`}>−</button><strong>{line.quantity}</strong><button type="button" onClick={() => setLines((current) => updateSelectionQuantity(current, line.id, line.quantity + 1))} aria-label={`Agregar una unidad de ${line.name}`}>+</button></div></div></div>)}</div><button className="selection-clear" type="button" onClick={clearSelection}>Vaciar pedido</button></>}<div className="selection-summary"><span>Total informativo</span><strong>{formatPrice(total)}</strong></div><div className="selection-actions"><button className="button button--secondary" type="button" onClick={() => setShowSummary(false)}>Seguir viendo el menú</button><a className="button" href={whatsappHref} rel="noreferrer" target="_blank">{menu.settings.operatingContext.isOpen ? "Enviar por WhatsApp" : "Consultar por WhatsApp"}</a></div></section></div>}
+    {showSummary && <div className="selection-overlay" role="presentation" onClick={(event) => { if (event.target === event.currentTarget) setShowSummary(false); }}><section className="selection-sheet selection-sheet--summary" role="dialog" aria-modal="true" aria-labelledby="summary-title" aria-describedby="summary-help"><span className="selection-sheet__handle" aria-hidden="true" /><div className="selection-sheet__header"><div><p className="eyebrow">Paso 2 · Tu selección</p><h2 id="summary-title">Revisá tu pedido</h2></div><button ref={dialogCloseRef} className="selection-close" type="button" onClick={() => setShowSummary(false)} aria-label="Cerrar">×</button></div><p id="summary-help" className="selection-help">Podés editar cantidades, quitar productos o seguir viendo el menú.</p>{lines.length === 0 ? <p className="selection-empty">Todavía no agregaste productos.</p> : <><div className="selection-lines">{lines.map((line) => <div className="selection-line" key={line.id}><div><strong>{line.name}</strong>{line.modifiers.length > 0 && <small>{line.modifiers.map((modifier) => `${modifier.group}: ${modifier.option}`).join(" · ")}</small>}<span>{formatPrice(line.priceAmount)} c/u</span></div><div className="selection-line__actions"><button className="selection-edit" type="button" onClick={() => editLine(line)}>Editar</button><button className="selection-remove" type="button" onClick={() => removeLine(line)} aria-label={`Quitar ${line.name} del pedido`}>Quitar</button><div className="quantity-control" aria-label={`Cantidad de ${line.name}`}><button type="button" onClick={() => setLines((current) => updateSelectionQuantity(current, line.id, line.quantity - 1))} aria-label={`Quitar una unidad de ${line.name}`}>−</button><strong>{line.quantity}</strong><button type="button" onClick={() => setLines((current) => updateSelectionQuantity(current, line.id, line.quantity + 1))} aria-label={`Agregar una unidad de ${line.name}`}>+</button></div></div></div>)}</div><button className="selection-clear" type="button" onClick={clearSelection}>Vaciar pedido</button></>}<div className="selection-summary"><span>Total informativo</span><strong>{formatPrice(total)}</strong></div><div className="selection-actions"><button className="button button--secondary" type="button" onClick={() => setShowSummary(false)}>Seguir viendo el menú</button><a className="button" href={whatsappHref} rel="noreferrer" target="_blank" onClick={submitOrderIntent} aria-disabled={submittingOrder}>{submittingOrder ? "Preparando pedido…" : menu.settings.operatingContext.isOpen ? "Enviar por WhatsApp" : "Consultar por WhatsApp"}</a></div></section></div>}
   </main>;
 }

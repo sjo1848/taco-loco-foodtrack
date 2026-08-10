@@ -22,6 +22,12 @@ const manualOrderLineSchema = z.object({
   note: z.string().trim().max(500).nullable().optional(),
 });
 
+const publicOrderIntentLineSchema = manualOrderLineSchema.omit({ note: true });
+export const createPublicOrderIntentInputSchema = z.object({
+  clientReference: z.string().trim().min(16).max(100),
+  lines: z.array(publicOrderIntentLineSchema).min(1).max(100),
+});
+
 export const createManualOrderInputSchema = z.object({
   fulfillment: orderFulfillmentSchema.default("PICKUP"),
   customerName: z.string().trim().max(160).nullable().optional(),
@@ -63,7 +69,7 @@ function resolveModifiers(product: ManualProduct, modifiers: CreateManualOrderIn
   return modifiers.map((modifier) => ({ group: modifier.group, option: grouped.get(modifier.group)?.shift() ?? modifier.option }));
 }
 
-export async function createManualOrder(input: unknown, actorId: string) {
+export async function createManualOrder(input: unknown, actorId: string | null, clientReference: string | null = null, reason = "Pedido registrado manualmente") {
   const parsed = createManualOrderInputSchema.parse(input);
   return db.$transaction(async (tx: { product: typeof db.product; order: typeof db.order; orderEvent: typeof db.orderEvent }) => {
     const productIds = [...new Set(parsed.lines.map((line) => line.productId))];
@@ -87,14 +93,30 @@ export async function createManualOrder(input: unknown, actorId: string) {
         subtotalAmount,
         adjustmentAmount: parsed.adjustmentAmount,
         totalAmount,
+        clientReference,
         createdById: actorId,
         lines: { create: resolvedLines },
       },
       include: { lines: true },
     });
-    const event = await tx.orderEvent.create({ data: { orderId: order.id, toStatus: "RECEIVED", actorId, reason: "Pedido registrado manualmente" } });
+    const event = await tx.orderEvent.create({ data: { orderId: order.id, toStatus: "RECEIVED", actorId, reason } });
     return { order, event };
   });
+}
+
+export async function createPublicOrderIntent(input: unknown) {
+  const parsed = createPublicOrderIntentInputSchema.parse(input);
+  const existing = await db.order.findUnique({ where: { clientReference: parsed.clientReference }, include: { lines: true } });
+  if (existing) return { order: existing, event: null, reused: true };
+  try {
+    return await createManualOrder({ fulfillment: "PICKUP", customerName: null, customerPhone: null, tableLabel: null, notes: "Intención registrada desde el menú. Confirmar recepción por WhatsApp.", adjustmentAmount: 0, lines: parsed.lines }, null, parsed.clientReference, "Intención preparada desde el menú público");
+  } catch (error) {
+    if (error && typeof error === "object" && "code" in error && error.code === "P2002") {
+      const concurrent = await db.order.findUniqueOrThrow({ where: { clientReference: parsed.clientReference }, include: { lines: true } });
+      return { order: concurrent, event: null, reused: true };
+    }
+    throw error;
+  }
 }
 
 export async function transitionOrder(input: unknown, actorId: string) {

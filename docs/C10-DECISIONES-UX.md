@@ -31,3 +31,11 @@ Se adoptan patrones de interacción conocidos —Dialog, Sheet, Card, Button y S
 ## DEC-C10-008 — Profundidad proporcional
 
 El overlay debe enfocar sin borrar el contexto. En mobile se prioriza una capa inferior casi completa; en desktop una card centrada. El fondo queda visible, pero no interactivo.
+
+## DEC-C10-009 — Registrar intención, no confirmar
+
+Al iniciar el envío a WhatsApp se crea un registro administrativo `RECEIVED` con snapshot server-side. El registro permite cerrar el circuito de seguimiento, pero la confirmación continúa siendo manual porque WhatsApp es un canal externo.
+
+## DEC-C10-010 — Precios y disponibilidad se validan en servidor
+
+El navegador solo envía identificadores, cantidades y opciones. El servidor resuelve nombres, precios, disponibilidad y modificadores antes de crear la intención.

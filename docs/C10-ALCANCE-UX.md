@@ -25,7 +25,7 @@ Después de agregar un producto, la persona identifica la tarjeta afectada y ve 
 ## Próximos bloques propuestos
 
 - C10-02: flujo por capas, cantidades y resumen móvil.
-- C10-03: confirmación previa a WhatsApp.
+- C10-03: registro de intención y confirmación previa a WhatsApp.
 - C10-04: narrativa visual de marca y descubrimiento.
 
 ## C10-02 — Flujo por capas y resumen móvil
@@ -56,3 +56,30 @@ Si la personalización y la revisión aparecen como capas enfocadas sobre el men
 ### Criterio observable
 
 Con una capa abierta, la persona identifica qué está haciendo, puede volver al menú sin perder la selección y no confunde la apertura de WhatsApp con una confirmación del local.
+
+## C10-03 — Cierre del flujo con intención de pedido
+
+### Hipótesis
+
+Si Foodtrack registra una intención de pedido antes de abrir WhatsApp, el cliente tendrá un cierre visible y el local podrá ver el pedido en administración sin asumir que ya fue confirmado.
+
+### Incluye
+
+- Registro público server-side de productos, cantidades y modificadores.
+- Revalidación de disponibilidad, modificadores y precios contra la base.
+- Estado inicial `Recibido` en la bandeja administrativa.
+- Referencia idempotente para no duplicar el pedido por doble clic o reintento.
+- Mensaje claro: pedido registrado para seguimiento, confirmación pendiente por WhatsApp.
+- Apertura del mensaje prellenado de WhatsApp después de preparar la intención.
+- Administración conserva la decisión de confirmar, preparar, cancelar o cerrar.
+
+### No incluye
+
+- Confirmación automática del pedido.
+- Lectura de respuestas de WhatsApp.
+- Webhook, bot, pago o reserva de stock.
+- Datos obligatorios de cliente que todavía no fueron definidos.
+
+### Decisión operativa
+
+El pedido aparecerá en admin como `Recibido`, con origen WhatsApp y nota de seguimiento. Ese estado significa “intención registrada”, no “pedido aceptado por el local”.
