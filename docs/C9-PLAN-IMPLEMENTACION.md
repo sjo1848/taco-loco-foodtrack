@@ -24,9 +24,9 @@ Resumen mejorado con quitar línea, vaciar pedido, feedback accesible, límite d
 
 La infraestructura de destacados y disponibilidad existente se conserva. Se agregó búsqueda simple por nombre, descripción o categoría y estado vacío claro. Evidencia en [`QA-C9-03.md`](QA-C9-03.md).
 
-### C9-04 — Responsive y accesibilidad
+### C9-04 — Responsive y accesibilidad — COMPLETADO LOCALMENTE
 
-Revisar mobile 390 × 844, desktop, foco, teclado, labels, contraste, overflow y feedback no visual.
+Revisión mobile 390 × 844 y desktop, foco inicial en diálogos, labels, descripciones y movimiento reducido. Evidencia en [`QA-C9-04.md`](QA-C9-04.md).
 
 ### C9-05 — QA y demo
 

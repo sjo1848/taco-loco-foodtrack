@@ -16,12 +16,12 @@ Estado: preparado para ejecución después de aprobar el alcance.
 
 ## UX, responsive y accesibilidad
 
-- [ ] Flujo validado en 390 × 844 y desktop.
-- [ ] No hay overflow horizontal accidental.
-- [ ] El resumen no tapa contenido ni acciones.
-- [ ] Foco y teclado funcionan en selector, resumen y acciones.
-- [ ] Botones, estados y drawers tienen nombres accesibles.
-- [ ] Feedback y estados no dependen solo de color o animación.
+- [x] Flujo validado en 390 × 844 y desktop.
+- [x] No hay overflow horizontal accidental.
+- [x] El resumen no tapa contenido ni acciones.
+- [x] Foco inicial y teclado funcionan en selector, resumen y acciones.
+- [x] Botones, estados y drawers tienen nombres accesibles.
+- [x] Feedback y estados no dependen solo de color o animación.
 - [ ] Loading, error, vacío y selección inválida tienen mensajes claros.
 
 ## Seguridad y alcance

@@ -31,6 +31,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - C9-01: contexto operativo implementado y validado localmente; evidencia en [`QA-C9-01.md`](QA-C9-01.md).
 - C9-02: resumen editable, quitar/vaciar pedido, feedback accesible y CTA contextual implementados y validados localmente; evidencia en [`QA-C9-02.md`](QA-C9-02.md). C9-03 es el próximo bloque.
 - C9-03: búsqueda por nombre, descripción o categoría y estado vacío implementados y validados localmente; evidencia en [`QA-C9-03.md`](QA-C9-03.md). C9-04 es el próximo bloque.
+- C9-04: responsive, foco accesible, descripciones de diálogos y movimiento reducido implementados y validados localmente; evidencia en [`QA-C9-04.md`](QA-C9-04.md). C9-05 es el próximo bloque.
 - C3 frontend público: TL-020 a TL-028 implementados y validados localmente.
 - C4 administración: TL-030 a TL-039 implementados y validados localmente.
 - C5 integración/hardening: automatización base, smoke Playwright local y hardening implementados; pendientes CI browser matrix y evidencia de backup/restore productivo.
@@ -41,8 +42,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 
 ## Próxima secuencia
 
-1. Implementar C9-04: responsive y accesibilidad.
-2. Ejecutar C9-05: QA integral, demo y cierre.
+1. Ejecutar C9-05: QA integral, demo y cierre.
 3. Completar únicamente cuando corresponda los inputs de producción: email, dominio/HTTPS, R2, backup offsite y referencias de 5 imágenes.
 4. Respaldar en Drive únicamente cuando el usuario lo solicite.
 
