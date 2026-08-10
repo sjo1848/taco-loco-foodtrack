@@ -85,8 +85,9 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .selection-remove, .selection-clear { border: 0; background: transparent; color: #9b5e50; font: inherit; font-size: .78rem; cursor: pointer; }
 .selection-clear { margin-top: 14px; padding: 4px 0; text-decoration: underline; }
 .selection-error { margin: 8px 0 0; color: #9b2f2f; font-size: .86rem; font-weight: 700; }
-.selection-overlay { position: fixed; inset: 0; z-index: 40; display: flex; align-items: flex-end; justify-content: center; background: rgba(0,0,0,.68); animation: overlay-in .2s ease both; }
-.selection-sheet { width: min(100%, 620px); max-height: min(88svh, 720px); overflow: auto; padding: 20px 16px calc(20px + env(safe-area-inset-bottom)); border: 1px solid var(--border); border-bottom: 0; border-radius: 22px 22px 0 0; background: var(--surface); box-shadow: 0 -12px 40px rgba(0,0,0,.35); animation: sheet-in .3s cubic-bezier(.22,1,.36,1) both; }
+.selection-overlay { position: fixed; inset: 0; z-index: 40; display: flex; align-items: flex-end; justify-content: center; padding-top: 12px; background: rgba(0,0,0,.72); backdrop-filter: blur(4px); animation: overlay-in var(--motion-base) var(--ease-standard) both; }
+.selection-sheet { position: relative; width: min(100%, 620px); max-height: min(88svh, 720px); overflow: auto; padding: 20px 16px calc(20px + env(safe-area-inset-bottom)); border: 1px solid var(--border); border-bottom: 0; border-radius: 22px 22px 0 0; background: var(--surface); box-shadow: 0 -12px 40px rgba(0,0,0,.35); animation: sheet-in var(--motion-emphasis) var(--ease-emphasis) both; }
+.selection-sheet__handle { display: block; width: 42px; height: 4px; margin: -8px auto 16px; border-radius: 999px; background: var(--muted); opacity: .65; }
 .selection-sheet__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
 .selection-sheet h2 { margin: 0; font-size: 1.6rem; }
 .selection-close { width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--cream); font-size: 1.5rem; cursor: pointer; }
@@ -223,3 +224,4 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 @media (min-width: 700px) { .admin-page { padding: 40px 24px; } .admin-toolbar { grid-template-columns: 1fr 240px; } .order-form__add { grid-template-columns: 1fr auto; align-items: end; } .order-detail__meta { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 700px) { .admin-form-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 700px) { .public-menu__content { padding-inline: 24px; } .product-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .menu-section--featured .product-card { max-width: 520px; } }
+@media (min-width: 700px) { .selection-overlay { align-items: center; padding: 24px; } .selection-sheet { max-height: min(82svh, 720px); border-bottom: 1px solid var(--border); border-radius: 22px; box-shadow: 0 24px 80px rgba(0,0,0,.5); } .selection-sheet__handle { display: none; } }

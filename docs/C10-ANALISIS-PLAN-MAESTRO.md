@@ -1,6 +1,6 @@
 # C10 — Conversión, confianza y motion UX
 
-Estado: C10-01 aprobado; C10-02 próximo ciclo — 2026-08-09.
+Estado: C10-02 aprobado; C10-03 próximo ciclo — 2026-08-10.
 
 ## Objetivo
 

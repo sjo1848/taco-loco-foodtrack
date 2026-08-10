@@ -33,7 +33,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - C9-03: búsqueda por nombre, descripción o categoría y estado vacío implementados y validados localmente; evidencia en [`QA-C9-03.md`](QA-C9-03.md).
 - C9-04: responsive, foco accesible, descripciones de diálogos y movimiento reducido implementados y validados localmente; evidencia en [`QA-C9-04.md`](QA-C9-04.md).
 - C9-05: QA integral, demo local y regresión C7+C8+C9 aprobadas; evidencia en [`QA-C9-FINAL.md`](QA-C9-FINAL.md) y [`C9-ACTA-CIERRE.md`](C9-ACTA-CIERRE.md).
-- C10: planificación iterativa UX creada; C10-01 — motion base y feedback de selección — implementado, evaluado y aprobado; evidencia en [`QA-C10-01.md`](QA-C10-01.md). Próximo ciclo: C10-02 cantidades y resumen móvil.
+- C10: planificación iterativa UX creada; C10-01 y C10-02 aprobados. C10-02 convirtió selector y resumen en capas de flujo responsive; evidencia en [`QA-C10-02.md`](QA-C10-02.md). Próximo ciclo: C10-03 confirmación previa a WhatsApp.
 - C3 frontend público: TL-020 a TL-028 implementados y validados localmente.
 - C4 administración: TL-030 a TL-039 implementados y validados localmente.
 - C5 integración/hardening: automatización base, smoke Playwright local y hardening implementados; pendientes CI browser matrix y evidencia de backup/restore productivo.
