@@ -116,6 +116,9 @@ model MenuSettings {
   whatsappPhone   String
   whatsappMessage String
   currency        String   @default("ARS")
+  acceptingOrders Boolean  @default(true)
+  statusMessage   String?
+  weeklySchedule  Json?
   updatedAt       DateTime @updatedAt
 }
 

@@ -1,6 +1,6 @@
 # C9 — Análisis y plan maestro UX
 
-Estado: planificación propuesta para revisión — 2026-08-09.
+Estado: C9-01 implementado localmente; etapa en curso — 2026-08-09.
 
 ## Objetivo
 
