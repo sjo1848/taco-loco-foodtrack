@@ -1,4 +1,4 @@
-:root { --background: #0e0e0d; --surface: #181714; --surface-2: #211f19; --cream: #f5e8c8; --muted: #b9b09e; --green: #25833f; --red: #d5322c; --yellow: #f4b72b; --border: #3b3529; color-scheme: dark; font-family: Arial, sans-serif; background: var(--background); color: var(--cream); }
+:root { --background: #0e0e0d; --surface: #181714; --surface-2: #211f19; --cream: #f5e8c8; --muted: #b9b09e; --green: #25833f; --red: #d5322c; --yellow: #f4b72b; --border: #3b3529; --motion-fast: 150ms; --motion-base: 240ms; --motion-emphasis: 520ms; --ease-standard: cubic-bezier(.2,.8,.2,1); --ease-emphasis: cubic-bezier(.22,1,.36,1); color-scheme: dark; font-family: Arial, sans-serif; background: var(--background); color: var(--cream); }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--background); }
@@ -36,16 +36,16 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .menu-section--featured { margin-top: 0; padding: 16px; border-radius: 16px; background: var(--surface-2); }
 .menu-section--featured h2 { color: var(--yellow); }
 .product-list { display: grid; gap: 12px; }
-.product-card { display: flex; min-height: 124px; gap: 12px; padding: 12px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.product-card { display: flex; min-height: 124px; gap: 12px; padding: 12px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); transition: transform var(--motion-base) var(--ease-standard), border-color var(--motion-base) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard); }
 .product-card:hover { transform: translateY(-2px); border-color: #6b5c40; box-shadow: 0 10px 24px rgba(0,0,0,.18); }
-.product-card--added { animation: product-added .55s ease; }
+.product-card--added { animation: product-added var(--motion-emphasis) var(--ease-emphasis); }
 .product-card__content { min-width: 0; flex: 1; }
 .product-card__heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
 .product-card h3 { margin: 0; font-size: 1.08rem; line-height: 1.15; }
 .product-card__description { margin: 7px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.35; }
 .product-card__footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; }
 .product-card__price { margin: 0; color: var(--yellow); font-size: 1.2rem; font-weight: 800; }
-.product-card__add { min-height: 36px; padding: 0 12px; border: 1px solid var(--yellow); border-radius: 999px; background: transparent; color: var(--yellow); font: inherit; font-size: .78rem; font-weight: 800; cursor: pointer; transition: background .2s ease, color .2s ease, transform .15s ease; }
+.product-card__add { min-height: 36px; padding: 0 12px; border: 1px solid var(--yellow); border-radius: 999px; background: transparent; color: var(--yellow); font: inherit; font-size: .78rem; font-weight: 800; cursor: pointer; transition: background var(--motion-base) var(--ease-standard), color var(--motion-base) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
 .product-card__add:active { transform: scale(.96); }
 .product-card__add--added { border-color: var(--green); background: var(--green); color: white; }
 .product-card__add:hover, .product-card__add:focus-visible { background: var(--yellow); color: var(--background); outline: none; }
@@ -79,7 +79,8 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .search-empty { margin: 24px 0; padding: 18px; border: 1px dashed var(--border); border-radius: 12px; color: var(--muted); }
 .selection-help { margin: 0 0 12px; color: var(--muted); font-size: .84rem; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
-.selection-bar { position: fixed; right: 16px; bottom: 78px; left: 16px; z-index: 19; display: flex; align-items: center; justify-content: space-between; width: min(100% - 32px, 748px); min-height: 42px; margin: auto; padding: 0 14px; border: 1px solid var(--yellow); border-radius: 12px; background: var(--surface-2); color: var(--cream); font: inherit; font-size: .85rem; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.25); animation: selection-bar-in .28s ease both; }
+.selection-bar { position: fixed; right: 16px; bottom: 78px; left: 16px; z-index: 19; display: flex; align-items: center; justify-content: space-between; width: min(100% - 32px, 748px); min-height: 42px; margin: auto; padding: 0 14px; border: 1px solid var(--yellow); border-radius: 12px; background: var(--surface-2); color: var(--cream); font: inherit; font-size: .85rem; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.25); animation: selection-bar-in var(--motion-base) var(--ease-emphasis) both; }
+.selection-bar--updated { animation: selection-bar-update var(--motion-emphasis) var(--ease-emphasis); }
 .selection-bar strong { color: var(--yellow); }
 .selection-remove, .selection-clear { border: 0; background: transparent; color: #9b5e50; font: inherit; font-size: .78rem; cursor: pointer; }
 .selection-clear { margin-top: 14px; padding: 4px 0; text-decoration: underline; }
@@ -111,6 +112,7 @@ h1 { margin: 0; font-size: clamp(2.5rem, 12vw, 5rem); line-height: .95; }
 .selection-actions .button { width: 100%; }
 @keyframes product-added { 0% { transform: scale(1); } 45% { transform: scale(1.015); border-color: var(--green); box-shadow: 0 0 0 4px rgba(37,131,63,.16); } 100% { transform: scale(1); } }
 @keyframes selection-bar-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes selection-bar-update { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.025); border-color: var(--green); box-shadow: 0 0 0 4px rgba(37,131,63,.16); } }
 @keyframes overlay-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes sheet-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes cheese-wobble { 0%, 100% { transform: rotate(-1deg) scaleX(1); } 50% { transform: rotate(1deg) scaleX(1.015); } }

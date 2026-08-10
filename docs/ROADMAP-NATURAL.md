@@ -20,6 +20,10 @@ Etapa corta completada para mejorar estado abierto/cerrado, horarios, experienci
 
 Evaluar medios de pago, enlaces externos, confirmación, conciliación, devoluciones y reglas comerciales.
 
+## C10 — Conversión, confianza y motion UX — EN CICLOS
+
+C10-01 aprobado: motion base y feedback coordinado al agregar productos. Próximo ciclo: cantidades y resumen móvil. Se mantiene el método de hipótesis, implementación pequeña, evaluación y decisión documentada.
+
 ## Mejoras naturales adicionales
 
 - Horarios y estado abierto/cerrado.
