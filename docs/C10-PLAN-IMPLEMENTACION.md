@@ -1,6 +1,6 @@
 # Plan de implementación C10
 
-Estado: C10-03 completado; C10-03.1 implementado; C10-04 implementado y pendiente de QA/CI — 2026-08-10.
+Estado: C10-03 completado; C10-03.1 implementado; C10-04 implementado con CI verde y pendiente de revisión visual final — 2026-08-10.
 
 ## Secuencia
 
