@@ -12,6 +12,10 @@ Selección opcional, cantidades, modificadores, resumen local, motion UI y mensa
 
 Implementación local de una bandeja interna para registrar manualmente pedidos originados en WhatsApp, con estados, confirmación explícita, historial y asociación opcional a mesa. QA integral y demo interna aprobados. Sin webhook, pagos, delivery, POS ni publicación productiva. Ver [acta de cierre](C8-ACTA-CIERRE.md) y [análisis y plan maestro](C8-ANALISIS-PLAN-MAESTRO.md).
 
+## C9 — UX y contexto operativo — PLANIFICACIÓN CREADA
+
+Etapa corta para mejorar estado abierto/cerrado, horarios, experiencia del pedido, feedback, mobile, accesibilidad y señales simples del catálogo. Se mantiene la operación manual de C8 y WhatsApp como canal externo. Ver [plan maestro C9](C9-ANALISIS-PLAN-MAESTRO.md).
+
 ## C9 — Pagos y operación comercial
 
 Evaluar medios de pago, enlaces externos, confirmación, conciliación, devoluciones y reglas comerciales.
