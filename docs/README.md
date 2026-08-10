@@ -38,6 +38,11 @@ La documentación de trabajo vive en este repositorio. La carpeta `docs/drive/` 
 - Evidencia de QA C8-05 en [`QA-C8-05.md`](QA-C8-05.md).
 - Evidencia de QA final C8 en [`QA-C8-FINAL.md`](QA-C8-FINAL.md).
 - Acta de cierre del MVP local C8 en [`C8-ACTA-CIERRE.md`](C8-ACTA-CIERRE.md).
+- Plan maestro C9 UX en [`C9-ANALISIS-PLAN-MAESTRO.md`](C9-ANALISIS-PLAN-MAESTRO.md).
+- Alcance UX C9 en [`C9-ALCANCE-UX.md`](C9-ALCANCE-UX.md).
+- Decisiones UX C9 en [`C9-DECISIONES-UX.md`](C9-DECISIONES-UX.md).
+- Plan de implementación C9 en [`C9-PLAN-IMPLEMENTACION.md`](C9-PLAN-IMPLEMENTACION.md).
+- Criterios QA C9 en [`C9-QA-CRITERIA.md`](C9-QA-CRITERIA.md).
 - Planificación C8: [`C8-ANALISIS-PLAN-MAESTRO.md`](C8-ANALISIS-PLAN-MAESTRO.md), [`C8-ALCANCE-OPERACION-WHATSAPP.md`](C8-ALCANCE-OPERACION-WHATSAPP.md), [`C8-PLAN-IMPLEMENTACION.md`](C8-PLAN-IMPLEMENTACION.md), [`C8-QA-CRITERIA.md`](C8-QA-CRITERIA.md) y [`DECISION-002-C8-OPERACION.md`](DECISION-002-C8-OPERACION.md).
 
 ## Especificación visual local
