@@ -46,6 +46,7 @@ La documentación de trabajo vive en este repositorio. La carpeta `docs/drive/` 
 - Evidencia de QA C9-01 en [`QA-C9-01.md`](QA-C9-01.md).
 - Evidencia de QA C9-02 en [`QA-C9-02.md`](QA-C9-02.md).
 - Evidencia de QA C9-03 en [`QA-C9-03.md`](QA-C9-03.md).
+- Evidencia de QA C9-04 en [`QA-C9-04.md`](QA-C9-04.md).
 - Planificación C8: [`C8-ANALISIS-PLAN-MAESTRO.md`](C8-ANALISIS-PLAN-MAESTRO.md), [`C8-ALCANCE-OPERACION-WHATSAPP.md`](C8-ALCANCE-OPERACION-WHATSAPP.md), [`C8-PLAN-IMPLEMENTACION.md`](C8-PLAN-IMPLEMENTACION.md), [`C8-QA-CRITERIA.md`](C8-QA-CRITERIA.md) y [`DECISION-002-C8-OPERACION.md`](DECISION-002-C8-OPERACION.md).
 
 ## Especificación visual local
