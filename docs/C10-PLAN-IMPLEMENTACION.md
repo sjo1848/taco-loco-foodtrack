@@ -1,12 +1,12 @@
 # Plan de implementación C10
 
-Estado: C10-02 completado; C10-03 próximo ciclo — 2026-08-10.
+Estado: C10-03 completado; C10-04 próximo ciclo — 2026-08-10.
 
 ## Secuencia
 
 1. C10-01 — motion base y feedback de selección.
 2. C10-02 — flujo por capas, cantidades y resumen móvil — COMPLETADO.
-3. C10-03 — confirmación previa a WhatsApp.
+3. C10-03 — registro de intención y confirmación previa a WhatsApp — COMPLETADO.
 4. C10-04 — narrativa visual, descubrimiento y refinamiento de marca.
 
 ## Gate de ciclo
@@ -32,4 +32,15 @@ Resultado: aprobado. El siguiente ciclo aborda cantidades y resumen móvil.
 - Foco, Escape, restauración de foco y `prefers-reduced-motion`.
 - Evidencia en `QA-C10-02.md`.
 
-Resultado: aprobado. El siguiente ciclo aborda la confirmación previa a WhatsApp.
+Resultado: aprobado. El siguiente ciclo aborda el registro de intención y la confirmación previa a WhatsApp.
+
+## C10-03 — COMPLETADO
+
+- Registro público server-side de la intención.
+- Snapshot de catálogo validado en servidor.
+- Idempotencia y rate limit básico.
+- Estado `Recibido` visible en administración.
+- Apertura de WhatsApp sin confirmación automática.
+- Evidencia en `QA-C10-03.md`.
+
+Resultado: aprobado. El siguiente ciclo aborda narrativa visual, descubrimiento y refinamiento de marca.

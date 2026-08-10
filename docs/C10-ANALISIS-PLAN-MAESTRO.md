@@ -1,6 +1,6 @@
 # C10 — Conversión, confianza y motion UX
 
-Estado: C10-02 aprobado; C10-03 próximo ciclo — 2026-08-10.
+Estado: C10-03 aprobado; C10-04 próximo ciclo — 2026-08-10.
 
 ## Objetivo
 
@@ -27,7 +27,7 @@ Cada bloque sigue el mismo circuito:
 1. Sistema de motion consistente y respetuoso.
 2. Feedback visual al agregar y actualizar el pedido.
 3. Resumen móvil más claro y controles de cantidad.
-4. Confirmación final antes de abrir WhatsApp.
+4. Registro de intención y confirmación final antes de abrir WhatsApp.
 
 ### P1 — Valor de marca y descubrimiento
 
@@ -37,7 +37,7 @@ Cada bloque sigue el mismo circuito:
 
 ## Fuera de C10
 
-Pagos, pedido interno automático desde el menú, delivery, R2, dominio, despliegue productivo, promociones complejas y analítica avanzada.
+Pagos, confirmación automática desde WhatsApp, delivery, R2, dominio, despliegue productivo, promociones complejas y analítica avanzada.
 
 ## Criterio de éxito
 
