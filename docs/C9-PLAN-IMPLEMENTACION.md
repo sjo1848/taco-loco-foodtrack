@@ -20,9 +20,9 @@ Modelado de horarios, estado manual y pausa temporal. El menú muestra el contex
 
 Resumen mejorado con quitar línea, vaciar pedido, feedback accesible, límite de cantidad y mensajes de CTA coherentes. Evidencia en [`QA-C9-02.md`](QA-C9-02.md).
 
-### C9-03 — Catálogo orientado a decisión
+### C9-03 — Catálogo orientado a decisión — COMPLETADO LOCALMENTE
 
-Agregar destacados y mensajes de disponibilidad. Implementar búsqueda solo si el bloque se mantiene acotado.
+La infraestructura de destacados y disponibilidad existente se conserva. Se agregó búsqueda simple por nombre, descripción o categoría y estado vacío claro. Evidencia en [`QA-C9-03.md`](QA-C9-03.md).
 
 ### C9-04 — Responsive y accesibilidad
 
