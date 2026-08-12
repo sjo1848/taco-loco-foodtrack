@@ -47,4 +47,4 @@ C10 está parcialmente completada y preparada para revisión externa:
 
 El agente debe revisar, criticar y documentar. No debe ampliar el alcance ni implementar C10-04 sin dejar una propuesta de alcance, hipótesis y criterios QA.
 
-La revisión externa de Drive queda incorporada en `docs/C10-03.1-ALCANCE.md`; C10-03.1 debe ejecutarse en una rama `agent/...` separada del handoff.
+La revisión externa de Drive queda incorporada en `docs/C10-03.1-ALCANCE.md`; C10-03.1 y C10-04 ya están integrados en `main`, por lo que no requieren una rama separada.
