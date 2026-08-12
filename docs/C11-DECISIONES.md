@@ -11,3 +11,7 @@ El código legible `TL-XXXX` vincula humanamente el pedido web con la conversaci
 ## DEC-C11-003 — Teléfono opcional
 
 `customerPhone` sigue siendo opcional para el menú web. La ausencia de teléfono oculta únicamente la acción de apertura directa; nunca bloquea el pedido ni el copiado del mensaje.
+
+## DEC-C11-004 — Bandeja reactiva orientada a eventos
+
+La bandeja administrativa no usará polling periódico como solución definitiva. Los cambios de pedidos se persistirán junto con un `OrderEvent`, PostgreSQL emitirá una notificación transaccional y el Admin recibirá snapshots mediante SSE autenticado. La secuencia persistida del evento será el cursor para reconectar y recuperar cambios sin perderlos ni duplicarlos.

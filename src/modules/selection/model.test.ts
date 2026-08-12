@@ -14,7 +14,12 @@ describe("selection model", () => {
   it("removes a line when quantity reaches zero and builds a WhatsApp message", () => {
     const line = addSelectionLine([], taco)[0];
     expect(updateSelectionQuantity([line], line.id, 0)).toEqual([]);
-    expect(buildWhatsAppMessage([line], "Taco Loco")).toContain("Salsa: Picante");
+    expect(buildWhatsAppMessage([line], "Taco Loco")).toBe([
+      "Hola Taco Loco, quiero ordenar:",
+      "- 1 x Taco x2 (Salsa: Picante)",
+      "",
+      "¿Me confirman disponibilidad y total final?",
+    ].join("\n"));
   });
 
   it("removes a complete line explicitly and caps repeated additions", () => {
@@ -34,10 +39,16 @@ describe("selection model", () => {
     expect(buildWhatsAppAppUrl("https://wa.me/5492615956912", "Hola Taco Loco")).toBe("whatsapp://send?phone=5492615956912&text=Hola%20Taco%20Loco");
   });
 
-  it("includes the public order code and canonical total after registration", () => {
-    const message = buildWhatsAppMessageWithOrder([addSelectionLine([], taco)[0]], "Taco Loco", 184, 10000);
-    expect(message).toContain("Pedido: TL-0184");
-    expect(message).toContain("Total: $ 10.000");
+  it("includes the public order code and waits for confirmation after registration", () => {
+    const message = buildWhatsAppMessageWithOrder([addSelectionLine([], taco)[0]], "Taco Loco", 184);
+    expect(message).toBe([
+      "Hola Taco Loco, quiero ordenar:",
+      "Pedido: TL-0184",
+      "",
+      "- 1 x Taco x2 (Salsa: Picante)",
+      "",
+      "Quedo a la espera de confirmación.",
+    ].join("\n"));
   });
 
   it("creates an idempotency reference without requiring randomUUID", () => {

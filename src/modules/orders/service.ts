@@ -2,6 +2,7 @@ import { AppError } from "@/lib/errors";
 import { db } from "@/lib/db";
 import { assertValidTransition, orderFulfillmentSchema, orderStatusSchema, type OrderStatus } from "@/modules/orders/model";
 import { z } from "zod";
+import { publishOrderEvent } from "@/modules/orders/live-events";
 
 export const transitionOrderInputSchema = z.object({
   orderId: z.uuid(),
@@ -71,7 +72,7 @@ function resolveModifiers(product: ManualProduct, modifiers: CreateManualOrderIn
 
 export async function createManualOrder(input: unknown, actorId: string | null, clientReference: string | null = null, reason = "Pedido registrado manualmente", source: "WHATSAPP" | "PUBLIC_MENU" = "WHATSAPP") {
   const parsed = createManualOrderInputSchema.parse(input);
-  return db.$transaction(async (tx: { product: typeof db.product; order: typeof db.order; orderEvent: typeof db.orderEvent }) => {
+  return db.$transaction(async (tx: { product: typeof db.product; order: typeof db.order; orderEvent: typeof db.orderEvent; $executeRaw: typeof db.$executeRaw }) => {
     const productIds = [...new Set(parsed.lines.map((line) => line.productId))];
     const products = await tx.product.findMany({ where: { id: { in: productIds }, archivedAt: null, published: true, available: true }, include: { modifierGroups: { include: { modifierGroup: { include: { options: true } } } } } }) as ManualProduct[];
     const productsById = new Map(products.map((product) => [product.id, product]));
@@ -101,6 +102,7 @@ export async function createManualOrder(input: unknown, actorId: string | null, 
       include: { lines: true },
     });
     const event = await tx.orderEvent.create({ data: { orderId: order.id, toStatus: "RECEIVED", actorId, reason } });
+    await publishOrderEvent(tx, event);
     return { order, event };
   });
 }
@@ -122,7 +124,7 @@ export async function createPublicOrderIntent(input: unknown) {
 
 export async function transitionOrder(input: unknown, actorId: string) {
   const parsed = transitionOrderInputSchema.parse(input);
-  return db.$transaction(async (tx: { order: typeof db.order; orderEvent: typeof db.orderEvent }) => {
+  return db.$transaction(async (tx: { order: typeof db.order; orderEvent: typeof db.orderEvent; $executeRaw: typeof db.$executeRaw }) => {
     const current = await tx.order.findUnique({ where: { id: parsed.orderId } });
     if (!current) throw new AppError("ORDER_NOT_FOUND", "Pedido no encontrado.", 404);
 
@@ -139,6 +141,7 @@ export async function transitionOrder(input: unknown, actorId: string) {
     if (result.count !== 1) throw new AppError("ORDER_CHANGED", "El pedido cambió mientras lo actualizabas. Recargá e intentá de nuevo.", 409);
 
     const event = await tx.orderEvent.create({ data: { orderId: parsed.orderId, fromStatus: current.status, toStatus: parsed.toStatus, reason: parsed.reason ?? null, actorId } });
+    await publishOrderEvent(tx, event);
     const order = await tx.order.findUniqueOrThrow({ where: { id: parsed.orderId }, include: { lines: true, events: { orderBy: { createdAt: "asc" } } } });
     return { order, event };
   });

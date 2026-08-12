@@ -2,10 +2,17 @@ import { describe, expect, it } from "vitest";
 import { buildCustomerWhatsAppAppUrl, buildCustomerWhatsAppUrl, buildOrderConfirmationMessage, normalizeCustomerPhone } from "./confirmation";
 
 describe("order confirmation", () => {
-  it("builds a confirmation with the visible order code and total", () => {
+  it("builds the requested confirmation with the visible order code and total", () => {
     const message = buildOrderConfirmationMessage({ businessName: "Taco Loco", orderNumber: 184, totalAmount: 18500, customerName: null, fulfillment: "PICKUP" });
-    expect(message).toContain("TL-0184");
-    expect(message).toContain("Total final: $ 18.500");
+    expect(message).toBe([
+      "Hola,",
+      "Tu pedido TL-0184 fue confirmado.",
+      "",
+      "Total final: $ 18.500.",
+      "Te esperamos para retirarlo.",
+      "",
+      "Si necesitás hacer algún cambio, respondé por este medio.",
+    ].join("\n"));
   });
 
   it("normalizes an optional customer phone and creates both WhatsApp targets", () => {

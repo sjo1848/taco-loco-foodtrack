@@ -11,6 +11,15 @@ function parseOrderNumber(query: string) {
 }
 
 export const orderRepository = {
+  async latestEventSequence() {
+    const event = await db.orderEvent.findFirst({ orderBy: { sequence: "desc" }, select: { sequence: true } });
+    return event?.sequence ?? BigInt(0);
+  },
+
+  async eventsAfter(sequence: bigint) {
+    return db.orderEvent.findMany({ where: { sequence: { gt: sequence } }, orderBy: { sequence: "asc" }, select: { sequence: true, orderId: true } });
+  },
+
   async list(filter: OrderListFilter = {}) {
     const query = filter.query?.trim() ?? "";
     const orderNumber = query ? parseOrderNumber(query) : null;

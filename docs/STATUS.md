@@ -1,6 +1,6 @@
 # Estado operativo — Taco Loco Foodtrack
 
-Actualizado: 2026-08-10
+Actualizado: 2026-08-12
 
 ## Política vigente
 
@@ -13,7 +13,7 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - Fase 5 técnica: cerrada en la documentación espejo.
 - Fase 6 QA/backlog: cerrada en la documentación espejo.
 - Gate de construcción: abierto.
-- Etapa actual: C10 cerrado localmente; C11-01 en implementación; no es un release productivo.
+- Etapa actual: C10 cerrado localmente; C11-01 y C11-02 cerrados técnicamente en local; pendientes pruebas operativas finales; no es un release productivo.
 - C1: implementado y validado localmente.
 - C2 catálogo: TL-010 a TL-014 implementados y validados localmente.
 - C2 auth: TL-015/016 implementados y validados localmente.
@@ -42,10 +42,11 @@ La documentación de trabajo y las decisiones operativas se mantienen en el repo
 - Pendientes no bloqueantes: referencias reales para 5 imágenes y email admin definitivo.
 - Seguridad de dependencias: `pnpm audit --audit-level=high` sin vulnerabilidades conocidas.
 - C11-01: confirmación administrativa por WhatsApp implementada; QA automatizado y smoke admin local aprobados; pendiente prueba física final. Ver [`C11-01-ALCANCE.md`](C11-01-ALCANCE.md), [`QA-C11-01.md`](QA-C11-01.md) y [`C11-DECISIONES.md`](C11-DECISIONES.md).
+- C11-02: bandeja reactiva implementada con PostgreSQL `NOTIFY` + SSE autenticado, cursor persistido y reconexión; se eliminó el polling provisional. Evidencia en [`QA-C11-02.md`](QA-C11-02.md) y alcance en [`C11-02-ALCANCE.md`](C11-02-ALCANCE.md).
 
 ## Próxima secuencia
 
-1. Observar la demo local y recoger feedback real de uso.
+1. Verificar C11-02 con dos pestañas y prueba física completa detrás de un túnel Cloudflare nombrado; el Quick Tunnel no soporta SSE.
 2. Completar únicamente cuando corresponda los inputs de producción: email, dominio/HTTPS, R2, backup offsite y referencias de 5 imágenes.
 3. Respaldar en Drive únicamente cuando el usuario lo solicite.
 

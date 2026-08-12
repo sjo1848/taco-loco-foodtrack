@@ -10,8 +10,8 @@ export type OrderConfirmationInput = {
 
 export function buildOrderConfirmationMessage(input: OrderConfirmationInput) {
   const greeting = input.customerName ? `Hola ${input.customerName},` : "Hola,";
-  const modality = input.fulfillment === "PICKUP" ? "Te esperamos para retirar tu pedido." : "Te esperamos para disfrutarlo en el local.";
-  return [greeting, `Tu pedido ${formatOrderNumber(input.orderNumber)} fue confirmado en ${input.businessName}.`, "", `Total final: ${formatAmount(input.totalAmount)}.`, modality, "", "Si necesitás hacer algún cambio, respondé por este medio."].join("\n");
+  const modality = input.fulfillment === "PICKUP" ? "Te esperamos para retirarlo." : "Te esperamos para disfrutarlo en el local.";
+  return [greeting, `Tu pedido ${formatOrderNumber(input.orderNumber)} fue confirmado.`, "", `Total final: ${formatAmount(input.totalAmount)}.`, modality, "", "Si necesitás hacer algún cambio, respondé por este medio."].join("\n");
 }
 
 export function normalizeCustomerPhone(phone: string | null) {

@@ -88,6 +88,7 @@ model OrderLine {
 
 model OrderEvent {
   id         String       @id @default(uuid()) @db.Uuid
+  sequence   BigInt       @unique @default(autoincrement())
   orderId    String       @db.Uuid
   fromStatus OrderStatus?
   toStatus   OrderStatus
